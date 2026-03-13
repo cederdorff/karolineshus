@@ -3,6 +3,7 @@ import {
   exhibitions2025,
   featuredArtists,
   homeStories,
+  legacyGraphics,
   openingPeriods,
 } from "../siteContent";
 
@@ -25,12 +26,12 @@ export default function HomePage() {
             <div id="kunstnere" className="featured_posts">
               {featuredArtists.map((artist) => (
                 <article key={artist.name} className="featured-post">
-                  <div
-                    className="entry-thumbnail featured-post__placeholder"
-                    aria-hidden="true"
-                  >
-                    <span>{artist.name.split(" ")[0]}</span>
-                  </div>
+                  <img
+                    className="entry-thumbnail"
+                    src={artist.imageUrl}
+                    alt={artist.name}
+                    loading="lazy"
+                  />
                   <header className="entry-header">
                     <p className="featured-posts-cate">{artist.discipline}</p>
                     <h3 className="entry-title">{artist.name}</h3>
@@ -112,6 +113,18 @@ export default function HomePage() {
               <h2 className="widget-title">Sommerudstilling</h2>
               <p>05.07.2025 til 31.08.2025</p>
               <p>Vi glæder os til at se dig i Karolines Hus på Fur.</p>
+            </section>
+
+            <section className="widget widget--graphics">
+              <h2 className="widget-title">Historiske grafikker</h2>
+              <div className="widget-graphics">
+                {legacyGraphics.map((graphic) => (
+                  <figure key={graphic.title}>
+                    <img src={graphic.url} alt={graphic.title} loading="lazy" />
+                    <figcaption>{graphic.title}</figcaption>
+                  </figure>
+                ))}
+              </div>
             </section>
           </aside>
         </div>

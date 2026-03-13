@@ -1,4 +1,9 @@
-import { aboutParagraphs, archiveNote, contactInfo } from "../siteContent";
+import {
+  aboutGalleryImages,
+  aboutParagraphs,
+  archiveNote,
+  contactInfo,
+} from "../siteContent";
 
 export default function AboutPage() {
   return (
@@ -27,6 +32,16 @@ export default function AboutPage() {
                 <h2 className="entry-title">Arkivbaseret rekonstruktion</h2>
               </header>
               <p>{archiveNote}</p>
+              <div className="about-gallery">
+                {aboutGalleryImages.map((imageUrl, index) => (
+                  <img
+                    key={imageUrl}
+                    src={imageUrl}
+                    alt={`Karolines Hus arkivfoto ${index + 1}`}
+                    loading="lazy"
+                  />
+                ))}
+              </div>
             </article>
           </section>
 

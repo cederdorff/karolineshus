@@ -10,6 +10,24 @@ export const contactInfo = {
 export const logoUrl =
   "https://web.archive.org/web/20251215051447im_/https://i1.wp.com/karolineshus.dk/wp-content/uploads/2017/03/logo_karolineshus_web.png?fit=1000%2C339&ssl=1";
 
+export const legacyGraphics = [
+  {
+    title: "Logo",
+    url: logoUrl,
+  },
+  {
+    title: "Favicon 2017",
+    url: "https://web.archive.org/web/20251215051447im_/https://i2.wp.com/karolineshus.dk/wp-content/uploads/2017/03/cropped-favicon.png?fit=512%2C512&ssl=1",
+  },
+];
+
+export const aboutGalleryImages = [
+  "https://web.archive.org/web/20251111230940im_/https://i1.wp.com/karolineshus.dk/wp-content/uploads/2016/08/om-1.jpg?resize=1024%2C573&ssl=1",
+  "https://web.archive.org/web/20251111230940im_/https://i1.wp.com/karolineshus.dk/wp-content/uploads/2016/08/karolineshus2_new.jpg",
+  "https://web.archive.org/web/20251111230940im_/https://i0.wp.com/karolineshus.dk/wp-content/uploads/2016/08/karolineshus3_new.jpg",
+  "https://web.archive.org/web/20251111230940im_/https://i1.wp.com/karolineshus.dk/wp-content/uploads/2016/08/karolineshus4_new.jpg",
+];
+
 export const openingPeriods = [
   "12.04.2025 til 21.04.2025",
   "07.06.2025 til 12.06.2025",
@@ -45,48 +63,64 @@ export const featuredArtists = [
   {
     name: "Ellen Bye Jensen",
     discipline: "Billedkunstner",
+    imageUrl:
+      "https://web.archive.org/web/20251111234142im_/https://karolineshus.dk/wp-content/uploads/2025/02/20240921_102045-1-e1740649529886.jpg",
     excerpt:
       "Farver, lys og landskaber er kernen i hendes arbejde. Naturens bevægelser fortolkes i malerier, der trækker spor mellem Limfjorden og Umbrien.",
   },
   {
     name: "Helle Crawford",
     discipline: "Skulptør",
+    imageUrl:
+      "https://web.archive.org/web/20250807165551im_/https://i0.wp.com/karolineshus.dk/wp-content/uploads/2025/05/Helle_Rask_Crawford_Papirba-den_Br-onze_kobber_emalje_h10cm_2021-scaled.jpeg?fit=1200%2C1062&ssl=1",
     excerpt:
       "Arbejder figurativt i bronze med dynamiske portrætter af mennesker og dyr samt en stærk interesse for magisk realisme.",
   },
   {
     name: "Linda Lildholdt",
     discipline: "Billedkunstner",
+    imageUrl:
+      "https://web.archive.org/web/20251111232558im_/https://i1.wp.com/karolineshus.dk/wp-content/uploads/2025/05/Forbundet-4-%E2%80%93-80x80-cm.jpg?fit=1200%2C1192&ssl=1",
     excerpt:
       "Skaber abstrakte fortællinger i maleri, grafik og skulptur og arbejder bevidst på tværs af materialer og teknikker.",
   },
   {
     name: "Stine Juul",
     discipline: "Skulptør",
+    imageUrl:
+      "https://web.archive.org/web/20251215042858im_/https://i0.wp.com/karolineshus.dk/wp-content/uploads/2025/05/3.-Stine-Juul.jpeg?fit=915%2C1200&ssl=1",
     excerpt:
       "Arbejder med maleri, collage, træ, plexiglas og især keramiske skulpturer med natur, ro og balance som gennemgående temaer.",
   },
   {
     name: "Erik Muff Reinert",
     discipline: "Billedkunstner",
+    imageUrl:
+      "https://web.archive.org/web/20251111234614im_/https://i1.wp.com/karolineshus.dk/wp-content/uploads/2025/03/image0-3-erik.jpg?fit=844%2C1200&ssl=1",
     excerpt:
       "Kendt for kuglepennetegninger med lethed, bevægelse og en særlig poetisk energi, der peger mod ungdommens ubekymrede dans.",
   },
   {
     name: "Karen Kristensen",
     discipline: "Keramiker",
+    imageUrl:
+      "https://web.archive.org/web/20251111234802im_/https://i2.wp.com/karolineshus.dk/wp-content/uploads/2025/03/kk.jpg?fit=720%2C632&ssl=1",
     excerpt:
       "Har arbejdet med ler i mange år og udforsker spændet mellem stram form og fri, organisk bevægelse uden at miste håndværkets præcision.",
   },
   {
     name: "Ingrid Dalby Nielsen",
     discipline: "Maler",
+    imageUrl:
+      "https://web.archive.org/web/20260117031622im_/https://i2.wp.com/karolineshus.dk/wp-content/uploads/2025/03/IMG_5153-rotated-e1742974744596.jpeg?fit=1200%2C902&ssl=1",
     excerpt:
       "Henter motiver og farver i Thy, hvor naturen og mange års undervisning i billedkunst danner grundlag for hendes maleriske univers.",
   },
   {
     name: "Ole Kildegaard",
     discipline: "Billedkunstner",
+    imageUrl:
+      "https://web.archive.org/web/20251111231508im_/https://i2.wp.com/karolineshus.dk/wp-content/uploads/2025/03/kildegaard1.jpg?fit=904%2C1200&ssl=1",
     excerpt:
       "Uddannet bygningsmaler og en anerkendt kunstner i Nordvestjylland, hvor maleriet gennem årtier er blevet en stadig større del af hans virke.",
   },
