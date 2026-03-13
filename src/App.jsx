@@ -2,7 +2,7 @@ import { Routes, Route } from "react-router";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import HomePage from "./pages/HomePage";
-import NewsPage from "./pages/NewsPage";
+import ExhibitionsPage from "./pages/NewsPage";
 import ArtistsPage from "./pages/ArtistsPage";
 import ArtistPage from "./pages/ArtistPage";
 import AboutPage from "./pages/AboutPage";
@@ -15,7 +15,7 @@ export default function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/nyheder" element={<NewsPage />} />
+        <Route path="/udstillinger" element={<ExhibitionsPage />} />
         <Route path="/kunstnere" element={<ArtistsPage />} />
         <Route path="/kunstnere/:slug" element={<ArtistPage />} />
         <Route

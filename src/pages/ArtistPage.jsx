@@ -58,7 +58,7 @@ export default function ArtistPage({ forcedSlug }) {
                 <Link to="/kunstnere">Alle kunstnere</Link>
               </li>
               <li>
-                <Link to="/nyheder">Nyheder</Link>
+                <Link to="/udstillinger">Udstillinger</Link>
               </li>
               <li>
                 <Link to="/kontakt">Kontakt</Link>

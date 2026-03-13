@@ -52,6 +52,21 @@ export const openingPeriods = [
   "05.07.2025 til 31.08.2025",
 ];
 
+export const exhibitionPage = {
+  heroImageUrl: `${import.meta.env.BASE_URL}karolineshus.jpeg`,
+  openingPeriods,
+  artistsByName: {
+    "Ellen Bye Jensen": { slug: "ellen-bye-jensen" },
+    "Erik Muff Reinert": { slug: "erik-muff-reinert" },
+    "Helle Crawford": { slug: "helle-crawford" },
+    "Ingrid Dalby Nielsen": { slug: "ingrid-dalby-nielsen" },
+    "Karen Kristensen": { slug: "karen-kristensen" },
+    "Linda Lildholdt": { slug: "linda-lildholdt" },
+    "Ole Kildegaard": { slug: "ole-kildegaard" },
+    "Stine Juul": { slug: "stine-juul" },
+  },
+};
+
 export const artists = [
   {
     name: "Ellen Bye Jensen",

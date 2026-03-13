@@ -33,9 +33,9 @@ export default function AboutPage() {
               </header>
               <p>{archiveNote}</p>
               <p>
-                Sitet er nu udbygget med menupunkterne Hjem, Nyheder, Kunstnere,
-                Om os, Ellen Bye Jensen og Kontakt, samt kunstnerkategorier og
-                individuelle undersider.
+                Sitet er nu udbygget med menupunkterne Hjem, Udstillinger,
+                Kunstnere, Om os, Ellen Bye Jensen og Kontakt, samt
+                kunstnerkategorier og individuelle undersider.
               </p>
               <div className="about-gallery">
                 {aboutGalleryImages.map((imageUrl, index) => (

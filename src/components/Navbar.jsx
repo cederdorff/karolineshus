@@ -15,7 +15,7 @@ export default function Navbar() {
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink to="/nyheder">Nyheder</NavLink>
+                  <NavLink to="/udstillinger">Udstillinger</NavLink>
                 </li>
                 <li>
                   <NavLink to="/kunstnere">Kunstnere</NavLink>
