@@ -1,7 +1,28 @@
 import { Link } from "react-router";
-import { exhibitionPage, exhibitions2025 } from "../siteContent";
+import { exhibitionPage } from "../siteContent";
 
 export default function ExhibitionsPage() {
+  const easterArtists = [
+    "Ellen Bye Jensen",
+    "Erik Muff Reinert",
+    "Ingrid Dalby Nielsen",
+    "Karen Kristensen",
+    "Ole Kildegaard",
+  ];
+
+  const summerArtists = [
+    "Ellen Bye Jensen",
+    "Stine Juul",
+    "Linda Lildholdt",
+    "Helle Crawford",
+  ];
+
+  const asidePeriods = [
+    "12.04.2025 til 21.04.2025.",
+    "07.06.2025 til 12.06.2025",
+    "05.07.2025 til 31.08.2025",
+  ];
+
   return (
     <main className="page classic-page">
       <div className="container home-content-layout">
@@ -13,28 +34,63 @@ export default function ExhibitionsPage() {
               alt="Karolines Hus"
             />
             <header className="entry-header">
-              <p className="entry-meta">Nyheder</p>
               <h1 className="entry-title">Udstillinger i 2025</h1>
             </header>
-            <p className="entry-meta">Nyhederadmin26/03/2025</p>
             <p>
-              På denne side kan du læse mere om udstillingsterminer i Karolines
-              Hus. Karolines Hus åbner d. 12.04.2025 med en påskeudstilling, som
-              varer til og med d. 21.04.2025. kl. 17. Vi glæder os til at se
-              dig!
+              Karolines Hus åbner d. 12.04.2025 med en påskeudstilling, som
+              varer til og med d. 21.04.2025. kl. 17. Sommerudstillingen varer
+              fra d. 05.07.2025 til og med 31.08.2025. Onsdage er lukkedage.
             </p>
+            <p>Læs mere om udstillingerne på denne side.</p>
+
+            <h2 className="entry-title">Påskeudstilling</h2>
+            <p>12.04.2025 – 21.04.2025</p>
+            <ul className="detail-list detail-list--compact">
+              {easterArtists.map((artistName) => {
+                const artist = exhibitionPage.artistsByName[artistName];
+                if (!artist) return <li key={artistName}>{artistName}</li>;
+                return (
+                  <li key={artistName}>
+                    <Link to={`/kunstnere/${artist.slug}`}>{artistName}</Link>
+                  </li>
+                );
+              })}
+            </ul>
+
+            <h2 className="entry-title">Sommerudstilling</h2>
+            <p>05.07.2025 – 31.08.2025</p>
+            <ul className="detail-list detail-list--compact">
+              {summerArtists.map((artistName) => {
+                const artist = exhibitionPage.artistsByName[artistName];
+                if (!artist) return <li key={artistName}>{artistName}</li>;
+                return (
+                  <li key={artistName}>
+                    <Link to={`/kunstnere/${artist.slug}`}>{artistName}</Link>
+                  </li>
+                );
+              })}
+            </ul>
+
+            <p>Vi glæder os til at se dig!</p>
             <p>
-              <Link to="/udstillinger">Læs mere</Link>
+              I Karolines Hus har vi en stueetage og en 1. sal. Vi udstiller en
+              til væge og en til gulv på hvert plan
+            </p>
+            <p>Venlig hilsen</p>
+            <p>
+              Troels Madsen
+              <br />
+              Mobil: 61377562 / 40434817
             </p>
           </article>
+        </section>
 
-          <article className="archive-post">
-            <header className="entry-header">
-              <h2 className="entry-title">Åbningstider 2025</h2>
-            </header>
+        <aside className="sidebar widget-area" role="complementary">
+          <section className="widget">
+            <h2 className="widget-title">Åbningstider 2025</h2>
             <p>I 2025 har vi åbent i perioderne:</p>
             <ul className="detail-list detail-list--compact">
-              {exhibitionPage.openingPeriods.map((period) => (
+              {asidePeriods.map((period) => (
                 <li key={period}>{period}</li>
               ))}
             </ul>
@@ -48,23 +104,6 @@ export default function ExhibitionsPage() {
               Ønsker du at besøge galleriet i vinterperioden, er du altid
               velkommen til at kontakte os og aftale en tid.
             </p>
-          </article>
-        </section>
-
-        <aside className="sidebar widget-area" role="complementary">
-          <section className="widget">
-            <h2 className="widget-title">Kunstnere i 2025</h2>
-            <ul className="widget-menu">
-              {exhibitions2025[1].artists.map((artistName) => {
-                const artist = exhibitionPage.artistsByName[artistName];
-                if (!artist) return null;
-                return (
-                  <li key={artistName}>
-                    <Link to={`/kunstnere/${artist.slug}`}>{artistName}</Link>
-                  </li>
-                );
-              })}
-            </ul>
           </section>
         </aside>
       </div>

@@ -72,6 +72,7 @@ export const artists = [
     name: "Ellen Bye Jensen",
     slug: "ellen-bye-jensen",
     category: "billedkunstner",
+    featuredImageUrl: `${import.meta.env.BASE_URL}ellen-bye-jensen.png`,
     imageUrl:
       "https://web.archive.org/web/20251111234142im_/https://karolineshus.dk/wp-content/uploads/2025/02/20240921_102045-1-e1740649529886.jpg",
     excerpt:
@@ -82,6 +83,7 @@ export const artists = [
     name: "Linda Lildholdt",
     slug: "linda-lildholdt",
     category: "billedkunstner",
+    featuredImageUrl: `${import.meta.env.BASE_URL}linda-lildholdt.png`,
     imageUrl:
       "https://web.archive.org/web/20251111232558im_/https://i1.wp.com/karolineshus.dk/wp-content/uploads/2025/05/Forbundet-4-%E2%80%93-80x80-cm.jpg?fit=1200%2C1192&ssl=1",
     excerpt:

@@ -32,7 +32,7 @@ export default function ArtistPage({ forcedSlug }) {
           <article className="archive-post artist-detail">
             <img
               className="artist-detail__image"
-              src={artist.imageUrl}
+              src={artist.featuredImageUrl || artist.imageUrl}
               alt={artist.name}
             />
             <header className="entry-header">
