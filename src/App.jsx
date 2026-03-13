@@ -7,14 +7,14 @@ import NotFoundPage from "./pages/NotFoundPage";
 
 export default function App() {
   return (
-    <>
+    <div className="app-shell">
       <Navbar />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/contact" element={<ContactPage />} />
+        <Route path="/om" element={<AboutPage />} />
+        <Route path="/kontakt" element={<ContactPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
-    </>
+    </div>
   );
 }
