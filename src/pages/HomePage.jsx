@@ -2,101 +2,119 @@ import {
   archiveNote,
   exhibitions2025,
   featuredArtists,
+  homeStories,
   openingPeriods,
 } from "../siteContent";
 
 export default function HomePage() {
   return (
     <>
-      <header className="hero">
-        <div className="hero__inner">
-          <p className="eyebrow">Genopbygget fra arkivmateriale</p>
-          <h1>Karolines Hus</h1>
-          <p className="hero__lead">
-            Galleriet på Fur med udstillinger, kunstnere og besøgsinformation
-            samlet i en ny version baseret på de seneste tilgængelige snapshots
-            fra 2025.
-          </p>
-          <div className="hero__callout">
-            <span>Sommerudstilling</span>
-            <strong>05.07.2025 til 31.08.2025</strong>
-          </div>
-        </div>
-      </header>
+      <main id="main" className="site-main page page--home">
+        <section id="featured-content" className="site-featured-content">
+          <div className="container">
+            <div className="featured-content-intro">
+              <p className="eyebrow">Genopbygget struktur fra 2025-arkivet</p>
+              <h2>Udvalgte kunstnere på forsiden</h2>
+              <p>
+                Det gamle site brugte et stort felt med fremhævede kunstnere.
+                Her er den struktur genskabt med de kunstnere, som optrådte i
+                forsiden fra slutningen af 2025.
+              </p>
+            </div>
 
-      <main className="page page--home">
-        <section className="panel panel--intro">
-          <div>
-            <p className="section-label">Karolines Hus</p>
-            <h2>Et galleri skabt omkring kunst, netværk og Fur</h2>
-          </div>
-          <p>
-            De arkiverede sider viser et levende galleri med fokus på
-            udstillinger i ferieperioder, mindre kendte kunstnere og en jordnær
-            tilgang til formidling. Denne første rekonstruktion samler de
-            vigtigste oplysninger fra det nyeste cached indhold.
-          </p>
-        </section>
-
-        <section className="grid-section">
-          <article className="panel">
-            <p className="section-label">Åbningstider 2025</p>
-            <h2>Perioder med åbent galleri</h2>
-            <ul className="detail-list">
-              {openingPeriods.map((period) => (
-                <li key={period}>{period}</li>
+            <div id="kunstnere" className="featured_posts">
+              {featuredArtists.map((artist) => (
+                <article key={artist.name} className="featured-post">
+                  <div
+                    className="entry-thumbnail featured-post__placeholder"
+                    aria-hidden="true"
+                  >
+                    <span>{artist.name.split(" ")[0]}</span>
+                  </div>
+                  <header className="entry-header">
+                    <p className="featured-posts-cate">{artist.discipline}</p>
+                    <h3 className="entry-title">{artist.name}</h3>
+                  </header>
+                  <p>{artist.excerpt}</p>
+                </article>
               ))}
-            </ul>
-            <p>
-              Normalt fra klokken 13 – 17, altid når flaget er ude på
-              Madsbadvej. Onsdage er lukkedage.
-            </p>
-          </article>
-
-          <article className="panel panel--accent">
-            <p className="section-label">Arkivnotat</p>
-            <h2>Hvad der er genskabt nu</h2>
-            <p>{archiveNote}</p>
-            <p>
-              Særligt tydeligt i 2025-arkivet er siden med udstillinger,
-              kunstnere for 2025 samt opdaterede åbningstider og
-              kontaktoplysninger.
-            </p>
-          </article>
-        </section>
-
-        <section className="panel">
-          <p className="section-label">Udstillinger</p>
-          <h2>Rekonstrueret program for 2025</h2>
-          <div className="exhibition-grid">
-            {exhibitions2025.map((exhibition) => (
-              <article key={exhibition.title} className="exhibition-card">
-                <h3>{exhibition.title}</h3>
-                <p className="exhibition-card__period">{exhibition.period}</p>
-                <ul className="detail-list detail-list--compact">
-                  {exhibition.artists.map((artist) => (
-                    <li key={artist}>{artist}</li>
-                  ))}
-                </ul>
-                {exhibition.note ? <p>{exhibition.note}</p> : null}
-              </article>
-            ))}
+            </div>
           </div>
         </section>
 
-        <section className="panel">
-          <p className="section-label">Kunstnere i 2025</p>
-          <h2>Profiler hentet fra arkiverede kunstnersider</h2>
-          <div className="artist-grid">
-            {featuredArtists.map((artist) => (
-              <article key={artist.name} className="artist-card">
-                <p className="artist-card__discipline">{artist.discipline}</p>
-                <h3>{artist.name}</h3>
-                <p>{artist.excerpt}</p>
+        <div className="container home-content-layout">
+          <section id="nyheder" className="content-primary">
+            {homeStories.map((story) => (
+              <article key={story.title} className="archive-post">
+                <header className="entry-header">
+                  <p className="entry-meta">{story.meta}</p>
+                  <h2 className="entry-title">{story.title}</h2>
+                </header>
+                <p>{story.excerpt}</p>
+                {story.body ? <p>{story.body}</p> : null}
               </article>
             ))}
-          </div>
-        </section>
+
+            <section className="archive-post archive-post--compact">
+              <header className="entry-header">
+                <p className="entry-meta">Arkivnotat</p>
+                <h2 className="entry-title">Genskabt på baggrund af Wayback</h2>
+              </header>
+              <p>{archiveNote}</p>
+              <div className="exhibition-grid">
+                {exhibitions2025.map((exhibition) => (
+                  <article key={exhibition.title} className="exhibition-card">
+                    <p className="featured-posts-cate">{exhibition.title}</p>
+                    <h3>{exhibition.period}</h3>
+                    <ul className="detail-list detail-list--compact">
+                      {exhibition.artists.map((artist) => (
+                        <li key={artist}>{artist}</li>
+                      ))}
+                    </ul>
+                  </article>
+                ))}
+              </div>
+            </section>
+          </section>
+
+          <aside
+            id="secondary"
+            className="sidebar widget-area"
+            role="complementary"
+          >
+            <section className="widget">
+              <h2 className="widget-title">Åbningstider 2025</h2>
+              <p>I 2025 har vi åbent i perioderne:</p>
+              <ul className="detail-list detail-list--compact">
+                {openingPeriods.map((period) => (
+                  <li key={period}>{period}</li>
+                ))}
+              </ul>
+              <p>
+                Normalt fra klokken 13 – 17. Altid når flaget er ude på
+                Madsbadvej.
+              </p>
+              <p>Vi holder dog lukkedag om onsdagen.</p>
+            </section>
+
+            <section className="widget">
+              <h2 className="widget-title">Kunstnere i 2025</h2>
+              <ul className="widget-menu">
+                {featuredArtists.map((artist) => (
+                  <li key={artist.name}>
+                    <a href="#kunstnere">{artist.name}</a>
+                  </li>
+                ))}
+              </ul>
+            </section>
+
+            <section className="widget widget--notice">
+              <h2 className="widget-title">Sommerudstilling</h2>
+              <p>05.07.2025 til 31.08.2025</p>
+              <p>Vi glæder os til at se dig i Karolines Hus på Fur.</p>
+            </section>
+          </aside>
+        </div>
       </main>
     </>
   );

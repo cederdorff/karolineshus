@@ -1,32 +1,54 @@
 import { NavLink } from "react-router";
+import { contactInfo, logoUrl } from "../siteContent";
 
 export default function Navbar() {
+  const baseUrl = import.meta.env.BASE_URL;
+
   return (
-    <nav className="site-nav" aria-label="Hovednavigation">
-      <div className="site-nav__brand">
-        <span className="site-nav__title">Karolines Hus</span>
-        <span className="site-nav__subtitle">Galleriet på Fur</span>
+    <header id="masthead" className="site-header" role="banner">
+      <div className="site-topbar">
+        <div className="container">
+          <nav className="main-navigation" aria-label="Hovednavigation">
+            <div className="menu-primary-container">
+              <ul id="primary-menu" className="menu">
+                <li>
+                  <NavLink to="/" end>
+                    Hjem
+                  </NavLink>
+                </li>
+                <li>
+                  <a href={`${baseUrl}#nyheder`}>Nyheder</a>
+                </li>
+                <li>
+                  <a href={`${baseUrl}#kunstnere`}>Kunstnere</a>
+                </li>
+                <li>
+                  <NavLink to="/om">Om os</NavLink>
+                </li>
+                <li>
+                  <NavLink to="/kontakt">Kontakt</NavLink>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
       </div>
-      <div className="site-nav__links">
-        <NavLink
-          to="/"
-          className={({ isActive }) => (isActive ? "active" : "")}
-        >
-          Hjem
-        </NavLink>
-        <NavLink
-          to="/om"
-          className={({ isActive }) => (isActive ? "active" : "")}
-        >
-          Om os
-        </NavLink>
-        <NavLink
-          to="/kontakt"
-          className={({ isActive }) => (isActive ? "active" : "")}
-        >
-          Kontakt
-        </NavLink>
+
+      <div className="site-branding">
+        <div className="container site-branding__inner">
+          <a
+            className="custom-logo-link"
+            href={baseUrl}
+            aria-label={contactInfo.name}
+          >
+            <img className="custom-logo" src={logoUrl} alt={contactInfo.name} />
+          </a>
+          <div className="site-branding__text">
+            <h1 className="site-title">{contactInfo.name}</h1>
+            <p className="site-description">{contactInfo.subtitle}</p>
+          </div>
+        </div>
       </div>
-    </nav>
+    </header>
   );
 }

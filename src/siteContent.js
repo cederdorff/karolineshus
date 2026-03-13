@@ -7,6 +7,9 @@ export const contactInfo = {
   website: "www.karolineshus.dk",
 };
 
+export const logoUrl =
+  "https://web.archive.org/web/20251215051447im_/https://i1.wp.com/karolineshus.dk/wp-content/uploads/2017/03/logo_karolineshus_web.png?fit=1000%2C339&ssl=1";
+
 export const openingPeriods = [
   "12.04.2025 til 21.04.2025",
   "07.06.2025 til 12.06.2025",
@@ -87,6 +90,29 @@ export const featuredArtists = [
     excerpt:
       "Uddannet bygningsmaler og en anerkendt kunstner i Nordvestjylland, hvor maleriet gennem årtier er blevet en stadig større del af hans virke.",
   },
+];
+
+export const homeStories = [
+  {
+    title: "Udstillinger i 2025",
+    meta: "Nyheder / admin / 26.03.2025",
+    excerpt:
+      "På denne side kan du læse mere om udstillingsterminer i Karolines Hus. Karolines Hus åbner d. 12.04.2025 med en påskeudstilling, som varer til og med d. 21.04.2025 kl. 17.",
+    body: "Sommerudstillingen varer fra d. 05.07.2025 til og med 31.08.2025. Onsdage er lukkedage, og der er altid mulighed for aftaler uden for sæsonen.",
+  },
+  {
+    title: "Ellen Bye Jensen",
+    meta: "Billedkunstner",
+    excerpt:
+      "Farver, lys og landskaber er kernen i mit kunstneriske arbejde. Fra Limfjordens bløde horisont til Umbriens dramatiske bjerglandskaber fanger jeg naturens bevægelser på lærredet.",
+    body: "Min kunst handler ikke om at gengive, men om at fortolke og føle. Fur og Umbrien har formet mit kunstneriske udtryk og præger fortsat mit arbejde.",
+  },
+];
+
+export const footerLinks = [
+  { label: "Om os", href: `${import.meta.env.BASE_URL}om` },
+  { label: "Ellen Bye Jensen", href: `${import.meta.env.BASE_URL}#nyheder` },
+  { label: "Kontakt", href: `${import.meta.env.BASE_URL}kontakt` },
 ];
 
 export const aboutParagraphs = [
