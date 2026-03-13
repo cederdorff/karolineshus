@@ -1,8 +1,8 @@
 import {
   aboutGalleryImages,
   aboutParagraphs,
-  archiveNote,
   contactInfo,
+  siteNote,
 } from "../siteContent";
 
 export default function AboutPage() {
@@ -20,18 +20,18 @@ export default function AboutPage() {
                 <p key={paragraph}>{paragraph}</p>
               ))}
               <p>
-                De arkiverede sider beskriver huset som et galleri med både
-                stueetage og 1. sal, hvor udstillingerne fordeles mellem værker
-                til væg og værker til gulv.
+                Karolines Hus er indrettet med både stueetage og 1. sal, hvor
+                udstillingerne fordeles mellem værker til væg og værker til
+                gulv.
               </p>
             </article>
 
             <article className="archive-post archive-post--compact">
               <header className="entry-header">
-                <p className="entry-meta">Kildegrundlag</p>
-                <h2 className="entry-title">Arkivbaseret rekonstruktion</h2>
+                <p className="entry-meta">Karolines Hus</p>
+                <h2 className="entry-title">Et levende galleri på Fur</h2>
               </header>
-              <p>{archiveNote}</p>
+              <p>{siteNote}</p>
               <p>
                 Sitet er nu udbygget med menupunkterne Hjem, Udstillinger,
                 Kunstnere, Om os, Ellen Bye Jensen og Kontakt, samt
@@ -42,7 +42,7 @@ export default function AboutPage() {
                   <img
                     key={imageUrl}
                     src={imageUrl}
-                    alt={`Karolines Hus arkivfoto ${index + 1}`}
+                    alt={`Karolines Hus galleri foto ${index + 1}`}
                     loading="lazy"
                   />
                 ))}

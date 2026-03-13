@@ -1,53 +1,190 @@
 import {
-  archiveNote,
   exhibitions2025,
   featuredArtists,
+  getArtistDisplayImageUrl,
   homeStories,
   legacyGraphics,
   openingPeriods,
+  siteNote,
 } from "../siteContent";
+import { useEffect, useState } from "react";
 import { Link } from "react-router";
 
+function getVisibleFeaturedCount() {
+  if (typeof window === "undefined") return 4;
+  if (window.innerWidth < 560) return 1;
+  if (window.innerWidth < 900) return 2;
+  if (window.innerWidth < 1200) return 3;
+  return 4;
+}
+
 export default function HomePage() {
+  const [activeSlide, setActiveSlide] = useState(0);
+  const [visibleSlides, setVisibleSlides] = useState(getVisibleFeaturedCount);
+  const [isSliderPaused, setIsSliderPaused] = useState(false);
+  const totalSlides = featuredArtists.length;
+  const maxStartIndex = Math.max(totalSlides - visibleSlides, 0);
+  const canSlide = maxStartIndex > 0;
+
+  useEffect(() => {
+    const updateVisibleSlides = () => {
+      const nextVisibleSlides = getVisibleFeaturedCount();
+      setVisibleSlides(nextVisibleSlides);
+      setActiveSlide((current) =>
+        Math.min(current, Math.max(totalSlides - nextVisibleSlides, 0)),
+      );
+    };
+
+    updateVisibleSlides();
+    window.addEventListener("resize", updateVisibleSlides);
+
+    return () => {
+      window.removeEventListener("resize", updateVisibleSlides);
+    };
+  }, [totalSlides]);
+
+  const goToPreviousSlide = () => {
+    if (!canSlide) return;
+    setActiveSlide((current) => (current === 0 ? maxStartIndex : current - 1));
+  };
+
+  const goToNextSlide = () => {
+    if (!canSlide) return;
+    setActiveSlide((current) => (current === maxStartIndex ? 0 : current + 1));
+  };
+
+  useEffect(() => {
+    if (!canSlide || isSliderPaused) return;
+
+    const intervalId = window.setInterval(() => {
+      setActiveSlide((current) =>
+        current === maxStartIndex ? 0 : current + 1,
+      );
+    }, 5000);
+
+    return () => {
+      window.clearInterval(intervalId);
+    };
+  }, [canSlide, isSliderPaused, maxStartIndex]);
+
+  const handleSliderBlur = (event) => {
+    if (!event.currentTarget.contains(event.relatedTarget)) {
+      setIsSliderPaused(false);
+    }
+  };
+
   return (
     <>
       <main id="main" className="site-main page page--home">
         <section id="featured-content" className="site-featured-content">
           <div className="container">
             <div className="featured-content-intro">
-              <p className="eyebrow">Genopbygget struktur fra 2025-arkivet</p>
+              <p className="eyebrow">Karolines Hus</p>
               <h2>Udvalgte kunstnere på forsiden</h2>
               <p>
-                Det gamle site brugte et stort felt med fremhævede kunstnere.
-                Her er den struktur genskabt med de kunstnere, som optrådte i
-                forsiden fra slutningen af 2025.
+                Mød nogle af de kunstnere, der udstiller i Karolines Hus i 2025.
+                Brug slideren til at udforske værker og gå videre til
+                kunstnersiderne.
               </p>
             </div>
+          </div>
 
-            <div id="kunstnere" className="featured_posts">
-              {featuredArtists.map((artist) => (
-                <article key={artist.name} className="featured-post">
-                  <Link to={`/kunstnere/${artist.slug}`}>
-                    <img
-                      className="entry-thumbnail"
-                      src={artist.imageUrl}
-                      alt={artist.name}
-                      loading="lazy"
+          <div className="featured-content-fullbleed">
+            <div className="featured-content-fullbleed__inner">
+              <div id="kunstnere" className="featured-slider">
+                <div
+                  className="featured-slider__interactive-zone"
+                  onMouseEnter={() => setIsSliderPaused(true)}
+                  onMouseLeave={() => setIsSliderPaused(false)}
+                  onFocusCapture={() => setIsSliderPaused(true)}
+                  onBlurCapture={handleSliderBlur}
+                >
+                  {canSlide ? (
+                    <button
+                      className="slider-control slider-control--prev"
+                      type="button"
+                      onClick={goToPreviousSlide}
+                      aria-label="Forrige kunstner"
+                    >
+                      ‹
+                    </button>
+                  ) : null}
+
+                  <div className="featured-slider__viewport" aria-live="polite">
+                    <div
+                      className="featured-slider__track"
+                      style={{
+                        transform: `translateX(-${activeSlide * (100 / visibleSlides)}%)`,
+                      }}
+                    >
+                      {featuredArtists.map((artist, index) => {
+                        const isVisible =
+                          index >= activeSlide &&
+                          index < activeSlide + visibleSlides;
+
+                        return (
+                          <article
+                            key={artist.name}
+                            className={`featured-slide${isVisible ? " is-visible" : ""}`}
+                            style={{ flex: `0 0 ${100 / visibleSlides}%` }}
+                          >
+                            <Link
+                              to={`/kunstnere/${artist.slug}`}
+                              className="featured-slide__media"
+                            >
+                              <img
+                                className="entry-thumbnail entry-thumbnail--featured"
+                                src={getArtistDisplayImageUrl(artist)}
+                                alt={artist.name}
+                                loading="lazy"
+                              />
+                            </Link>
+                            <header className="entry-header">
+                              <p className="featured-posts-cate">
+                                {artist.categoryLabel || artist.category}
+                              </p>
+                              <h3 className="entry-title">
+                                <Link to={`/kunstnere/${artist.slug}`}>
+                                  {artist.name}
+                                </Link>
+                              </h3>
+                            </header>
+                            <p>{artist.excerpt}</p>
+                          </article>
+                        );
+                      })}
+                    </div>
+                  </div>
+
+                  {canSlide ? (
+                    <button
+                      className="slider-control slider-control--next"
+                      type="button"
+                      onClick={goToNextSlide}
+                      aria-label="Næste kunstner"
+                    >
+                      ›
+                    </button>
+                  ) : null}
+                </div>
+              </div>
+
+              {canSlide ? (
+                <div
+                  className="featured-slider__dots"
+                  aria-label="Vælg kunstner-slide"
+                >
+                  {Array.from({ length: maxStartIndex + 1 }).map((_, index) => (
+                    <button
+                      key={index}
+                      className={`slider-dot${index === activeSlide ? " is-active" : ""}`}
+                      type="button"
+                      onClick={() => setActiveSlide(index)}
+                      aria-label={`Vis gruppe ${index + 1}`}
                     />
-                  </Link>
-                  <header className="entry-header">
-                    <p className="featured-posts-cate">
-                      {artist.categoryLabel || artist.category}
-                    </p>
-                    <h3 className="entry-title">
-                      <Link to={`/kunstnere/${artist.slug}`}>
-                        {artist.name}
-                      </Link>
-                    </h3>
-                  </header>
-                  <p>{artist.excerpt}</p>
-                </article>
-              ))}
+                  ))}
+                </div>
+              ) : null}
             </div>
           </div>
         </section>
@@ -65,17 +202,22 @@ export default function HomePage() {
               </article>
             ))}
 
-            <section className="archive-post archive-post--compact">
+            <section className="archive-post archive-post--compact archive-post--exhibitions">
               <header className="entry-header">
-                <p className="entry-meta">Arkivnotat</p>
-                <h2 className="entry-title">Genskabt på baggrund af Wayback</h2>
+                <p className="entry-meta">Udstillinger</p>
+                <h2 className="entry-title">Udstillingsprogram 2025</h2>
               </header>
-              <p>{archiveNote}</p>
-              <div className="exhibition-grid">
+              <p>{siteNote}</p>
+              <div className="exhibition-grid exhibition-grid--graphic">
                 {exhibitions2025.map((exhibition) => (
-                  <article key={exhibition.title} className="exhibition-card">
+                  <article
+                    key={exhibition.title}
+                    className="exhibition-card exhibition-card--graphic"
+                  >
                     <p className="featured-posts-cate">{exhibition.title}</p>
-                    <h3>{exhibition.period}</h3>
+                    <p className="exhibition-card__period">
+                      {exhibition.period}
+                    </p>
                     <ul className="detail-list detail-list--compact">
                       {exhibition.artists.map((artist) => (
                         <li key={artist}>{artist}</li>

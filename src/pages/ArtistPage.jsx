@@ -1,5 +1,9 @@
 import { Link, useParams } from "react-router";
-import { getArtistBySlug, artistCategoryLabels } from "../siteContent";
+import {
+  getArtistBySlug,
+  artistCategoryLabels,
+  getArtistDisplayImageUrl,
+} from "../siteContent";
 
 export default function ArtistPage({ forcedSlug }) {
   const params = useParams();
@@ -32,7 +36,7 @@ export default function ArtistPage({ forcedSlug }) {
           <article className="archive-post artist-detail">
             <img
               className="artist-detail__image"
-              src={artist.featuredImageUrl || artist.imageUrl}
+              src={getArtistDisplayImageUrl(artist)}
               alt={artist.name}
             />
             <header className="entry-header">

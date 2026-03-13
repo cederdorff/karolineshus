@@ -94,6 +94,7 @@ export const artists = [
     name: "Erik Muff Reinert",
     slug: "erik-muff-reinert",
     category: "billedkunstner",
+    featuredImageUrl: `${import.meta.env.BASE_URL}erik-muff-reinert.png`,
     imageUrl:
       "https://web.archive.org/web/20251111234614im_/https://i1.wp.com/karolineshus.dk/wp-content/uploads/2025/03/image0-3-erik.jpg?fit=844%2C1200&ssl=1",
     excerpt:
@@ -104,6 +105,7 @@ export const artists = [
     name: "Ole Kildegaard",
     slug: "ole-kildegaard",
     category: "billedkunstner",
+    featuredImageUrl: `${import.meta.env.BASE_URL}ole-kildegaard.png`,
     imageUrl:
       "https://web.archive.org/web/20251111231508im_/https://i2.wp.com/karolineshus.dk/wp-content/uploads/2025/03/kildegaard1.jpg?fit=904%2C1200&ssl=1",
     excerpt: "Anerkendt billedkunstner i Nordvestjylland med mange års virke.",
@@ -152,7 +154,7 @@ export const artists = [
     imageUrl: aboutGalleryImages[3],
     excerpt:
       "Furfotograf med stærk lokal forankring og menneskelige historier.",
-    bio: "Kendt lokalt og i arkivmaterialet som fotograf med blik for hverdagsliv og stedets identitet.",
+    bio: "Kendt lokalt som fotograf med blik for hverdagsliv og stedets identitet.",
   },
   {
     name: "Trine Anderschou",
@@ -169,7 +171,7 @@ export const artists = [
     imageUrl: aboutGalleryImages[1],
     excerpt:
       "Dansk grafiker og forfatter med markant kunsthistorisk betydning.",
-    bio: "Optræder i arkivmaterialet som en del af den grafiske linje i Karolines Hus' udstillingshistorik.",
+    bio: "Er en del af den grafiske linje i Karolines Hus' udstillingshistorik.",
   },
   {
     name: "Søren Bjælde",
@@ -183,6 +185,7 @@ export const artists = [
     name: "Karen Kristensen",
     slug: "karen-kristensen",
     category: "keramiker",
+    featuredImageUrl: `${import.meta.env.BASE_URL}karen-kristensen.png`,
     imageUrl:
       "https://web.archive.org/web/20251111234802im_/https://i2.wp.com/karolineshus.dk/wp-content/uploads/2025/03/kk.jpg?fit=720%2C632&ssl=1",
     excerpt:
@@ -219,6 +222,7 @@ export const artists = [
     name: "Ingrid Dalby Nielsen",
     slug: "ingrid-dalby-nielsen",
     category: "maler",
+    featuredImageUrl: `${import.meta.env.BASE_URL}ingrid-dalby-nielsen.png`,
     imageUrl:
       "https://web.archive.org/web/20260117031622im_/https://i2.wp.com/karolineshus.dk/wp-content/uploads/2025/03/IMG_5153-rotated-e1742974744596.jpeg?fit=1200%2C902&ssl=1",
     excerpt: "Maler med inspiration fra Thy og naturens farver og rytmer.",
@@ -230,7 +234,7 @@ export const artists = [
     category: "maler",
     imageUrl: aboutGalleryImages[2],
     excerpt:
-      "Maler repræsenteret i arkivets kunstnerkategorier og udstillingsoversigter.",
+      "Maler repræsenteret i kunstnerkategorier og udstillingsoversigter.",
     bio: "Indgår i Karolines Hus' malerkategori i snapshots fra de senere sæsoner.",
   },
   {
@@ -255,6 +259,7 @@ export const artists = [
     name: "Helle Crawford",
     slug: "helle-crawford",
     category: "skulptoer",
+    featuredImageUrl: `${import.meta.env.BASE_URL}helle-crawford.png`,
     imageUrl:
       "https://web.archive.org/web/20250807165551im_/https://i0.wp.com/karolineshus.dk/wp-content/uploads/2025/05/Helle_Rask_Crawford_Papirba-den_Br-onze_kobber_emalje_h10cm_2021-scaled.jpeg?fit=1200%2C1062&ssl=1",
     excerpt: "Skulptør med figurative bronzeværker og magisk realisme.",
@@ -264,6 +269,7 @@ export const artists = [
     name: "Stine Juul",
     slug: "stine-juul",
     category: "skulptoer",
+    featuredImageUrl: `${import.meta.env.BASE_URL}stine-juul.png`,
     imageUrl:
       "https://web.archive.org/web/20251215042858im_/https://i0.wp.com/karolineshus.dk/wp-content/uploads/2025/05/3.-Stine-Juul.jpeg?fit=915%2C1200&ssl=1",
     excerpt: "Skulptør med praksis i keramik, collage, træ og maleri.",
@@ -320,6 +326,10 @@ export const artistsByCategory = artistCategoryOrder.map((categoryKey) => ({
   label: artistCategoryLabels[categoryKey],
   artists: artists.filter((artist) => artist.category === categoryKey),
 }));
+
+export function getArtistDisplayImageUrl(artist) {
+  return artist.featuredImageUrl || artist.imageUrl;
+}
 
 export function getArtistBySlug(slug) {
   return artists.find((artist) => artist.slug === slug);
@@ -382,5 +392,5 @@ export const aboutParagraphs = [
   "I vinterperioden kan man efter aftale altid besøge galleriet og se Ellen Bye Jensens billeder.",
 ];
 
-export const archiveNote =
-  "Denne version er genskabt på baggrund af indhold fundet i web.archive.org, primært snapshots fra efteråret 2025.";
+export const siteNote =
+  "Karolines Hus samler aktuelle udstillinger, kunstnere og praktisk information ét sted.";

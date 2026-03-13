@@ -1,4 +1,4 @@
-import { archiveNote, contactInfo, openingPeriods } from "../siteContent";
+import { contactInfo, openingPeriods } from "../siteContent";
 
 export default function ContactPage() {
   return (
@@ -11,7 +11,10 @@ export default function ContactPage() {
                 <p className="entry-meta">Kontakt</p>
                 <h1 className="entry-title">Besøg Karolines Hus</h1>
               </header>
-              <p>{archiveNote}</p>
+              <p>
+                Du er altid velkommen i Karolines Hus. Kontakt os gerne, hvis du
+                vil aftale et besøg uden for de almindelige åbningstider.
+              </p>
               <address className="contact-card__address">
                 {contactInfo.addressLines.map((line) => (
                   <span key={line}>{line}</span>
