@@ -6,6 +6,7 @@ import {
   legacyGraphics,
   openingPeriods,
 } from "../siteContent";
+import { Link } from "react-router";
 
 export default function HomePage() {
   return (
@@ -26,15 +27,23 @@ export default function HomePage() {
             <div id="kunstnere" className="featured_posts">
               {featuredArtists.map((artist) => (
                 <article key={artist.name} className="featured-post">
-                  <img
-                    className="entry-thumbnail"
-                    src={artist.imageUrl}
-                    alt={artist.name}
-                    loading="lazy"
-                  />
+                  <Link to={`/kunstnere/${artist.slug}`}>
+                    <img
+                      className="entry-thumbnail"
+                      src={artist.imageUrl}
+                      alt={artist.name}
+                      loading="lazy"
+                    />
+                  </Link>
                   <header className="entry-header">
-                    <p className="featured-posts-cate">{artist.discipline}</p>
-                    <h3 className="entry-title">{artist.name}</h3>
+                    <p className="featured-posts-cate">
+                      {artist.categoryLabel || artist.category}
+                    </p>
+                    <h3 className="entry-title">
+                      <Link to={`/kunstnere/${artist.slug}`}>
+                        {artist.name}
+                      </Link>
+                    </h3>
                   </header>
                   <p>{artist.excerpt}</p>
                 </article>
@@ -103,7 +112,7 @@ export default function HomePage() {
               <ul className="widget-menu">
                 {featuredArtists.map((artist) => (
                   <li key={artist.name}>
-                    <a href="#kunstnere">{artist.name}</a>
+                    <Link to={`/kunstnere/${artist.slug}`}>{artist.name}</Link>
                   </li>
                 ))}
               </ul>

@@ -214,6 +214,14 @@ h3,
   font-size: clamp(1.7rem, 3vw, 2.35rem);
 }
 
+.entry-title a {
+  text-decoration: none;
+}
+
+.entry-title a:hover {
+  color: var(--accent);
+}
+
 .sidebar {
   position: sticky;
   top: 1rem;
@@ -364,6 +372,40 @@ h3,
   padding-top: 2rem;
 }
 
+.category-section-list {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.category-title {
+  font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+}
+
+.artist-list-grid {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.55rem 1.2rem;
+  margin: 0;
+  padding: 0;
+}
+
+.artist-list-grid a {
+  text-decoration: none;
+}
+
+.artist-list-grid a:hover {
+  color: var(--accent);
+}
+
+.artist-detail__image {
+  width: 100%;
+  max-height: 430px;
+  object-fit: cover;
+  border: 1px solid var(--line);
+  margin-bottom: 1rem;
+}
+
 @media (max-width: 900px) {
   .exhibition-grid,
   .featured_posts,
@@ -373,6 +415,10 @@ h3,
 
   .about-gallery,
   .widget-graphics {
+    grid-template-columns: 1fr;
+  }
+
+  .artist-list-grid {
     grid-template-columns: 1fr;
   }
 

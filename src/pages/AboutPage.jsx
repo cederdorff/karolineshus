@@ -32,6 +32,11 @@ export default function AboutPage() {
                 <h2 className="entry-title">Arkivbaseret rekonstruktion</h2>
               </header>
               <p>{archiveNote}</p>
+              <p>
+                Sitet er nu udbygget med menupunkterne Hjem, Nyheder, Kunstnere,
+                Om os, Ellen Bye Jensen og Kontakt, samt kunstnerkategorier og
+                individuelle undersider.
+              </p>
               <div className="about-gallery">
                 {aboutGalleryImages.map((imageUrl, index) => (
                   <img

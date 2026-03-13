@@ -2,8 +2,6 @@ import { NavLink } from "react-router";
 import { contactInfo, logoUrl } from "../siteContent";
 
 export default function Navbar() {
-  const baseUrl = import.meta.env.BASE_URL;
-
   return (
     <header id="masthead" className="site-header" role="banner">
       <div className="site-topbar">
@@ -17,13 +15,16 @@ export default function Navbar() {
                   </NavLink>
                 </li>
                 <li>
-                  <a href={`${baseUrl}#nyheder`}>Nyheder</a>
+                  <NavLink to="/nyheder">Nyheder</NavLink>
                 </li>
                 <li>
-                  <a href={`${baseUrl}#kunstnere`}>Kunstnere</a>
+                  <NavLink to="/kunstnere">Kunstnere</NavLink>
                 </li>
                 <li>
                   <NavLink to="/om">Om os</NavLink>
+                </li>
+                <li>
+                  <NavLink to="/ellen-bye-jensen">Ellen Bye Jensen</NavLink>
                 </li>
                 <li>
                   <NavLink to="/kontakt">Kontakt</NavLink>
@@ -38,7 +39,7 @@ export default function Navbar() {
         <div className="container site-branding__inner">
           <a
             className="custom-logo-link"
-            href={baseUrl}
+            href={import.meta.env.BASE_URL}
             aria-label={contactInfo.name}
           >
             <img className="custom-logo" src={logoUrl} alt={contactInfo.name} />
