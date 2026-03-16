@@ -57,7 +57,7 @@ export const exhibitionPage = {
   },
 };
 
-export const artists = [
+const artistsCatalog = [
   {
     name: "Ellen Bye Jensen",
     slug: "ellen-bye-jensen",
@@ -538,6 +538,10 @@ export const artists = [
     ],
   },
 ];
+
+export const artists = artistsCatalog.filter((artist) =>
+  Boolean(artist.featuredImageUrl),
+);
 
 export const featuredArtistSlugs = [
   "ellen-bye-jensen",
