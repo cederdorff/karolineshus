@@ -6,6 +6,7 @@ import {
   getArtistDisplayImageUrl,
   getArtistGalleryImageUrls,
   artistsWidget,
+  kunstVedLimfjorden,
 } from "../siteContent";
 
 export default function ArtistPage({ forcedSlug }) {
@@ -260,6 +261,32 @@ export default function ArtistPage({ forcedSlug }) {
                 </li>
               ))}
             </ul>
+          </section>
+          <section className="widget">
+            <h2 className="widget-title">{kunstVedLimfjorden.label}</h2>
+            <a
+              href={kunstVedLimfjorden.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="widget-kunstdage-link"
+            >
+              <img
+                src={kunstVedLimfjorden.imageUrl}
+                alt={kunstVedLimfjorden.label}
+                className="widget-kunstdage-logo"
+                loading="lazy"
+                decoding="async"
+              />
+            </a>
+            <p>{kunstVedLimfjorden.description}</p>
+            <a
+              href={kunstVedLimfjorden.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="widget-external-link"
+            >
+              Besøg Destinationlimfjorden.dk
+            </a>
           </section>
           <section className="widget">
             <h2 className="widget-title">Genveje</h2>

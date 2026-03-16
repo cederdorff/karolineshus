@@ -1,6 +1,7 @@
 import {
   contactInfo,
   contactPageImageUrl,
+  kunstVedLimfjorden,
   openingPeriods,
 } from "../siteContent";
 import { useState } from "react";
@@ -109,6 +110,33 @@ export default function ContactPage() {
               <p>
                 <a href={`mailto:${contactInfo.email}`}>{contactInfo.email}</a>
               </p>
+            </section>
+
+            <section className="widget">
+              <h2 className="widget-title">{kunstVedLimfjorden.label}</h2>
+              <a
+                href={kunstVedLimfjorden.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="widget-kunstdage-link"
+              >
+                <img
+                  src={kunstVedLimfjorden.imageUrl}
+                  alt={kunstVedLimfjorden.label}
+                  className="widget-kunstdage-logo"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </a>
+              <p>{kunstVedLimfjorden.description}</p>
+              <a
+                href={kunstVedLimfjorden.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="widget-external-link"
+              >
+                Besøg Destinationlimfjorden.dk
+              </a>
             </section>
           </aside>
         </div>

@@ -69,7 +69,7 @@ const artistsCatalog = [
       `${import.meta.env.BASE_URL}kunstnere/ellen-bye-jensen/ellen-bye-jensen-3.webp`,
     ],
     excerpt:
-      "Maler farvemættede, impressionistiske landskaber inspireret af lyset over Limfjorden og naturens stemninger på Fur.",
+      "Maler impressionistiske landskaber med lys og stemning fra Fur og Limfjorden.",
     bio: "Uddannet sygeplejerske og sociolog med kunstnerisk forankring fra Ranum Kunstskole. Arbejder især i olie og fortolker landskaber frem for at gengive dem direkte. Siden en studierejse i 2019 har umbriske motiver fra Italien indgået som en naturlig del af hendes billedunivers side om side med Fur.",
     sections: [
       {
@@ -480,7 +480,7 @@ const artistsCatalog = [
       `${import.meta.env.BASE_URL}kunstnere/tina-lofstad/tina-lofstad-5.webp`,
     ],
     excerpt:
-      "Glaskunstner og glaspuster i Viborg med klassisk håndværksuddannelse fra Orrefors og et farverigt, enkelt formsprog.",
+      "Glaskunstner og glaspuster i Viborg med klassisk uddannelse fra Orrefors.",
     bio: "Tina Lofstad driver Glaspusteriet i Viborg, som hun åbnede i 2003. Hun arbejder i spændet mellem klare farver, naiv enkelhed og rent, klart glas, og beskriver glasarbejdet som sin passion og rette hylde.",
     sections: [
       {
@@ -514,7 +514,7 @@ const artistsCatalog = [
       `${import.meta.env.BASE_URL}kunstnere/gunnar-splint/gunnar-splint-3.webp`,
     ],
     excerpt:
-      "Manden bag Splints Kunstdrejeri, hvor et ydmygt stykke træ forvandles til enkle, smukke og sanselige værker.",
+      "Trædrejer på Fur, der forvandler massivt træ til enkle, sanselige værker.",
     bio: 'Gunnar "Splint" Christensen er trædrejer på Fur med mere end 50 års erfaring. I hans værksted opstår både kunsthåndværk og møbler i massivt, anløbet træ, formet med stor kærlighed til materialet og håndværket.',
     sections: [
       {
@@ -544,20 +544,18 @@ export const artists = artistsCatalog.filter((artist) =>
 );
 
 export const featuredArtistSlugs = [
-  "ellen-bye-jensen",
   "tina-lofstad",
   "gunnar-splint",
-  "helle-crawford",
+  "ellen-bye-jensen",
   "linda-lildholdt",
-  "stine-juul",
   "erik-muff-reinert",
-  "karen-kristensen",
   "ingrid-dalby-nielsen",
   "ole-kildegaard",
 ];
 
-export const featuredArtists = artists
-  .filter((artist) => featuredArtistSlugs.includes(artist.slug))
+export const featuredArtists = featuredArtistSlugs
+  .map((slug) => artists.find((artist) => artist.slug === slug))
+  .filter(Boolean)
   .map((artist) => ({
     ...artist,
     categoryLabel: artistCategoryLabels[artist.category] || artist.category,

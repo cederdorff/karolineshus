@@ -390,6 +390,10 @@ h3,
 
 .featured-slide > .featured-slide__excerpt {
   padding: 0 0.95rem 1rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .slider-control {
@@ -1025,6 +1029,10 @@ h3,
   color: #505050;
   font-size: 0.92rem;
   line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .artist-list-grid {
@@ -1284,6 +1292,20 @@ h3,
 }
 
 @media (max-width: 900px) {
+  .entry-thumbnail--featured {
+    aspect-ratio: 16 / 10;
+  }
+
+  .featured-slide .entry-header {
+    padding: 0.8rem 0.85rem 0;
+  }
+
+  .featured-slide > .featured-slide__excerpt {
+    padding: 0 0.85rem 0.85rem;
+    font-size: 0.9rem;
+    line-height: 1.45;
+  }
+
   .exhibition-grid,
   .home-content-layout {
     grid-template-columns: 1fr;
@@ -1345,6 +1367,19 @@ h3,
 }
 
 @media (max-width: 640px) {
+  .entry-thumbnail--featured {
+    aspect-ratio: 3 / 2;
+  }
+
+  .featured-slide .entry-title {
+    margin: 0.2rem 0 0.35rem;
+    font-size: 1.03rem;
+  }
+
+  .featured-slide > .featured-slide__excerpt {
+    font-size: 0.88rem;
+  }
+
   .container {
     width: min(1120px, calc(100% - 1.25rem));
   }

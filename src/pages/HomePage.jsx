@@ -14,9 +14,9 @@ import { Link } from "react-router";
 
 function getVisibleFeaturedCount() {
   if (typeof window === "undefined") return 4;
-  if (window.innerWidth < 560) return 1;
-  if (window.innerWidth < 900) return 2;
-  if (window.innerWidth < 1200) return 3;
+  if (window.innerWidth < 760) return 1;
+  if (window.innerWidth < 1100) return 2;
+  if (window.innerWidth < 1400) return 3;
   return 4;
 }
 
