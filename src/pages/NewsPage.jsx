@@ -1,6 +1,11 @@
 import { Link } from "react-router";
 import { useState } from "react";
-import { exhibitionPage, exhibitions2025 } from "../siteContent";
+import {
+  contactInfo,
+  exhibitionPage,
+  exhibitions2025,
+  openingPeriods,
+} from "../siteContent";
 import ImageLightbox from "../components/ImageLightbox";
 
 export default function ExhibitionsPage() {
@@ -10,12 +15,6 @@ export default function ExhibitionsPage() {
       url: exhibitionPage.heroImageUrl,
       alt: "Karolines Hus",
     },
-  ];
-
-  const asidePeriods = [
-    "12.04.2025 til 21.04.2025.",
-    "07.06.2025 til 12.06.2025",
-    "05.07.2025 til 31.08.2025",
   ];
 
   return (
@@ -36,14 +35,17 @@ export default function ExhibitionsPage() {
               />
             </button>
             <header className="entry-header">
+              <p className="entry-meta">Udstillinger</p>
               <h1 className="entry-title">Udstillinger i 2025</h1>
             </header>
             <p>
-              Karolines Hus åbner d. 12.04.2025 med en påskeudstilling, som
-              varer til og med d. 21.04.2025. kl. 17. Sommerudstillingen varer
-              fra d. 05.07.2025 til og med 31.08.2025. Onsdage er lukkedage.
+              Her finder du årets udstillingsprogram i Karolines Hus med
+              perioder og deltagende kunstnere.
             </p>
-            <p>Læs mere om udstillingerne på denne side.</p>
+            <p>
+              Onsdage er lukkedag, og du er altid velkommen efter aftale uden
+              for de almindelige åbningstider.
+            </p>
 
             <div className="exhibition-grid exhibition-grid--graphic">
               {exhibitions2025.map((exhibition) => (
@@ -57,12 +59,25 @@ export default function ExhibitionsPage() {
                     {exhibition.artists.map((artistName) => {
                       const artist = exhibitionPage.artistsByName[artistName];
 
-                      if (!artist)
-                        return <li key={artistName}>{artistName}</li>;
+                      if (!artist) {
+                        return (
+                          <li
+                            key={artistName}
+                            className="exhibition-artist-item"
+                          >
+                            <span className="exhibition-artist-text">
+                              {artistName}
+                            </span>
+                          </li>
+                        );
+                      }
 
                       return (
-                        <li key={artistName}>
-                          <Link to={`/kunstnere/${artist.slug}`}>
+                        <li key={artistName} className="exhibition-artist-item">
+                          <Link
+                            className="exhibition-artist-link"
+                            to={`/kunstnere/${artist.slug}`}
+                          >
                             {artistName}
                           </Link>
                         </li>
@@ -75,14 +90,15 @@ export default function ExhibitionsPage() {
 
             <p>Vi glæder os til at se dig!</p>
             <p>
-              I Karolines Hus har vi en stueetage og en 1. sal. Vi udstiller en
-              til væge og en til gulv på hvert plan
+              I Karolines Hus er der både stueetage og 1. sal, hvor
+              udstillingerne fordeles mellem værk til væg og værk til gulv på
+              hvert plan.
             </p>
             <p>Venlig hilsen</p>
             <p>
               Troels Madsen
               <br />
-              Mobil: 61377562 / 40434817
+              Mobil: {contactInfo.phones[0]} / {contactInfo.phones[1]}
             </p>
           </article>
         </section>
@@ -92,7 +108,7 @@ export default function ExhibitionsPage() {
             <h2 className="widget-title">Åbningstider 2025</h2>
             <p>I 2025 har vi åbent i perioderne:</p>
             <ul className="detail-list detail-list--compact">
-              {asidePeriods.map((period) => (
+              {openingPeriods.map((period) => (
                 <li key={period}>{period}</li>
               ))}
             </ul>
