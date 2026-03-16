@@ -1,25 +1,13 @@
 import { Link } from "react-router";
-import { useState } from "react";
 import {
   artistCategoryLabels,
   artistsByCategory,
   getArtistDisplayImageUrl,
 } from "../siteContent";
-import ImageLightbox from "../components/ImageLightbox";
 
 export default function ArtistsPage() {
-  const [lightboxIndex, setLightboxIndex] = useState(-1);
-  const lightboxImages = artistsByCategory
-    .flatMap((group) => group.artists)
-    .map((artist) => ({
-      url: getArtistDisplayImageUrl(artist),
-      alt: artist.name,
-    }))
-    .filter((image) => Boolean(image.url));
-
   return (
-    <>
-      <main id="main-content" tabIndex="-1" className="page classic-page">
+    <main id="main-content" tabIndex="-1" className="page classic-page">
         <div className="container">
           <article className="archive-post">
             <header className="entry-header">
@@ -48,18 +36,10 @@ export default function ArtistsPage() {
                       <li key={artist.slug}>
                         <article className="artist-overview-card">
                           {artistImageUrl ? (
-                            <button
-                              type="button"
+                            <Link
                               className="featured-slide__media"
-                              onClick={() => {
-                                const imageIndex = lightboxImages.findIndex(
-                                  (image) => image.url === artistImageUrl,
-                                );
-                                if (imageIndex >= 0) {
-                                  setLightboxIndex(imageIndex);
-                                }
-                              }}
-                              aria-label={`Vis stort billede af ${artist.name}`}
+                              to={`/kunstnere/${artist.slug}`}
+                              aria-label={`Gå til kunstnersiden for ${artist.name}`}
                             >
                               <img
                                 className="artist-overview-card__image"
@@ -67,7 +47,7 @@ export default function ArtistsPage() {
                                 alt={artist.name}
                                 loading="lazy"
                               />
-                            </button>
+                            </Link>
                           ) : null}
                           <div className="artist-overview-card__body">
                             <p className="artist-overview-card__meta">
@@ -96,12 +76,5 @@ export default function ArtistsPage() {
           </div>
         </div>
       </main>
-      <ImageLightbox
-        images={lightboxImages}
-        activeIndex={lightboxIndex}
-        setActiveIndex={setLightboxIndex}
-        dialogLabel="Galleri med kunstnere"
-      />
-    </>
   );
 }

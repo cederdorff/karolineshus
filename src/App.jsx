@@ -18,7 +18,7 @@ export default function App() {
     const frameId = window.requestAnimationFrame(() => {
       const mainContent = document.getElementById("main-content");
       if (mainContent) {
-        mainContent.focus();
+        mainContent.focus({ preventScroll: true });
       }
     });
 
