@@ -471,7 +471,7 @@ export const artists = [
     name: "Tina Lofstad",
     slug: "tina-lofstad",
     category: "glaskunstner",
-    featuredImageUrl: `${import.meta.env.BASE_URL}kunstnere/tina-lofstad/tina-lofstad-3.webp`,
+    featuredImageUrl: `${import.meta.env.BASE_URL}kunstnere/tina-lofstad/tina-lofstad.webp`,
     galleryImageUrls: [
       `${import.meta.env.BASE_URL}kunstnere/tina-lofstad/tina-lofstad-1.webp`,
       `${import.meta.env.BASE_URL}kunstnere/tina-lofstad/tina-lofstad-2.webp`,
