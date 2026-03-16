@@ -7,8 +7,7 @@ export const contactInfo = {
   website: "www.karolineshus.dk",
 };
 
-export const logoUrl =
-  "https://web.archive.org/web/20251215051447im_/https://i1.wp.com/karolineshus.dk/wp-content/uploads/2017/03/logo_karolineshus_web.png?fit=1000%2C339&ssl=1";
+export const logoUrl = "logo.png";
 
 export const artistCategoryOrder = [
   "billedkunstner",
@@ -27,17 +26,6 @@ export const artistCategoryLabels = {
   maler: "Maler",
   skulptoer: "Skulptør",
 };
-
-export const legacyGraphics = [
-  {
-    title: "Logo",
-    url: logoUrl,
-  },
-  {
-    title: "Favicon 2017",
-    url: "https://web.archive.org/web/20251215051447im_/https://i2.wp.com/karolineshus.dk/wp-content/uploads/2017/03/cropped-favicon.png?fit=512%2C512&ssl=1",
-  },
-];
 
 export const aboutGalleryImages = [
   "https://web.archive.org/web/20251111230940im_/https://i1.wp.com/karolineshus.dk/wp-content/uploads/2016/08/om-1.jpg?resize=1024%2C573&ssl=1",
@@ -76,8 +64,8 @@ export const artists = [
     imageUrl:
       "https://web.archive.org/web/20251111234142im_/https://karolineshus.dk/wp-content/uploads/2025/02/20240921_102045-1-e1740649529886.jpg",
     excerpt:
-      "Farver, lys og landskaber er kernen i hendes arbejde med et udtryk formet af Fur og Umbrien.",
-    bio: "Billedkunstner og en central del af Karolines Hus. Hendes praksis kredser om landskab, lys og bevægelse i naturen.",
+      "Maler farvemættede, impressionistiske landskaber inspireret af lyset over Limfjorden og naturens stemninger på Fur.",
+    bio: "Uddannet sygeplejerske og sociolog med kunstnerisk forankring fra Ranum Kunstskole. Arbejder især i olie og fortolker landskaber frem for at gengive dem direkte. Siden en studierejse i 2019 har umbriske motiver fra Italien indgået som en naturlig del af hendes billedunivers side om side med Fur.",
   },
   {
     name: "Linda Lildholdt",
@@ -87,8 +75,8 @@ export const artists = [
     imageUrl:
       "https://web.archive.org/web/20251111232558im_/https://i1.wp.com/karolineshus.dk/wp-content/uploads/2025/05/Forbundet-4-%E2%80%93-80x80-cm.jpg?fit=1200%2C1192&ssl=1",
     excerpt:
-      "Abstrakte fortællinger i maleri, grafik og skulptur med stor materialebevidsthed.",
-    bio: "Arbejder tværmedielt og kombinerer ofte former og fortællinger på tværs af billedkunst, grafik og skulptur.",
+      "Skaber abstrakte fortællinger, hvor maleri, grafik og skulptur forbindes af samme formsprog.",
+    bio: "Arbejder med geometriske og amorfe former i flere medier og beskriver skiftet mellem maleri, grafik og keramik som en kreativ vekslen mellem frihed og præcision. Farve, form og materialitet bruges bevidst for at skabe en sanselig oplevelse i værket.",
   },
   {
     name: "Erik Muff Reinert",
@@ -98,8 +86,8 @@ export const artists = [
     imageUrl:
       "https://web.archive.org/web/20251111234614im_/https://i1.wp.com/karolineshus.dk/wp-content/uploads/2025/03/image0-3-erik.jpg?fit=844%2C1200&ssl=1",
     excerpt:
-      "Kendt for kuglepennetegninger med bevægelse, lethed og poetisk nærvær.",
-    bio: "Har genoptaget en særlig tegneteknik med kuglepen, hvor energi og menneskelig bevægelse står centralt.",
+      "Arbejder med kuglepennetegninger, hvor dans, lethed og bevægelse står i centrum.",
+    bio: "Kendt for en karakteristisk kuglepensteknik, som han har genoptaget og forfinet. Værkerne fremhæver den ubekymrede og poetiske side af menneskelig bevægelse med et let, men præcist linjesprog.",
   },
   {
     name: "Ole Kildegaard",
@@ -133,7 +121,8 @@ export const artists = [
     name: "Susan Madsen",
     slug: "susan-madsen",
     category: "fotograf",
-    imageUrl: legacyGraphics[1].url,
+    imageUrl:
+      "https://web.archive.org/web/20251215051447im_/https://i2.wp.com/karolineshus.dk/wp-content/uploads/2017/03/cropped-favicon.png?fit=512%2C512&ssl=1",
     excerpt:
       "Kunstnerisk fotograf med praksis udviklet gennem studier i Berlin.",
     bio: "Bruger fotografiet som sit primære kunstneriske medie med fokus på fortælling og visuel stemning.",
@@ -189,8 +178,8 @@ export const artists = [
     imageUrl:
       "https://web.archive.org/web/20251111234802im_/https://i2.wp.com/karolineshus.dk/wp-content/uploads/2025/03/kk.jpg?fit=720%2C632&ssl=1",
     excerpt:
-      "Keramiker med mange års erfaring og fokus på form, spænding og præcision.",
-    bio: "Undersøger kontrasten mellem kontrolleret formgivning og fri organisk bevægelse i leret.",
+      "Keramiker med mange års arbejde i ler og et stærkt fokus på formens spænding og kvalitet.",
+    bio: "Har gennem mange år udviklet sit arbejde via kurser og praksis i værkstedet. Hun undersøger spændet mellem stram, kontrolleret formgivning og mere frie, organiske udtryk, hvor resultatet stadig skal fremstå præcist og gennemarbejdet.",
   },
   {
     name: "Martin Nybo",
@@ -225,8 +214,9 @@ export const artists = [
     featuredImageUrl: `${import.meta.env.BASE_URL}ingrid-dalby-nielsen.png`,
     imageUrl:
       "https://web.archive.org/web/20260117031622im_/https://i2.wp.com/karolineshus.dk/wp-content/uploads/2025/03/IMG_5153-rotated-e1742974744596.jpeg?fit=1200%2C902&ssl=1",
-    excerpt: "Maler med inspiration fra Thy og naturens farver og rytmer.",
-    bio: "Henter motiver i landskab og lys og har mange års erfaring med undervisning i billedkunst.",
+    excerpt:
+      "Maler med afsæt i Thys landskaber, hvor farverne driver processen fra lærred til lærred.",
+    bio: "Bosat i Thisted med naturen som central motivkilde. Uddannet billedkunstlærer og tidligere underviser i billedkunst i folkeskolen gennem mange år. Har også arbejdet med tegning på Ranum Kunstskole og fortsat efteruddannet sig gennem malekurser.",
   },
   {
     name: "Rikke Jacobsen",
@@ -262,8 +252,9 @@ export const artists = [
     featuredImageUrl: `${import.meta.env.BASE_URL}helle-crawford.png`,
     imageUrl:
       "https://web.archive.org/web/20250807165551im_/https://i0.wp.com/karolineshus.dk/wp-content/uploads/2025/05/Helle_Rask_Crawford_Papirba-den_Br-onze_kobber_emalje_h10cm_2021-scaled.jpeg?fit=1200%2C1062&ssl=1",
-    excerpt: "Skulptør med figurative bronzeværker og magisk realisme.",
-    bio: "Skaber dynamiske portrætter af mennesker og dyr med inspiration fra litteratur, mytologi og historie.",
+    excerpt:
+      "Figurativ skulptør i bronze med fokus på dynamiske portrætter og magisk realisme.",
+    bio: "Arbejder med mennesker og dyr i et formsprog, der bevæger sig mellem det monumentale, det fabulerende og det humoristiske. Inspireres af litteratur, mytologi, historie og samtid. Har modtaget anerkendelse fra det skotske kunstakademi og er aktiv i dansk skulpturmiljo.",
   },
   {
     name: "Stine Juul",
@@ -272,8 +263,9 @@ export const artists = [
     featuredImageUrl: `${import.meta.env.BASE_URL}stine-juul.png`,
     imageUrl:
       "https://web.archive.org/web/20251215042858im_/https://i0.wp.com/karolineshus.dk/wp-content/uploads/2025/05/3.-Stine-Juul.jpeg?fit=915%2C1200&ssl=1",
-    excerpt: "Skulptør med praksis i keramik, collage, træ og maleri.",
-    bio: "Finder ro og balance i kunstnerisk arbejde med naturen som vedvarende inspirationskilde.",
+    excerpt:
+      "Arbejder med keramik, collage, tra og maleri med et roligt, sanseligt udtryk.",
+    bio: "De seneste år har hun især arbejdet med keramiske skulpturer med bløde former, monokrome overflader og uglaseret, højbrændt materiale. Naturen og japanske stenhaver er vigtige inspirationskilder, og flere værker inviterer beskueren til aktiv refleksion og deltagelse.",
   },
   {
     name: "Inger Bruhn",
