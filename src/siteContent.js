@@ -62,9 +62,8 @@ export const artists = [
     name: "Ellen Bye Jensen",
     slug: "ellen-bye-jensen",
     category: "billedkunstner",
-    featuredImageUrl: `${import.meta.env.BASE_URL}ellen-bye-jensen.png`,
-    imageUrl:
-      "https://web.archive.org/web/20251111234142im_/https://karolineshus.dk/wp-content/uploads/2025/02/20240921_102045-1-e1740649529886.jpg",
+    featuredImageUrl: `${import.meta.env.BASE_URL}ellen-bye-jensen-1.jpg`,
+    imageUrl: `${import.meta.env.BASE_URL}ellen-bye-jensen-2.jpg`,
     excerpt:
       "Maler farvemættede, impressionistiske landskaber inspireret af lyset over Limfjorden og naturens stemninger på Fur.",
     bio: "Uddannet sygeplejerske og sociolog med kunstnerisk forankring fra Ranum Kunstskole. Arbejder især i olie og fortolker landskaber frem for at gengive dem direkte. Siden en studierejse i 2019 har umbriske motiver fra Italien indgået som en naturlig del af hendes billedunivers side om side med Fur.",
@@ -226,7 +225,7 @@ export const artists = [
     name: "Ulla Houe",
     slug: "ulla-houe",
     category: "billedkunstner",
-    imageUrl: aboutGalleryImages[0],
+    imageUrl: `${import.meta.env.BASE_URL}ulla-houe.jpg`,
     excerpt:
       "Arbejder med kompositionens skelet, kolorit og kraftfulde billedrum.",
     bio: "Fokuserer på store linjer, struktur og kunstens bærende kompositionelle principper.",

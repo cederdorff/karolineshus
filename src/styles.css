@@ -677,10 +677,22 @@ h3,
 .artist-overview-grid {
   list-style: none;
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1rem 1.2rem;
   margin: 0;
   padding: 0;
+}
+
+@media (min-width: 1500px) {
+  .artist-overview-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 1200px) {
+  .artist-overview-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 .artist-overview-card {
