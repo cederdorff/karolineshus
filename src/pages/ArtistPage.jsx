@@ -14,18 +14,24 @@ export default function ArtistPage({ forcedSlug }) {
   const [lightboxIndex, setLightboxIndex] = useState(-1);
   const artist = getArtistBySlug(slug);
   const artistImageUrl = artist ? getArtistDisplayImageUrl(artist) : "";
-  const artistGalleryImageUrls = artist
-    ? getArtistGalleryImageUrls(artist)
+  const artistImagePool = artist ? getArtistGalleryImageUrls(artist) : [];
+  const explicitGalleryImageUrls = Array.isArray(artist?.galleryImageUrls)
+    ? artist.galleryImageUrls.filter((imageUrl) =>
+        artistImagePool.includes(imageUrl),
+      )
     : [];
-  const galleryImagesWithoutLead = artistGalleryImageUrls.filter(
+  const galleryImagesWithoutLead = explicitGalleryImageUrls.filter(
     (imageUrl) => imageUrl !== artistImageUrl,
+  );
+  const lightboxImageUrls = Array.from(
+    new Set([artistImageUrl, ...galleryImagesWithoutLead].filter(Boolean)),
   );
   const sections = Array.isArray(artist?.sections) ? artist.sections : [];
   const memberships = Array.isArray(artist?.memberships)
     ? artist.memberships
     : [];
   const isLightboxOpen = lightboxIndex >= 0;
-  const lightboxImageUrl = artistGalleryImageUrls[lightboxIndex] || "";
+  const lightboxImageUrl = lightboxImageUrls[lightboxIndex] || "";
 
   useEffect(() => {
     if (!isLightboxOpen) {
@@ -37,17 +43,14 @@ export default function ArtistPage({ forcedSlug }) {
         setLightboxIndex(-1);
       }
 
-      if (event.key === "ArrowRight" && artistGalleryImageUrls.length > 1) {
-        setLightboxIndex(
-          (current) => (current + 1) % artistGalleryImageUrls.length,
-        );
+      if (event.key === "ArrowRight" && lightboxImageUrls.length > 1) {
+        setLightboxIndex((current) => (current + 1) % lightboxImageUrls.length);
       }
 
-      if (event.key === "ArrowLeft" && artistGalleryImageUrls.length > 1) {
+      if (event.key === "ArrowLeft" && lightboxImageUrls.length > 1) {
         setLightboxIndex(
           (current) =>
-            (current - 1 + artistGalleryImageUrls.length) %
-            artistGalleryImageUrls.length,
+            (current - 1 + lightboxImageUrls.length) % lightboxImageUrls.length,
         );
       }
     };
@@ -57,35 +60,32 @@ export default function ArtistPage({ forcedSlug }) {
     return () => {
       window.removeEventListener("keydown", onKeyDown);
     };
-  }, [isLightboxOpen, artistGalleryImageUrls.length]);
+  }, [isLightboxOpen, lightboxImageUrls.length]);
 
   const openLightboxFromUrl = (imageUrl) => {
-    const index = artistGalleryImageUrls.indexOf(imageUrl);
+    const index = lightboxImageUrls.indexOf(imageUrl);
     if (index >= 0) {
       setLightboxIndex(index);
     }
   };
 
   const showPreviousImage = () => {
-    if (artistGalleryImageUrls.length <= 1) {
+    if (lightboxImageUrls.length <= 1) {
       return;
     }
 
     setLightboxIndex(
       (current) =>
-        (current - 1 + artistGalleryImageUrls.length) %
-        artistGalleryImageUrls.length,
+        (current - 1 + lightboxImageUrls.length) % lightboxImageUrls.length,
     );
   };
 
   const showNextImage = () => {
-    if (artistGalleryImageUrls.length <= 1) {
+    if (lightboxImageUrls.length <= 1) {
       return;
     }
 
-    setLightboxIndex(
-      (current) => (current + 1) % artistGalleryImageUrls.length,
-    );
+    setLightboxIndex((current) => (current + 1) % lightboxImageUrls.length);
   };
 
   if (!artist) {
@@ -250,7 +250,7 @@ export default function ArtistPage({ forcedSlug }) {
               ×
             </button>
 
-            {artistGalleryImageUrls.length > 1 ? (
+            {lightboxImageUrls.length > 1 ? (
               <button
                 type="button"
                 className="artist-lightbox__nav artist-lightbox__nav--prev"
@@ -267,7 +267,7 @@ export default function ArtistPage({ forcedSlug }) {
               alt={`${artist.name} galleri`}
             />
 
-            {artistGalleryImageUrls.length > 1 ? (
+            {lightboxImageUrls.length > 1 ? (
               <button
                 type="button"
                 className="artist-lightbox__nav artist-lightbox__nav--next"
@@ -279,7 +279,7 @@ export default function ArtistPage({ forcedSlug }) {
             ) : null}
 
             <p className="artist-lightbox__counter">
-              {lightboxIndex + 1} / {artistGalleryImageUrls.length}
+              {lightboxIndex + 1} / {lightboxImageUrls.length}
             </p>
           </div>
         </div>
