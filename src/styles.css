@@ -2,7 +2,7 @@
 
 :root {
   font-family: "Open Sans", Arial, sans-serif;
-  line-height: 1.5;
+  line-height: 1.58;
   font-weight: 400;
   color: #2f2f2f;
   background: #f9f9f9;
@@ -13,7 +13,7 @@
   --line: #ececec;
   --accent: #df6a3c;
   --accent-deep: #df6a3c;
-  --shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+  --shadow: 0 10px 26px rgba(0, 0, 0, 0.045);
 }
 
 * {
@@ -146,19 +146,19 @@ h3,
 }
 
 .site-main {
-  padding-bottom: 3rem;
+  padding-bottom: 3.6rem;
 }
 
 .site-featured-content {
   background: #ffffff;
-  padding: 0 0 2rem;
+  padding: 0 0 2.4rem;
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
 }
 
 .featured-content-intro {
   max-width: none;
-  padding: 1.1rem 0 2rem;
+  padding: 1.5rem 0 2.4rem;
 }
 
 .featured-content-intro__heading {
@@ -173,13 +173,13 @@ h3,
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
   align-items: center;
-  column-gap: 2rem;
+  column-gap: 2.4rem;
 }
 
 .featured-content-intro__body p {
   max-width: 68ch;
   margin: 0;
-  line-height: 1.45;
+  line-height: 1.62;
 }
 
 .featured-content-intro__cta {
@@ -298,11 +298,11 @@ h3,
 }
 
 .featured-slide .entry-header {
-  padding: 0.8rem 0.9rem 0;
+  padding: 1rem 1rem 0;
 }
 
 .featured-slide > p {
-  padding: 0.8rem 0.9rem 1rem;
+  padding: 0.9rem 1rem 1.25rem;
 }
 
 .slider-control {
@@ -342,7 +342,7 @@ h3,
   gap: 0.45rem;
   justify-content: center;
   margin-top: 0;
-  padding: 1rem 0 1rem;
+  padding: 1.15rem 0 1.35rem;
 }
 
 .slider-dot {
@@ -376,9 +376,9 @@ h3,
 .home-content-layout {
   display: grid;
   grid-template-columns: minmax(0, 2.2fr) minmax(280px, 0.9fr);
-  gap: 2.5rem;
+  gap: 3rem;
   align-items: start;
-  padding-top: 2rem;
+  padding-top: 2.4rem;
 }
 
 .content-primary {
@@ -388,8 +388,8 @@ h3,
 .archive-post {
   background: #ffffff;
   border: 1px solid var(--line);
-  padding: 1.6rem 1.8rem;
-  margin-bottom: 2rem;
+  padding: 1.9rem 2rem;
+  margin-bottom: 2.35rem;
   box-shadow: var(--shadow);
 }
 
@@ -401,6 +401,44 @@ h3,
   border: 0;
   background: linear-gradient(170deg, #fff9f6 0%, #fff4ec 100%);
   box-shadow: 0 18px 40px rgba(71, 34, 18, 0.08);
+  padding: 2.25rem 2.3rem;
+}
+
+.archive-post--exhibitions .entry-header {
+  margin-bottom: 1.1rem;
+}
+
+.archive-post--exhibitions > p {
+  max-width: 74ch;
+  margin: 0;
+}
+
+.archive-post--exhibitions > p + p {
+  margin-top: 1rem;
+}
+
+.exhibitions-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1.75rem 0 0.2rem;
+  padding: 0.72rem 1.2rem;
+  min-height: 44px;
+  border-radius: 999px;
+  font-weight: 700;
+  text-decoration: none;
+  color: #ffffff;
+  background: var(--accent);
+  border: 1px solid var(--accent);
+  transition:
+    background 180ms ease,
+    color 180ms ease;
+}
+
+.exhibitions-cta:hover,
+.exhibitions-cta:focus-visible {
+  color: var(--accent);
+  background: #ffffff;
 }
 
 .entry-title {
@@ -424,8 +462,8 @@ h3,
 .widget {
   background: #ffffff;
   border: 1px solid var(--line);
-  padding: 1.25rem 1.4rem;
-  margin-bottom: 1.5rem;
+  padding: 1.45rem 1.55rem;
+  margin-bottom: 1.8rem;
   box-shadow: var(--shadow);
 }
 
@@ -516,7 +554,8 @@ h3,
 }
 
 .exhibition-grid--graphic {
-  gap: 1.15rem;
+  margin-top: 1.45rem;
+  gap: 1.4rem;
 }
 
 .exhibition-card {
@@ -526,7 +565,7 @@ h3,
 
 .exhibition-card--graphic {
   border-top: 0;
-  padding: 1rem 1.1rem;
+  padding: 1.3rem 1.35rem 1.4rem;
   border-radius: 14px;
   background: #ffffff;
   box-shadow: 0 8px 22px rgba(71, 34, 18, 0.09);
@@ -541,9 +580,14 @@ h3,
 }
 
 .exhibition-card__period {
-  margin: 0.35rem 0 0.75rem;
+  margin: 0.45rem 0 0.9rem;
   font-family: "Playfair Display", Georgia, serif;
   font-size: 1.05rem;
+}
+
+.exhibition-card--graphic .detail-list {
+  margin: 0;
+  padding-left: 1.35rem;
 }
 
 .about-gallery {
@@ -568,9 +612,9 @@ h3,
 .site-footer__inner {
   display: flex;
   justify-content: space-between;
-  gap: 1rem;
+  gap: 1.25rem;
   align-items: center;
-  padding: 1.25rem 0 2rem;
+  padding: 1.6rem 0 2.4rem;
 }
 
 .site-footer__copyright {
@@ -672,6 +716,19 @@ h3,
   .archive-post,
   .widget {
     padding: 1.15rem;
+  }
+
+  .archive-post--exhibitions {
+    padding: 1.45rem 1.25rem;
+  }
+
+  .exhibition-grid--graphic {
+    margin-top: 1rem;
+    gap: 1rem;
+  }
+
+  .exhibitions-cta {
+    margin-top: 1.2rem;
   }
 
   .site-footer__inner {

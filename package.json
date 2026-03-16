@@ -1,6 +1,6 @@
 {
   "name": "karolineshus",
-  "base": "/karolineshus/",
+  "base": "/",
   "private": true,
   "version": "1.0.0",
   "type": "module",

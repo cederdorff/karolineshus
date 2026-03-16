@@ -1,11 +1,11 @@
 import {
+  exhibitionPage,
   exhibitions2025,
   featuredArtists,
   getArtistDisplayImageUrl,
   homeStories,
   legacyGraphics,
   openingPeriods,
-  siteNote,
 } from "../siteContent";
 import { useEffect, useState } from "react";
 import { Link } from "react-router";
@@ -25,6 +25,9 @@ export default function HomePage() {
   const totalSlides = featuredArtists.length;
   const maxStartIndex = Math.max(totalSlides - visibleSlides, 0);
   const canSlide = maxStartIndex > 0;
+  const regularStories = homeStories.filter(
+    (story) => story.title !== "Udstillinger i 2025",
+  );
 
   useEffect(() => {
     const updateVisibleSlides = () => {
@@ -199,23 +202,21 @@ export default function HomePage() {
 
         <div className="container home-content-layout">
           <section id="nyheder" className="content-primary">
-            {homeStories.map((story) => (
-              <article key={story.title} className="archive-post">
-                <header className="entry-header">
-                  <p className="entry-meta">{story.meta}</p>
-                  <h2 className="entry-title">{story.title}</h2>
-                </header>
-                <p>{story.excerpt}</p>
-                {story.body ? <p>{story.body}</p> : null}
-              </article>
-            ))}
-
             <section className="archive-post archive-post--compact archive-post--exhibitions">
               <header className="entry-header">
                 <p className="entry-meta">Udstillinger</p>
-                <h2 className="entry-title">Udstillingsprogram 2025</h2>
+                <h2 className="entry-title">Udstillinger i 2025</h2>
               </header>
-              <p>{siteNote}</p>
+              <p>
+                Her finder du et samlet overblik over årets udstillinger i
+                Karolines Hus. Programmet dækker både påskeudstilling og
+                sommerudstilling med deltagende kunstnere.
+              </p>
+              <p>
+                Onsdage er lukkedag, og der er altid mulighed for besøg efter
+                aftale. Se hele programmet med datoer, åbningstider og praktisk
+                information på udstillingssiden.
+              </p>
               <div className="exhibition-grid exhibition-grid--graphic">
                 {exhibitions2025.map((exhibition) => (
                   <article
@@ -227,14 +228,40 @@ export default function HomePage() {
                       {exhibition.period}
                     </p>
                     <ul className="detail-list detail-list--compact">
-                      {exhibition.artists.map((artist) => (
-                        <li key={artist}>{artist}</li>
-                      ))}
+                      {exhibition.artists.map((artistName) => {
+                        const artist = exhibitionPage.artistsByName[artistName];
+
+                        if (!artist) {
+                          return <li key={artistName}>{artistName}</li>;
+                        }
+
+                        return (
+                          <li key={artistName}>
+                            <Link to={`/kunstnere/${artist.slug}`}>
+                              {artistName}
+                            </Link>
+                          </li>
+                        );
+                      })}
                     </ul>
                   </article>
                 ))}
               </div>
+              <Link className="exhibitions-cta" to="/udstillinger">
+                Gå til siden Udstillinger
+              </Link>
             </section>
+
+            {regularStories.map((story) => (
+              <article key={story.title} className="archive-post">
+                <header className="entry-header">
+                  <p className="entry-meta">{story.meta}</p>
+                  <h2 className="entry-title">{story.title}</h2>
+                </header>
+                <p>{story.excerpt}</p>
+                {story.body ? <p>{story.body}</p> : null}
+              </article>
+            ))}
           </section>
 
           <aside
