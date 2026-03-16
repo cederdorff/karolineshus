@@ -9,7 +9,6 @@ import {
 } from "../siteContent";
 import { useEffect, useState } from "react";
 import { Link } from "react-router";
-import ImageLightbox from "../components/ImageLightbox";
 
 function getVisibleFeaturedCount() {
   if (typeof window === "undefined") return 4;
@@ -23,16 +22,9 @@ export default function HomePage() {
   const [activeSlide, setActiveSlide] = useState(0);
   const [visibleSlides, setVisibleSlides] = useState(getVisibleFeaturedCount);
   const [isSliderPaused, setIsSliderPaused] = useState(false);
-  const [lightboxIndex, setLightboxIndex] = useState(-1);
   const totalSlides = featuredArtists.length;
   const maxStartIndex = Math.max(totalSlides - visibleSlides, 0);
   const canSlide = maxStartIndex > 0;
-  const lightboxImages = featuredArtists
-    .map((artist) => ({
-      url: getArtistDisplayImageUrl(artist),
-      alt: artist.name,
-    }))
-    .filter((image) => Boolean(image.url));
   const regularStories = homeStories.filter(
     (story) => story.title !== "Udstillinger i 2025",
   );
@@ -134,18 +126,10 @@ export default function HomePage() {
                             style={{ flex: `0 0 ${100 / visibleSlides}%` }}
                           >
                             {featuredImageUrl ? (
-                              <button
-                                type="button"
+                              <Link
                                 className="featured-slide__media"
-                                onClick={() => {
-                                  const imageIndex = lightboxImages.findIndex(
-                                    (image) => image.url === featuredImageUrl,
-                                  );
-                                  if (imageIndex >= 0) {
-                                    setLightboxIndex(imageIndex);
-                                  }
-                                }}
-                                aria-label={`Vis stort billede af ${artist.name}`}
+                                to={`/kunstnere/${artist.slug}`}
+                                aria-label={`Gå til kunstnersiden for ${artist.name}`}
                               >
                                 <img
                                   className="entry-thumbnail entry-thumbnail--featured"
@@ -153,7 +137,7 @@ export default function HomePage() {
                                   alt={artist.name}
                                   loading="lazy"
                                 />
-                              </button>
+                              </Link>
                             ) : null}
                             <header className="entry-header">
                               <p className="featured-posts-cate">
@@ -357,12 +341,6 @@ export default function HomePage() {
           </aside>
         </div>
       </main>
-      <ImageLightbox
-        images={lightboxImages}
-        activeIndex={lightboxIndex}
-        setActiveIndex={setLightboxIndex}
-        dialogLabel="Galleri med udvalgte kunstnere"
-      />
     </>
   );
 }

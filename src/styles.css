@@ -338,7 +338,7 @@ h3,
   margin: 0;
   background: transparent;
   text-align: left;
-  cursor: zoom-in;
+  cursor: pointer;
 }
 
 .entry-thumbnail--featured {
@@ -595,7 +595,8 @@ h3,
   text-decoration: none;
 }
 
-.entry-title a:hover {
+.entry-title a:hover,
+.entry-title a:focus-visible {
   color: var(--accent);
 }
 
@@ -690,6 +691,11 @@ h3,
 .contact-card a,
 .not-found-link {
   color: var(--accent-deep);
+}
+
+.contact-card a:hover,
+.contact-card a:focus-visible {
+  color: var(--accent);
 }
 
 .contact-separator {

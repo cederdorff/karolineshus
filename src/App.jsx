@@ -16,6 +16,7 @@ export default function App() {
 
   useEffect(() => {
     const frameId = window.requestAnimationFrame(() => {
+      window.scrollTo({ top: 0, left: 0, behavior: "auto" });
       const mainContent = document.getElementById("main-content");
       if (mainContent) {
         mainContent.focus({ preventScroll: true });
