@@ -32,6 +32,9 @@ export default function ExhibitionsPage() {
                 className="artist-detail__image"
                 src={exhibitionPage.heroImageUrl}
                 alt="Karolines Hus"
+                loading="eager"
+                fetchPriority="high"
+                decoding="async"
               />
             </button>
             <header className="entry-header">

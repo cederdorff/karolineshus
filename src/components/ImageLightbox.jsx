@@ -143,6 +143,7 @@ export default function ImageLightbox({
           className="artist-lightbox__image"
           src={activeImage.url}
           alt={activeImage.alt || "Galleri"}
+          decoding="async"
         />
 
         {imageCount > 1 ? (

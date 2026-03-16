@@ -136,7 +136,13 @@ export default function HomePage() {
                                   className="entry-thumbnail entry-thumbnail--featured"
                                   src={featuredImageUrl}
                                   alt={artist.name}
-                                  loading="lazy"
+                                  loading={
+                                    index < visibleSlides ? "eager" : "lazy"
+                                  }
+                                  fetchPriority={
+                                    index === activeSlide ? "high" : "auto"
+                                  }
+                                  decoding="async"
                                 />
                               </Link>
                             ) : null}
@@ -287,6 +293,7 @@ export default function HomePage() {
                       )}
                       alt={story.title}
                       loading="lazy"
+                      decoding="async"
                     />
                   </Link>
                 ) : null}

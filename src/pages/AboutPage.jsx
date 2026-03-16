@@ -37,6 +37,9 @@ export default function AboutPage() {
                   className="artist-detail__image"
                   src={exhibitionPage.heroImageUrl}
                   alt="Karolines Hus"
+                  loading="eager"
+                  fetchPriority="high"
+                  decoding="async"
                 />
               </button>
               <header className="entry-header">
@@ -77,6 +80,7 @@ export default function AboutPage() {
                       src={imageUrl}
                       alt={`Karolines Hus galleri foto ${index + 1}`}
                       loading="lazy"
+                      decoding="async"
                     />
                   </button>
                 ))}

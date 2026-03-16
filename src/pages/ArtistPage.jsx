@@ -174,6 +174,9 @@ export default function ArtistPage({ forcedSlug }) {
                   className="artist-detail__image"
                   src={artistImageUrl}
                   alt={artist.name}
+                  loading="eager"
+                  fetchPriority="high"
+                  decoding="async"
                 />
               </button>
             ) : null}
@@ -223,6 +226,7 @@ export default function ArtistPage({ forcedSlug }) {
                         src={imageUrl}
                         alt={`${artist.name} værk ${index + 1}`}
                         loading="lazy"
+                        decoding="async"
                       />
                     </button>
                   ))}

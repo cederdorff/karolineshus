@@ -46,6 +46,7 @@ export default function ArtistsPage() {
                               src={artistImageUrl}
                               alt={artist.name}
                               loading="lazy"
+                              decoding="async"
                             />
                           </Link>
                         ) : null}

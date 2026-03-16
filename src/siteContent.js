@@ -8,7 +8,7 @@ export const contactInfo = {
   website: "www.karolineshus.dk",
 };
 
-export const logoUrl = `${import.meta.env.BASE_URL}logo.png`;
+export const logoUrl = `${import.meta.env.BASE_URL}logo.webp`;
 
 export const artistCategoryOrder = [
   "billedkunstner",
@@ -29,13 +29,13 @@ export const artistCategoryLabels = {
 };
 
 export const aboutGalleryImages = [
-  `${import.meta.env.BASE_URL}karolineshus/karolineshus-1.jpeg`,
-  `${import.meta.env.BASE_URL}karolineshus/karolineshus-2.jpeg`,
-  `${import.meta.env.BASE_URL}karolineshus/karolineshus-3.jpeg`,
-  `${import.meta.env.BASE_URL}karolineshus/karolineshus-4.jpeg`,
+  `${import.meta.env.BASE_URL}karolineshus/karolineshus-1.webp`,
+  `${import.meta.env.BASE_URL}karolineshus/karolineshus-2.webp`,
+  `${import.meta.env.BASE_URL}karolineshus/karolineshus-3.webp`,
+  `${import.meta.env.BASE_URL}karolineshus/karolineshus-4.webp`,
 ];
 
-export const contactPageImageUrl = `${import.meta.env.BASE_URL}karolineshus/karolineshus-1.jpeg`;
+export const contactPageImageUrl = `${import.meta.env.BASE_URL}karolineshus/karolineshus-1.webp`;
 
 export const openingPeriods = [
   "12.04.2025 til 21.04.2025",
@@ -44,7 +44,7 @@ export const openingPeriods = [
 ];
 
 export const exhibitionPage = {
-  heroImageUrl: `${import.meta.env.BASE_URL}karolineshus/karolineshus.jpeg`,
+  heroImageUrl: `${import.meta.env.BASE_URL}karolineshus/karolineshus.webp`,
   openingPeriods,
   artistsByName: {
     "Ellen Bye Jensen": { slug: "ellen-bye-jensen" },
@@ -63,11 +63,11 @@ export const artists = [
     name: "Ellen Bye Jensen",
     slug: "ellen-bye-jensen",
     category: "billedkunstner",
-    featuredImageUrl: `${import.meta.env.BASE_URL}kunstnere/ellen-bye-jensen/ellen-bye-jensen.jpg`,
+    featuredImageUrl: `${import.meta.env.BASE_URL}kunstnere/ellen-bye-jensen/ellen-bye-jensen.webp`,
     galleryImageUrls: [
-      `${import.meta.env.BASE_URL}kunstnere/ellen-bye-jensen/ellen-bye-jensen-1.jpg`,
-      `${import.meta.env.BASE_URL}kunstnere/ellen-bye-jensen/ellen-bye-jensen-2.jpg`,
-      `${import.meta.env.BASE_URL}kunstnere/ellen-bye-jensen/ellen-bye-jensen-3.jpg`,
+      `${import.meta.env.BASE_URL}kunstnere/ellen-bye-jensen/ellen-bye-jensen-1.webp`,
+      `${import.meta.env.BASE_URL}kunstnere/ellen-bye-jensen/ellen-bye-jensen-2.webp`,
+      `${import.meta.env.BASE_URL}kunstnere/ellen-bye-jensen/ellen-bye-jensen-3.webp`,
     ],
     excerpt:
       "Maler farvemættede, impressionistiske landskaber inspireret af lyset over Limfjorden og naturens stemninger på Fur.",
@@ -145,7 +145,7 @@ export const artists = [
     name: "Linda Lildholdt",
     slug: "linda-lildholdt",
     category: "billedkunstner",
-    featuredImageUrl: `${import.meta.env.BASE_URL}kunstnere/linda-lildholdt/linda-lildholdt.png`,
+    featuredImageUrl: `${import.meta.env.BASE_URL}kunstnere/linda-lildholdt/linda-lildholdt.webp`,
     imageUrl:
       "https://web.archive.org/web/20251111232558im_/https://i1.wp.com/karolineshus.dk/wp-content/uploads/2025/05/Forbundet-4-%E2%80%93-80x80-cm.jpg?fit=1200%2C1192&ssl=1",
     excerpt:
@@ -168,7 +168,7 @@ export const artists = [
     name: "Erik Muff Reinert",
     slug: "erik-muff-reinert",
     category: "billedkunstner",
-    featuredImageUrl: `${import.meta.env.BASE_URL}kunstnere/erik-muff-reinert/erik-muff-reinert.png`,
+    featuredImageUrl: `${import.meta.env.BASE_URL}kunstnere/erik-muff-reinert/erik-muff-reinert.webp`,
     imageUrl:
       "https://web.archive.org/web/20251111234614im_/https://i1.wp.com/karolineshus.dk/wp-content/uploads/2025/03/image0-3-erik.jpg?fit=844%2C1200&ssl=1",
     excerpt:
@@ -205,7 +205,7 @@ export const artists = [
     name: "Ole Kildegaard",
     slug: "ole-kildegaard",
     category: "billedkunstner",
-    featuredImageUrl: `${import.meta.env.BASE_URL}kunstnere/ole-kildegaard/ole-kildegaard.png`,
+    featuredImageUrl: `${import.meta.env.BASE_URL}kunstnere/ole-kildegaard/ole-kildegaard.webp`,
     imageUrl:
       "https://web.archive.org/web/20251111231508im_/https://i2.wp.com/karolineshus.dk/wp-content/uploads/2025/03/kildegaard1.jpg?fit=904%2C1200&ssl=1",
     excerpt:
@@ -230,7 +230,7 @@ export const artists = [
     name: "Ulla Houe",
     slug: "ulla-houe",
     category: "billedkunstner",
-    imageUrl: `${import.meta.env.BASE_URL}kunstnere/ulla-houe/ulla-houe.jpg`,
+    imageUrl: `${import.meta.env.BASE_URL}kunstnere/ulla-houe/ulla-houe.webp`,
     excerpt:
       "Arbejder med kompositionens skelet, kolorit og kraftfulde billedrum.",
     bio: "Fokuserer på store linjer, struktur og kunstens bærende kompositionelle principper.",
@@ -239,7 +239,7 @@ export const artists = [
     name: "Maiken Hejnfelt",
     slug: "maiken-hejnfelt",
     category: "billedkunstner",
-    imageUrl: `${import.meta.env.BASE_URL}kunstnere/maiken-hejnfelt/maiken-hejnfelt.jpg`,
+    imageUrl: `${import.meta.env.BASE_URL}kunstnere/maiken-hejnfelt/maiken-hejnfelt.webp`,
     excerpt:
       "Professionel billedkunstner med atelier og galleri ved Roskilde Fjord.",
     bio: "Arbejder i akryl, olie, akvarel og pastel og har i mange år også undervist i billedkunst.",
@@ -301,7 +301,7 @@ export const artists = [
     name: "Karen Kristensen",
     slug: "karen-kristensen",
     category: "keramiker",
-    featuredImageUrl: `${import.meta.env.BASE_URL}kunstnere/karen-kristensen/karen-kristensen.png`,
+    featuredImageUrl: `${import.meta.env.BASE_URL}kunstnere/karen-kristensen/karen-kristensen.webp`,
     imageUrl:
       "https://web.archive.org/web/20251111234802im_/https://i2.wp.com/karolineshus.dk/wp-content/uploads/2025/03/kk.jpg?fit=720%2C632&ssl=1",
     excerpt:
@@ -367,7 +367,7 @@ export const artists = [
     name: "Ingrid Dalby Nielsen",
     slug: "ingrid-dalby-nielsen",
     category: "maler",
-    featuredImageUrl: `${import.meta.env.BASE_URL}kunstnere/ingrid-dalby-nielsen/ingrid-dalby-nielsen.png`,
+    featuredImageUrl: `${import.meta.env.BASE_URL}kunstnere/ingrid-dalby-nielsen/ingrid-dalby-nielsen.webp`,
     imageUrl:
       "https://web.archive.org/web/20260117031622im_/https://i2.wp.com/karolineshus.dk/wp-content/uploads/2025/03/IMG_5153-rotated-e1742974744596.jpeg?fit=1200%2C902&ssl=1",
     excerpt:
@@ -399,7 +399,7 @@ export const artists = [
     name: "Helle Crawford",
     slug: "helle-crawford",
     category: "skulptoer",
-    featuredImageUrl: `${import.meta.env.BASE_URL}kunstnere/helle-crawford/helle-crawford.png`,
+    featuredImageUrl: `${import.meta.env.BASE_URL}kunstnere/helle-crawford/helle-crawford.webp`,
     imageUrl:
       "https://web.archive.org/web/20250807165551im_/https://i0.wp.com/karolineshus.dk/wp-content/uploads/2025/05/Helle_Rask_Crawford_Papirba-den_Br-onze_kobber_emalje_h10cm_2021-scaled.jpeg?fit=1200%2C1062&ssl=1",
     excerpt:
@@ -424,7 +424,7 @@ export const artists = [
     name: "Stine Juul",
     slug: "stine-juul",
     category: "skulptoer",
-    featuredImageUrl: `${import.meta.env.BASE_URL}kunstnere/stine-juul/stine-juul.png`,
+    featuredImageUrl: `${import.meta.env.BASE_URL}kunstnere/stine-juul/stine-juul.webp`,
     imageUrl:
       "https://web.archive.org/web/20251215042858im_/https://i0.wp.com/karolineshus.dk/wp-content/uploads/2025/05/3.-Stine-Juul.jpeg?fit=915%2C1200&ssl=1",
     excerpt:

@@ -31,6 +31,9 @@ export default function ContactPage() {
                   className="artist-detail__image"
                   src={contactPageImageUrl}
                   alt="Karolines Hus set udefra"
+                  loading="eager"
+                  fetchPriority="high"
+                  decoding="async"
                 />
               </button>
               <header className="entry-header">
