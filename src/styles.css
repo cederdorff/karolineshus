@@ -117,8 +117,13 @@ img {
 }
 
 .site-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 1200;
   background: #ffffff;
+  border-top: 3px solid var(--accent);
   border-bottom: 1px solid var(--line);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.05);
 }
 
 .main-navigation {
@@ -718,6 +723,7 @@ h3,
 .site-footer {
   background: #ffffff;
   border-top: 1px solid var(--line);
+  border-bottom: 3px solid var(--accent);
 }
 
 .site-footer__inner {
