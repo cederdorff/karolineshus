@@ -766,6 +766,30 @@ h3,
   padding-left: 1.35rem;
 }
 
+.exhibition-artist-item {
+  line-height: 1.35;
+}
+
+.exhibition-artist-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 1.65rem;
+  text-decoration: none;
+  transition:
+    color 160ms ease,
+    transform 160ms ease;
+}
+
+.exhibition-artist-link:hover,
+.exhibition-artist-link:focus-visible {
+  color: var(--accent);
+  transform: translateX(1px);
+}
+
+.exhibition-artist-text {
+  color: rgba(48, 48, 48, 0.78);
+}
+
 .about-gallery {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));

@@ -249,12 +249,27 @@ export default function HomePage() {
                         const artist = exhibitionPage.artistsByName[artistName];
 
                         if (!artist) {
-                          return <li key={artistName}>{artistName}</li>;
+                          return (
+                            <li
+                              key={artistName}
+                              className="exhibition-artist-item"
+                            >
+                              <span className="exhibition-artist-text">
+                                {artistName}
+                              </span>
+                            </li>
+                          );
                         }
 
                         return (
-                          <li key={artistName}>
-                            <Link to={`/kunstnere/${artist.slug}`}>
+                          <li
+                            key={artistName}
+                            className="exhibition-artist-item"
+                          >
+                            <Link
+                              className="exhibition-artist-link"
+                              to={`/kunstnere/${artist.slug}`}
+                            >
                               {artistName}
                             </Link>
                           </li>
