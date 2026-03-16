@@ -1,21 +1,33 @@
 import { Link } from "react-router";
-import { footerLinks } from "../siteContent";
+import { footerLinks, logoUrl, contactInfo } from "../siteContent";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
   return (
     <footer id="colophon" className="site-footer" role="contentinfo">
       <div className="container site-footer__inner">
-        <p className="site-footer__copyright">
-          Copyright © {currentYear} Karolines Hus. Alle rettigheder forbeholdes.
-        </p>
-        <nav className="site-footer__menu" aria-label="Footer navigation">
-          {footerLinks.map((link) => (
-            <Link key={link.label} to={link.href}>
-              {link.label}
-            </Link>
-          ))}
-        </nav>
+        <div className="site-footer__logo">
+          <Link to="/" aria-label={`Gå til forsiden hos ${contactInfo.name}`}>
+            <img
+              src={logoUrl}
+              alt={contactInfo.name}
+              className="site-footer__logo-img"
+            />
+          </Link>
+        </div>
+        <div className="site-footer__bottom">
+          <p className="site-footer__copyright">
+            Copyright © {currentYear} Karolines Hus. Alle rettigheder
+            forbeholdes.
+          </p>
+          <nav className="site-footer__menu" aria-label="Footer navigation">
+            {footerLinks.map((link) => (
+              <Link key={link.label} to={link.href}>
+                {link.label}
+              </Link>
+            ))}
+          </nav>
+        </div>
       </div>
     </footer>
   );

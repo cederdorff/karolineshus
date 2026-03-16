@@ -233,16 +233,6 @@ export default function HomePage() {
                 <p className="entry-meta">Udstillinger</p>
                 <h2 className="entry-title">Udstillinger i 2025</h2>
               </header>
-              <p>
-                Her finder du et samlet overblik over årets udstillinger i
-                Karolines Hus. Programmet dækker både påskeudstilling og
-                sommerudstilling med deltagende kunstnere.
-              </p>
-              <p>
-                Onsdage er lukkedag, og der er altid mulighed for besøg efter
-                aftale. Se hele programmet med datoer, åbningstider og praktisk
-                information på udstillingssiden.
-              </p>
               <div className="exhibition-grid exhibition-grid--graphic">
                 {exhibitions2025.map((exhibition) => (
                   <article
@@ -274,7 +264,7 @@ export default function HomePage() {
                 ))}
               </div>
               <Link className="exhibitions-cta" to="/udstillinger">
-                Gå til siden Udstillinger
+                Gå til Udstillinger
               </Link>
             </section>
 
