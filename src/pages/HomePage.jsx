@@ -77,18 +77,6 @@ export default function HomePage() {
     <>
       <main id="main" className="site-main page page--home">
         <section id="featured-content" className="site-featured-content">
-          <div className="container">
-            <div className="featured-content-intro">
-              <p className="eyebrow">Karolines Hus</p>
-              <h2>Udvalgte kunstnere på forsiden</h2>
-              <p>
-                Mød nogle af de kunstnere, der udstiller i Karolines Hus i 2025.
-                Brug slideren til at udforske værker og gå videre til
-                kunstnersiderne.
-              </p>
-            </div>
-          </div>
-
           <div className="featured-content-fullbleed">
             <div className="featured-content-fullbleed__inner">
               <div id="kunstnere" className="featured-slider">
@@ -185,6 +173,24 @@ export default function HomePage() {
                   ))}
                 </div>
               ) : null}
+            </div>
+          </div>
+
+          <div className="container">
+            <div className="featured-content-intro">
+              <div className="featured-content-intro__text">
+                <p className="eyebrow">Karolines Hus på Fur</p>
+                <h2>Kunstnere i fokus</h2>
+                <p>
+                  Farver, former og fortællinger mødes i Karolines Hus. Her på
+                  siden finder du et udvalg af årets kunstnere i 2025. Lad
+                  slideren føre dig gennem værkerne, og gå videre til
+                  kunstnersiderne for at dykke ned i hver enkelt stemme.
+                </p>
+              </div>
+              <Link className="featured-content-intro__cta" to="/kunstnere">
+                Se alle kunstnere
+              </Link>
             </div>
           </div>
         </section>

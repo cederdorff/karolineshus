@@ -20,12 +20,12 @@ export const artistCategoryOrder = [
 ];
 
 export const artistCategoryLabels = {
-  billedkunstner: "Billedkunstnere",
+  billedkunstner: "Billedkunstner",
   fotograf: "Fotograf",
-  grafiker: "Grafikere",
-  keramiker: "Keramikere",
-  maler: "Malere",
-  skulptoer: "Skulptører",
+  grafiker: "Grafiker",
+  keramiker: "Keramiker",
+  maler: "Maler",
+  skulptoer: "Skulptør",
 };
 
 export const legacyGraphics = [
