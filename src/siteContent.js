@@ -625,9 +625,9 @@ export const homeStories = [
   {
     title: "Ellen Bye Jensen",
     meta: "Billedkunstner",
+    slug: "ellen-bye-jensen",
     excerpt:
       "Farver, lys og landskaber er kernen i mit kunstneriske arbejde. Fra Limfjordens bløde horisont til Umbriens dramatiske bjerglandskaber fanger jeg naturens bevægelser på lærredet.",
-    body: "Min kunst handler ikke om at gengive, men om at fortolke og føle. Fur og Umbrien har formet mit kunstneriske udtryk og præger fortsat mit arbejde.",
   },
 ];
 

@@ -3,6 +3,7 @@ import {
   exhibitions2025,
   featuredArtists,
   getArtistDisplayImageUrl,
+  getArtistBySlug,
   homeStories,
   openingPeriods,
 } from "../siteContent";
@@ -269,13 +270,41 @@ export default function HomePage() {
             </section>
 
             {regularStories.map((story) => (
-              <article key={story.title} className="archive-post">
-                <header className="entry-header">
-                  <p className="entry-meta">{story.meta}</p>
-                  <h2 className="entry-title">{story.title}</h2>
-                </header>
-                <p>{story.excerpt}</p>
-                {story.body ? <p>{story.body}</p> : null}
+              <article
+                key={story.title}
+                className="archive-post archive-post--with-image"
+              >
+                {story.slug ? (
+                  <Link
+                    className="archive-post__thumbnail"
+                    to={`/kunstnere/${story.slug}`}
+                    tabIndex="-1"
+                    aria-hidden="true"
+                  >
+                    <img
+                      src={getArtistDisplayImageUrl(
+                        getArtistBySlug(story.slug),
+                      )}
+                      alt={story.title}
+                      loading="lazy"
+                    />
+                  </Link>
+                ) : null}
+                <div className="archive-post__body">
+                  <header className="entry-header">
+                    <p className="entry-meta">{story.meta}</p>
+                    <h2 className="entry-title">{story.title}</h2>
+                  </header>
+                  <p className="archive-post__excerpt">{story.excerpt}</p>
+                  {story.slug ? (
+                    <Link
+                      className="archive-post__read-more"
+                      to={`/kunstnere/${story.slug}`}
+                    >
+                      Læs mere om {story.title}
+                    </Link>
+                  ) : null}
+                </div>
               </article>
             ))}
           </section>
@@ -309,12 +338,6 @@ export default function HomePage() {
                   </li>
                 ))}
               </ul>
-            </section>
-
-            <section className="widget widget--notice">
-              <h2 className="widget-title">Sommerudstilling</h2>
-              <p>05.07.2025 til 31.08.2025</p>
-              <p>Vi glæder os til at se dig i Karolines Hus på Fur.</p>
             </section>
           </aside>
         </div>
