@@ -1,5 +1,9 @@
 import { Link } from "react-router";
-import { artistsByCategory } from "../siteContent";
+import {
+  artistCategoryLabels,
+  artistsByCategory,
+  getArtistDisplayImageUrl,
+} from "../siteContent";
 
 export default function ArtistsPage() {
   return (
@@ -22,10 +26,34 @@ export default function ArtistsPage() {
               <header className="entry-header">
                 <h2 className="entry-title category-title">{group.label}</h2>
               </header>
-              <ul className="artist-list-grid">
+              <ul className="artist-overview-grid">
                 {group.artists.map((artist) => (
                   <li key={artist.slug}>
-                    <Link to={`/kunstnere/${artist.slug}`}>{artist.name}</Link>
+                    <Link
+                      className="artist-overview-card"
+                      to={`/kunstnere/${artist.slug}`}
+                    >
+                      {getArtistDisplayImageUrl(artist) ? (
+                        <img
+                          className="artist-overview-card__image"
+                          src={getArtistDisplayImageUrl(artist)}
+                          alt={artist.name}
+                          loading="lazy"
+                        />
+                      ) : null}
+                      <div className="artist-overview-card__body">
+                        <p className="artist-overview-card__meta">
+                          {artistCategoryLabels[artist.category] ||
+                            artist.category}
+                        </p>
+                        <h3 className="artist-overview-card__title">
+                          {artist.name}
+                        </h3>
+                        <p className="artist-overview-card__excerpt">
+                          {artist.excerpt}
+                        </p>
+                      </div>
+                    </Link>
                   </li>
                 ))}
               </ul>

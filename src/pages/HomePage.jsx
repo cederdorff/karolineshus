@@ -111,6 +111,8 @@ export default function HomePage() {
                         const isVisible =
                           index >= activeSlide &&
                           index < activeSlide + visibleSlides;
+                        const featuredImageUrl =
+                          getArtistDisplayImageUrl(artist);
 
                         return (
                           <article
@@ -118,17 +120,19 @@ export default function HomePage() {
                             className={`featured-slide${isVisible ? " is-visible" : ""}`}
                             style={{ flex: `0 0 ${100 / visibleSlides}%` }}
                           >
-                            <Link
-                              to={`/kunstnere/${artist.slug}`}
-                              className="featured-slide__media"
-                            >
-                              <img
-                                className="entry-thumbnail entry-thumbnail--featured"
-                                src={getArtistDisplayImageUrl(artist)}
-                                alt={artist.name}
-                                loading="lazy"
-                              />
-                            </Link>
+                            {featuredImageUrl ? (
+                              <Link
+                                to={`/kunstnere/${artist.slug}`}
+                                className="featured-slide__media"
+                              >
+                                <img
+                                  className="entry-thumbnail entry-thumbnail--featured"
+                                  src={featuredImageUrl}
+                                  alt={artist.name}
+                                  loading="lazy"
+                                />
+                              </Link>
+                            ) : null}
                             <header className="entry-header">
                               <p className="featured-posts-cate">
                                 {artist.categoryLabel || artist.category}
@@ -139,7 +143,9 @@ export default function HomePage() {
                                 </Link>
                               </h3>
                             </header>
-                            <p>{artist.excerpt}</p>
+                            <p className="featured-slide__excerpt">
+                              {artist.excerpt}
+                            </p>
                           </article>
                         );
                       })}
