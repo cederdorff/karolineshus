@@ -7,7 +7,7 @@ export const contactInfo = {
   website: "www.karolineshus.dk",
 };
 
-export const logoUrl = "logo.png";
+export const logoUrl = `${import.meta.env.BASE_URL}logo.png`;
 
 export const artistCategoryOrder = [
   "billedkunstner",
@@ -28,11 +28,13 @@ export const artistCategoryLabels = {
 };
 
 export const aboutGalleryImages = [
-  "https://web.archive.org/web/20251111230940im_/https://i1.wp.com/karolineshus.dk/wp-content/uploads/2016/08/om-1.jpg?resize=1024%2C573&ssl=1",
-  "https://web.archive.org/web/20251111230940im_/https://i1.wp.com/karolineshus.dk/wp-content/uploads/2016/08/karolineshus2_new.jpg",
-  "https://web.archive.org/web/20251111230940im_/https://i0.wp.com/karolineshus.dk/wp-content/uploads/2016/08/karolineshus3_new.jpg",
-  "https://web.archive.org/web/20251111230940im_/https://i1.wp.com/karolineshus.dk/wp-content/uploads/2016/08/karolineshus4_new.jpg",
+  `${import.meta.env.BASE_URL}karolineshus/karolineshus-1.jpeg`,
+  `${import.meta.env.BASE_URL}karolineshus/karolineshus-2.jpeg`,
+  `${import.meta.env.BASE_URL}karolineshus/karolineshus-3.jpeg`,
+  `${import.meta.env.BASE_URL}karolineshus/karolineshus-4.jpeg`,
 ];
+
+export const contactPageImageUrl = `${import.meta.env.BASE_URL}karolineshus/karolineshus-5.jpeg`;
 
 export const openingPeriods = [
   "12.04.2025 til 21.04.2025",
@@ -41,7 +43,7 @@ export const openingPeriods = [
 ];
 
 export const exhibitionPage = {
-  heroImageUrl: `${import.meta.env.BASE_URL}karolineshus.jpeg`,
+  heroImageUrl: `${import.meta.env.BASE_URL}karolineshus/karolineshus.jpeg`,
   openingPeriods,
   artistsByName: {
     "Ellen Bye Jensen": { slug: "ellen-bye-jensen" },
@@ -68,6 +70,15 @@ export const artists = [
     bio: "Uddannet sygeplejerske og sociolog med kunstnerisk forankring fra Ranum Kunstskole. Arbejder især i olie og fortolker landskaber frem for at gengive dem direkte. Siden en studierejse i 2019 har umbriske motiver fra Italien indgået som en naturlig del af hendes billedunivers side om side med Fur.",
   },
   {
+    name: "Ginette Wien",
+    slug: "ginette-wien",
+    category: "keramiker",
+    imageUrl: aboutGalleryImages[1],
+    excerpt:
+      "Keramiker med forkærlighed for håndmodellerede figurer, hvor hver skulptur har sit eget udtryk.",
+    bio: "Ginette Wien arbejder eksperimenterende med stentøj og porcelænsler. Hendes figurer opstår i hånden og får karakter gennem lag på lag af glasur, dekoration og højbrænding. Hun lader sig inspirere af menneskelige relationer og naturens former, og hendes værker balancerer mellem det humoristiske og det poetiske. Hver figur er unik og bærer præg af en omhyggelig, sanselig arbejdsproces.",
+  },
+  {
     name: "Linda Lildholdt",
     slug: "linda-lildholdt",
     category: "billedkunstner",
@@ -79,15 +90,30 @@ export const artists = [
     bio: "Arbejder med geometriske og amorfe former i flere medier og beskriver skiftet mellem maleri, grafik og keramik som en kreativ vekslen mellem frihed og præcision. Farve, form og materialitet bruges bevidst for at skabe en sanselig oplevelse i værket.",
   },
   {
-    name: "Erik Muff Reinert",
-    slug: "erik-muff-reinert",
-    category: "billedkunstner",
-    featuredImageUrl: `${import.meta.env.BASE_URL}erik-muff-reinert.png`,
-    imageUrl:
-      "https://web.archive.org/web/20251111234614im_/https://i1.wp.com/karolineshus.dk/wp-content/uploads/2025/03/image0-3-erik.jpg?fit=844%2C1200&ssl=1",
+    name: "Inge Lis Jørgensen",
+    slug: "inge-lis-joergensen",
+    category: "maler",
+    imageUrl: aboutGalleryImages[3],
+    excerpt: "Maler og akvarellist med sans for naturens rytmer og farvespil.",
+    bio: "Inge Lis Jørgensen arbejder både figurativt og abstrakt i akvarel og olie. Hendes motiver udspringer ofte af naturoplevelser, hvor hun indfanger stemninger, rytmer og farveklange fra landskaber og årstidernes skiften. Hun søger at skabe billeder, der inviterer til fordybelse og eftertanke, og hendes værker balancerer mellem det spontane og det velovervejede.",
+  },
+  {
+    name: "Bente Stæhr",
+    slug: "bente-staehr",
+    category: "maler",
+    imageUrl: aboutGalleryImages[0],
     excerpt:
-      "Arbejder med kuglepennetegninger, hvor dans, lethed og bevægelse står i centrum.",
-    bio: "Kendt for en karakteristisk kuglepensteknik, som han har genoptaget og forfinet. Værkerne fremhæver den ubekymrede og poetiske side af menneskelig bevægelse med et let, men præcist linjesprog.",
+      "Maler med mange års erfaring, der eksperimenterer med motiver, teknikker og farver.",
+    bio: "Bente Stæhr har gennem årene udviklet et personligt og eksperimenterende udtryk. Hun arbejder med både figurative og abstrakte motiver og lader sig inspirere af natur, stemninger og farvesammensætninger. Hendes praksis er præget af nysgerrighed og lysten til at afprøve nye teknikker, hvilket giver værkerne en levende og undersøgende karakter.",
+  },
+  {
+    name: "Torben Klostergaard",
+    slug: "torben-klostergaard",
+    category: "skulptoer",
+    imageUrl: aboutGalleryImages[2],
+    excerpt:
+      "Skulptør, der arbejder med dyr og mennesker i levende, karakterfulde former.",
+    bio: "Torben Klostergaard skaber skulpturer i ler, bronze og andre materialer med fokus på kropsudtryk, bevægelse og karakter. Hans værker spænder fra det naturalistiske til det fabulerende, og han er kendt for at indfange både humor og poesi i sine figurer. Inspirationen hentes ofte fra hverdagslivet, naturen og menneskets relationer, og han arbejder med stor sans for detalje og form.",
   },
   {
     name: "Ole Kildegaard",
@@ -232,9 +258,8 @@ export const artists = [
     slug: "inge-lis-joergensen",
     category: "maler",
     imageUrl: aboutGalleryImages[3],
-    excerpt:
-      "Arbejder med akvarel og oliemaleri, figurativt såvel som abstrakt.",
-    bio: "Inspireres af naturoplevelser, rytmer og farveklange i både ydre og indre landskaber.",
+    excerpt: "Maler og akvarellist med sans for naturens rytmer og farvespil.",
+    bio: "Inge Lis Jørgensen arbejder både figurativt og abstrakt i akvarel og olie. Hendes motiver udspringer ofte af naturoplevelser, hvor hun indfanger stemninger, rytmer og farveklange fra landskaber og årstidernes skiften. Hun søger at skabe billeder, der inviterer til fordybelse og eftertanke, og hendes værker balancerer mellem det spontane og det velovervejede.",
   },
   {
     name: "Bente Stæhr",
@@ -242,8 +267,8 @@ export const artists = [
     category: "maler",
     imageUrl: aboutGalleryImages[0],
     excerpt:
-      "Maler med mange års eksperimenter, kursusforløb og udstillingspraksis.",
-    bio: "Har udviklet sit udtryk gennem langvarig eksperimentering med motiver og teknikker.",
+      "Maler med mange års erfaring, der eksperimenterer med motiver, teknikker og farver.",
+    bio: "Bente Stæhr har gennem årene udviklet et personligt og eksperimenterende udtryk. Hun arbejder med både figurative og abstrakte motiver og lader sig inspirere af natur, stemninger og farvesammensætninger. Hendes praksis er præget af nysgerrighed og lysten til at afprøve nye teknikker, hvilket giver værkerne en levende og undersøgende karakter.",
   },
   {
     name: "Helle Crawford",
@@ -282,8 +307,8 @@ export const artists = [
     category: "skulptoer",
     imageUrl: aboutGalleryImages[2],
     excerpt:
-      "Skulptør med fokus på dyr, mennesker og karakterfulde kropsudtryk.",
-    bio: "Kendt for at fange essens og bevægelse med både humor, bid og poetisk præcision.",
+      "Skulptør, der arbejder med dyr og mennesker i levende, karakterfulde former.",
+    bio: "Torben Klostergaard skaber skulpturer i ler, bronze og andre materialer med fokus på kropsudtryk, bevægelse og karakter. Hans værker spænder fra det naturalistiske til det fabulerende, og han er kendt for at indfange både humor og poesi i sine figurer. Inspirationen hentes ofte fra hverdagslivet, naturen og menneskets relationer, og han arbejder med stor sans for detalje og form.",
   },
   {
     name: "Steen Thomsen",

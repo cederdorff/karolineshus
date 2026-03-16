@@ -1,4 +1,8 @@
-import { contactInfo, openingPeriods } from "../siteContent";
+import {
+  contactInfo,
+  contactPageImageUrl,
+  openingPeriods,
+} from "../siteContent";
 
 export default function ContactPage() {
   return (
@@ -7,6 +11,11 @@ export default function ContactPage() {
         <div className="container home-content-layout">
           <section className="content-primary">
             <article className="archive-post">
+              <img
+                className="artist-detail__image"
+                src={contactPageImageUrl}
+                alt="Karolines Hus set udefra"
+              />
               <header className="entry-header">
                 <p className="entry-meta">Kontakt</p>
                 <h1 className="entry-title">Besøg Karolines Hus</h1>
