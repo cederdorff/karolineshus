@@ -178,19 +178,21 @@ export default function HomePage() {
 
           <div className="container">
             <div className="featured-content-intro">
-              <div className="featured-content-intro__text">
+              <div className="featured-content-intro__heading">
                 <p className="eyebrow">Karolines Hus på Fur</p>
                 <h2>Kunstnere i fokus</h2>
+              </div>
+              <div className="featured-content-intro__body">
                 <p>
                   Farver, former og fortællinger mødes i Karolines Hus. Her på
                   siden finder du et udvalg af årets kunstnere i 2025. Lad
                   slideren føre dig gennem værkerne, og gå videre til
                   kunstnersiderne for at dykke ned i hver enkelt stemme.
                 </p>
+                <Link className="featured-content-intro__cta" to="/kunstnere">
+                  Se alle kunstnere
+                </Link>
               </div>
-              <Link className="featured-content-intro__cta" to="/kunstnere">
-                Se alle kunstnere
-              </Link>
             </div>
           </div>
         </section>
