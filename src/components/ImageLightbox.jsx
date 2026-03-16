@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 export default function ImageLightbox({
   images,
@@ -6,6 +6,9 @@ export default function ImageLightbox({
   setActiveIndex,
   dialogLabel,
 }) {
+  const contentRef = useRef(null);
+  const closeButtonRef = useRef(null);
+  const lastFocusedElementRef = useRef(null);
   const isOpen = activeIndex >= 0;
   const imageCount = images.length;
   const activeImage = images[activeIndex];
@@ -35,6 +38,52 @@ export default function ImageLightbox({
       window.removeEventListener("keydown", onKeyDown);
     };
   }, [imageCount, isOpen, setActiveIndex]);
+
+  useEffect(() => {
+    if (!isOpen) {
+      if (lastFocusedElementRef.current instanceof HTMLElement) {
+        lastFocusedElementRef.current.focus({ preventScroll: true });
+      }
+      return;
+    }
+
+    lastFocusedElementRef.current = document.activeElement;
+    closeButtonRef.current?.focus({ preventScroll: true });
+
+    const onKeyDown = (event) => {
+      if (event.key !== "Tab") {
+        return;
+      }
+
+      const focusableElements = contentRef.current?.querySelectorAll(
+        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])',
+      );
+
+      if (!focusableElements || focusableElements.length === 0) {
+        return;
+      }
+
+      const firstElement = focusableElements[0];
+      const lastElement = focusableElements[focusableElements.length - 1];
+
+      if (event.shiftKey && document.activeElement === firstElement) {
+        event.preventDefault();
+        lastElement.focus();
+        return;
+      }
+
+      if (!event.shiftKey && document.activeElement === lastElement) {
+        event.preventDefault();
+        firstElement.focus();
+      }
+    };
+
+    window.addEventListener("keydown", onKeyDown);
+
+    return () => {
+      window.removeEventListener("keydown", onKeyDown);
+    };
+  }, [isOpen]);
 
   if (!isOpen || !activeImage) {
     return null;
@@ -66,11 +115,13 @@ export default function ImageLightbox({
     >
       <div
         className="artist-lightbox__content"
+        ref={contentRef}
         onClick={(event) => event.stopPropagation()}
       >
         <button
           type="button"
           className="artist-lightbox__close"
+          ref={closeButtonRef}
           onClick={() => setActiveIndex(-1)}
           aria-label="Luk galleri"
         >

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link, useParams } from "react-router";
 import {
   getArtistBySlug,
@@ -12,6 +12,9 @@ export default function ArtistPage({ forcedSlug }) {
   const params = useParams();
   const slug = forcedSlug || params.slug;
   const [lightboxIndex, setLightboxIndex] = useState(-1);
+  const lightboxContentRef = useRef(null);
+  const lightboxCloseRef = useRef(null);
+  const lastFocusedElementRef = useRef(null);
   const artist = getArtistBySlug(slug);
   const artistImageUrl = artist ? getArtistDisplayImageUrl(artist) : "";
   const artistImagePool = artist ? getArtistGalleryImageUrls(artist) : [];
@@ -61,6 +64,52 @@ export default function ArtistPage({ forcedSlug }) {
       window.removeEventListener("keydown", onKeyDown);
     };
   }, [isLightboxOpen, lightboxImageUrls.length]);
+
+  useEffect(() => {
+    if (!isLightboxOpen) {
+      if (lastFocusedElementRef.current instanceof HTMLElement) {
+        lastFocusedElementRef.current.focus({ preventScroll: true });
+      }
+      return;
+    }
+
+    lastFocusedElementRef.current = document.activeElement;
+    lightboxCloseRef.current?.focus({ preventScroll: true });
+
+    const onKeyDown = (event) => {
+      if (event.key !== "Tab") {
+        return;
+      }
+
+      const focusableElements = lightboxContentRef.current?.querySelectorAll(
+        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])',
+      );
+
+      if (!focusableElements || focusableElements.length === 0) {
+        return;
+      }
+
+      const firstElement = focusableElements[0];
+      const lastElement = focusableElements[focusableElements.length - 1];
+
+      if (event.shiftKey && document.activeElement === firstElement) {
+        event.preventDefault();
+        lastElement.focus();
+        return;
+      }
+
+      if (!event.shiftKey && document.activeElement === lastElement) {
+        event.preventDefault();
+        firstElement.focus();
+      }
+    };
+
+    window.addEventListener("keydown", onKeyDown);
+
+    return () => {
+      window.removeEventListener("keydown", onKeyDown);
+    };
+  }, [isLightboxOpen]);
 
   const openLightboxFromUrl = (imageUrl) => {
     const index = lightboxImageUrls.indexOf(imageUrl);
@@ -239,11 +288,13 @@ export default function ArtistPage({ forcedSlug }) {
         >
           <div
             className="artist-lightbox__content"
+            ref={lightboxContentRef}
             onClick={(event) => event.stopPropagation()}
           >
             <button
               type="button"
               className="artist-lightbox__close"
+              ref={lightboxCloseRef}
               onClick={() => setLightboxIndex(-1)}
               aria-label="Luk galleri"
             >

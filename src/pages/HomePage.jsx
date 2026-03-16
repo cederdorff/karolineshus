@@ -105,7 +105,7 @@ export default function HomePage() {
                     </button>
                   ) : null}
 
-                  <div className="featured-slider__viewport" aria-live="polite">
+                  <div className="featured-slider__viewport" aria-live="off">
                     <div
                       className="featured-slider__track"
                       style={{
