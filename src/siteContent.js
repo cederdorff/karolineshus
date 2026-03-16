@@ -13,19 +13,23 @@ export const logoUrl = `${import.meta.env.BASE_URL}logo.webp`;
 export const artistCategoryOrder = [
   "billedkunstner",
   "fotograf",
+  "glaskunstner",
   "grafiker",
   "keramiker",
   "maler",
   "skulptoer",
+  "traedrjer",
 ];
 
 export const artistCategoryLabels = {
   billedkunstner: "Billedkunstner",
   fotograf: "Fotograf",
+  glaskunstner: "Glaskunstner",
   grafiker: "Grafiker",
   keramiker: "Keramiker",
   maler: "Maler",
   skulptoer: "Skulptør",
+  traedrjer: "Trædrejer",
 };
 
 export const aboutGalleryImages = [
@@ -37,24 +41,19 @@ export const aboutGalleryImages = [
 
 export const contactPageImageUrl = `${import.meta.env.BASE_URL}karolineshus/karolineshus-1.webp`;
 
-export const openingPeriods = [
-  "12.04.2025 til 21.04.2025",
-  "07.06.2025 til 12.06.2025",
-  "05.07.2025 til 31.08.2025",
-];
-
 export const exhibitionPage = {
   heroImageUrl: `${import.meta.env.BASE_URL}karolineshus/karolineshus.webp`,
-  openingPeriods,
   artistsByName: {
     "Ellen Bye Jensen": { slug: "ellen-bye-jensen" },
     "Erik Muff Reinert": { slug: "erik-muff-reinert" },
+    'Gunnar "Splint"': { slug: "gunnar-splint" },
     "Helle Crawford": { slug: "helle-crawford" },
     "Ingrid Dalby Nielsen": { slug: "ingrid-dalby-nielsen" },
     "Karen Kristensen": { slug: "karen-kristensen" },
     "Linda Lildholdt": { slug: "linda-lildholdt" },
     "Ole Kildegaard": { slug: "ole-kildegaard" },
     "Stine Juul": { slug: "stine-juul" },
+    "Tina Lofstad": { slug: "tina-lofstad" },
   },
 };
 
@@ -290,14 +289,6 @@ export const artists = [
     bio: "Er en del af den grafiske linje i Karolines Hus' udstillingshistorik.",
   },
   {
-    name: "Søren Bjælde",
-    slug: "soeren-bjaelde",
-    category: "grafiker",
-    imageUrl: aboutGalleryImages[2],
-    excerpt: "Grafiker med international udstillingsaktivitet og bred praksis.",
-    bio: "Medlem af Billedkunstnernes Forbund med arbejde i grafik, illustration og keramik.",
-  },
-  {
     name: "Karen Kristensen",
     slug: "karen-kristensen",
     category: "keramiker",
@@ -476,6 +467,76 @@ export const artists = [
     excerpt: "Arbejder med intuitiv stenkunst og granittens oprindelige form.",
     bio: "Skaber harmoniske skulpturer med respekt for stenens naturlige karakter og struktur.",
   },
+  {
+    name: "Tina Lofstad",
+    slug: "tina-lofstad",
+    category: "glaskunstner",
+    featuredImageUrl: `${import.meta.env.BASE_URL}kunstnere/tina-lofstad/tina-lofstad.webp`,
+    galleryImageUrls: [
+      `${import.meta.env.BASE_URL}kunstnere/tina-lofstad/tina-lofstad-1.webp`,
+      `${import.meta.env.BASE_URL}kunstnere/tina-lofstad/tina-lofstad-2.webp`,
+      `${import.meta.env.BASE_URL}kunstnere/tina-lofstad/tina-lofstad-3.webp`,
+      `${import.meta.env.BASE_URL}kunstnere/tina-lofstad/tina-lofstad-4.webp`,
+      `${import.meta.env.BASE_URL}kunstnere/tina-lofstad/tina-lofstad-5.webp`,
+    ],
+    excerpt:
+      "Glaskunstner og glaspuster i Viborg med klassisk håndværksuddannelse fra Orrefors og et farverigt, enkelt formsprog.",
+    bio: "Tina Lofstad driver Glaspusteriet i Viborg, som hun åbnede i 2003. Hun arbejder i spændet mellem klare farver, naiv enkelhed og rent, klart glas, og beskriver glasarbejdet som sin passion og rette hylde.",
+    sections: [
+      {
+        title: "Vejen til glaspusteriet",
+        subtitle: "Fra Bornholm til Orrefors",
+        paragraphs: [
+          "Tina Lofstad har altid vidst, at hun skulle arbejde kreativt. På en cykelferie på Bornholm trådte hun ind i et glaspusteri og vidste instinktivt, at det var hendes vej.",
+          "Hun fik sin klassiske håndværkeruddannelse på Glasskolen i Orrefors i Sverige, en faglighed der stadig præger hendes formsprog med det skandinaviske udtryk og sansen for det enkle.",
+          "I hendes værker mødes stærke, klare farver med en forkærlighed for små detaljer og et naivt, legende præg, samtidig med at hun holder fast i kærligheden til det klare glas.",
+        ],
+      },
+      {
+        title: "Glas som liv",
+        subtitle: "Glaspusteriet i Viborg",
+        paragraphs: [
+          "Siden 2003 har Tina Lofstad drevet sit eget glaspusteri i Viborg. Hun beskriver arbejdet som krævende, men ville ikke bytte det for noget.",
+          "Glas er for hende både et håndværk og en livsform: spændende, kreativt og dybt personligt.",
+          "Glas er mig. Glas er mit liv.",
+        ],
+      },
+    ],
+  },
+  {
+    name: 'Gunnar "Splint"',
+    slug: "gunnar-splint",
+    category: "traedrjer",
+    featuredImageUrl: `${import.meta.env.BASE_URL}kunstnere/gunnar-splint/gunnar-splint.webp`,
+    galleryImageUrls: [
+      `${import.meta.env.BASE_URL}kunstnere/gunnar-splint/gunnar-splint-1.webp`,
+      `${import.meta.env.BASE_URL}kunstnere/gunnar-splint/gunnar-splint-2.webp`,
+      `${import.meta.env.BASE_URL}kunstnere/gunnar-splint/gunnar-splint-3.webp`,
+    ],
+    excerpt:
+      "Manden bag Splints Kunstdrejeri, hvor et ydmygt stykke træ forvandles til enkle, smukke og sanselige værker.",
+    bio: 'Gunnar "Splint" Christensen er trædrejer på Fur med mere end 50 års erfaring. I hans værksted opstår både kunsthåndværk og møbler i massivt, anløbet træ, formet med stor kærlighed til materialet og håndværket.',
+    sections: [
+      {
+        title: "Splints Kunstdrejeri",
+        subtitle: "Når træet begynder at snurre",
+        paragraphs: [
+          'For Gunnar "Splint" Christensen starter arbejdet med et stykke træ og ender i noget, der er en fryd for øjet og som man næsten ikke kan lade være med at røre ved.',
+          "Han arbejder med alle tænkelige træsorter og trives særligt, når træet har karakter og særlige åretegninger. Jo mere specielt træet er, jo mere levende bliver processen.",
+          "Han ser intet job som umuligt, så længe træet tillader det og emnet kan være i drejebænken. For ham er det fantasien, der sætter grænsen.",
+        ],
+      },
+      {
+        title: "Møbler i massivt træ",
+        subtitle: "Fra specialbord til reol",
+        paragraphs: [
+          "I det store værksted fremstiller han spiseborde, sofaborde, haveborde og reoler i smukt, anløbet, massivt træ.",
+          "Kunder kan designe med selv ved valg af planker og mål, blandt andet til spiseborde med længde omkring 210 cm og bredde efter ønske.",
+          "Har du en traeidé, du gerne vil have virkeliggjort, tager Gunnar gerne dialogen. Han hører også gerne fra folk, der har træ, de vil af med.",
+        ],
+      },
+    ],
+  },
 ];
 
 export const featuredArtistSlugs = [
@@ -487,6 +548,8 @@ export const featuredArtistSlugs = [
   "ingrid-dalby-nielsen",
   "ole-kildegaard",
   "ellen-bye-jensen",
+  "tina-lofstad",
+  "gunnar-splint",
 ];
 
 export const featuredArtists = artists
@@ -578,50 +641,31 @@ export function getArtistBySlug(slug) {
   return artists.find((artist) => artist.slug === slug);
 }
 
-export const artists2025Widget = [
-  { name: "Ellen Bye Jensen", slug: "ellen-bye-jensen" },
-  { name: "Erik Muff Reinert", slug: "erik-muff-reinert" },
-  { name: "Helle Crawford", slug: "helle-crawford" },
-  { name: "Ingrid Dalby Nielsen", slug: "ingrid-dalby-nielsen" },
-  { name: "Karen Kristensen", slug: "karen-kristensen" },
-  { name: "Linda Lildholdt", slug: "linda-lildholdt" },
-  { name: "Ole Kildegaard", slug: "ole-kildegaard" },
-  { name: "Stine Juul", slug: "stine-juul" },
-];
+export const openingPeriods = ["02.04.2026 til 06.04.2026"];
 
-export const exhibitions2025 = [
+export const exhibitions = [
   {
     title: "Påskeudstilling",
-    period: "12.04.2025 – 21.04.2025",
-    artists: [
-      "Ellen Bye Jensen",
-      "Erik Muff Reinert",
-      "Ingrid Dalby Nielsen",
-      "Karen Kristensen",
-      "Ole Kildegaard",
-    ],
+    period: "02.04.2026 – 06.04.2026",
+    artists: ["Ellen Bye Jensen", "Tina Lofstad", 'Gunnar "Splint"'],
   },
-  {
-    title: "Sommerudstilling",
-    period: "05.07.2025 – 31.08.2025",
-    artists: [
-      "Ellen Bye Jensen",
-      "Stine Juul",
-      "Linda Lildholdt",
-      "Helle Crawford",
-    ],
-    note: "I Karolines Hus udstilles der en kunstner til væg og en til gulv på hvert plan.",
-  },
+];
+
+export const kunstVedLimfjorden = {
+  label: "Kunstdage ved Limfjorden",
+  url: "https://www.destinationlimfjorden.dk/limfjorden/oplevelser/kunst-kultur",
+  imageUrl: `${import.meta.env.BASE_URL}kunstdage.webp`,
+  description:
+    "Karolines Hus er en del af Kunstdage ved Limfjorden – udforsk kunst og kultur langs hele Limfjorden.",
+};
+
+export const artistsWidget = [
+  { name: "Ellen Bye Jensen", slug: "ellen-bye-jensen" },
+  { name: "Tina Lofstad", slug: "tina-lofstad" },
+  { name: 'Gunnar "Splint"', slug: "gunnar-splint" },
 ];
 
 export const homeStories = [
-  {
-    title: "Udstillinger i 2025",
-    meta: "Nyheder / admin / 26.03.2025",
-    excerpt:
-      "På denne side kan du læse mere om udstillingsterminer i Karolines Hus. Karolines Hus åbner d. 12.04.2025 med en påskeudstilling, som varer til og med d. 21.04.2025 kl. 17.",
-    body: "Sommerudstillingen varer fra d. 05.07.2025 til og med 31.08.2025. Onsdage er lukkedage, og der er altid mulighed for aftaler uden for sæsonen.",
-  },
   {
     title: "Ellen Bye Jensen",
     meta: "Billedkunstner",

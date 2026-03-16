@@ -3,7 +3,8 @@ import { useState } from "react";
 import {
   contactInfo,
   exhibitionPage,
-  exhibitions2025,
+  exhibitions,
+  kunstVedLimfjorden,
   openingPeriods,
 } from "../siteContent";
 import ImageLightbox from "../components/ImageLightbox";
@@ -39,7 +40,7 @@ export default function ExhibitionsPage() {
             </button>
             <header className="entry-header">
               <p className="entry-meta">Udstillinger</p>
-              <h1 className="entry-title">Udstillinger i 2025</h1>
+              <h1 className="entry-title">Udstillinger</h1>
             </header>
             <p>
               Her finder du årets udstillingsprogram i Karolines Hus med
@@ -51,7 +52,7 @@ export default function ExhibitionsPage() {
             </p>
 
             <div className="exhibition-grid exhibition-grid--graphic">
-              {exhibitions2025.map((exhibition) => (
+              {exhibitions.map((exhibition) => (
                 <article
                   key={exhibition.title}
                   className="exhibition-card exhibition-card--graphic"
@@ -108,8 +109,7 @@ export default function ExhibitionsPage() {
 
         <aside className="sidebar widget-area" role="complementary">
           <section className="widget">
-            <h2 className="widget-title">Åbningstider 2025</h2>
-            <p>I 2025 har vi åbent i perioderne:</p>
+            <h2 className="widget-title">Åbningstider 2026</h2>
             <ul className="detail-list detail-list--compact">
               {openingPeriods.map((period) => (
                 <li key={period}>{period}</li>
@@ -125,6 +125,33 @@ export default function ExhibitionsPage() {
               Ønsker du at besøge galleriet i vinterperioden, er du altid
               velkommen til at kontakte os og aftale en tid.
             </p>
+          </section>
+
+          <section className="widget">
+            <h2 className="widget-title">{kunstVedLimfjorden.label}</h2>
+            <a
+              href={kunstVedLimfjorden.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="widget-kunstdage-link"
+            >
+              <img
+                src={kunstVedLimfjorden.imageUrl}
+                alt={kunstVedLimfjorden.label}
+                className="widget-kunstdage-logo"
+                loading="lazy"
+                decoding="async"
+              />
+            </a>
+            <p>{kunstVedLimfjorden.description}</p>
+            <a
+              href={kunstVedLimfjorden.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="widget-external-link"
+            >
+              Besøg Destinationlimfjorden.dk
+            </a>
           </section>
         </aside>
       </div>

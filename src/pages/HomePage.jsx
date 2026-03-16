@@ -1,11 +1,13 @@
 import {
   exhibitionPage,
-  exhibitions2025,
+  exhibitions,
   featuredArtists,
   getArtistDisplayImageUrl,
   getArtistBySlug,
   homeStories,
   openingPeriods,
+  artistsWidget,
+  kunstVedLimfjorden,
 } from "../siteContent";
 import { useEffect, useState } from "react";
 import { Link } from "react-router";
@@ -25,9 +27,7 @@ export default function HomePage() {
   const totalSlides = featuredArtists.length;
   const maxStartIndex = Math.max(totalSlides - visibleSlides, 0);
   const canSlide = maxStartIndex > 0;
-  const regularStories = homeStories.filter(
-    (story) => story.title !== "Udstillinger i 2025",
-  );
+  const regularStories = homeStories;
 
   useEffect(() => {
     const updateVisibleSlides = () => {
@@ -206,9 +206,10 @@ export default function HomePage() {
               <div className="featured-content-intro__body">
                 <p>
                   Farver, former og fortællinger mødes i Karolines Hus. Her på
-                  siden finder du et udvalg af årets kunstnere i 2025. Lad
-                  slideren føre dig gennem værkerne, og gå videre til
-                  kunstnersiderne for at dykke ned i hver enkelt stemme.
+                  siden finder du et udvalg af kunstnere, der udstiller i
+                  Karolines Hus. Lad slideren føre dig gennem værkerne, og gå
+                  videre til kunstnersiderne for at dykke ned i hver enkelt
+                  stemme.
                 </p>
                 <Link className="featured-content-intro__cta" to="/kunstnere">
                   Se alle kunstnere
@@ -223,10 +224,10 @@ export default function HomePage() {
             <section className="archive-post archive-post--compact archive-post--exhibitions">
               <header className="entry-header">
                 <p className="entry-meta">Udstillinger</p>
-                <h2 className="entry-title">Udstillinger i 2025</h2>
+                <h2 className="entry-title">Påskeudstilling 2026</h2>
               </header>
               <div className="exhibition-grid exhibition-grid--graphic">
-                {exhibitions2025.map((exhibition) => (
+                {exhibitions.map((exhibition) => (
                   <article
                     key={exhibition.title}
                     className="exhibition-card exhibition-card--graphic"
@@ -322,8 +323,7 @@ export default function HomePage() {
             role="complementary"
           >
             <section className="widget">
-              <h2 className="widget-title">Åbningstider 2025</h2>
-              <p>I 2025 har vi åbent i perioderne:</p>
+              <h2 className="widget-title">Åbningstider 2026</h2>
               <ul className="detail-list detail-list--compact">
                 {openingPeriods.map((period) => (
                   <li key={period}>{period}</li>
@@ -337,14 +337,41 @@ export default function HomePage() {
             </section>
 
             <section className="widget">
-              <h2 className="widget-title">Kunstnere i 2025</h2>
+              <h2 className="widget-title">Kunstnere i 2026</h2>
               <ul className="widget-menu">
-                {featuredArtists.map((artist) => (
+                {artistsWidget.map((artist) => (
                   <li key={artist.name}>
                     <Link to={`/kunstnere/${artist.slug}`}>{artist.name}</Link>
                   </li>
                 ))}
               </ul>
+            </section>
+
+            <section className="widget">
+              <h2 className="widget-title">{kunstVedLimfjorden.label}</h2>
+              <a
+                href={kunstVedLimfjorden.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="widget-kunstdage-link"
+              >
+                <img
+                  src={kunstVedLimfjorden.imageUrl}
+                  alt={kunstVedLimfjorden.label}
+                  className="widget-kunstdage-logo"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </a>
+              <p>{kunstVedLimfjorden.description}</p>
+              <a
+                href={kunstVedLimfjorden.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="widget-external-link"
+              >
+                Besøg Destinationlimfjorden.dk
+              </a>
             </section>
           </aside>
         </div>

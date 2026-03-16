@@ -73,10 +73,7 @@ export default function ContactPage() {
 
           <aside className="sidebar widget-area" role="complementary">
             <section className="widget">
-              <h2 className="widget-title">Åbningstider</h2>
-              <p>
-                <strong>Åbningsperioder i 2025</strong>
-              </p>
+              <h2 className="widget-title">Åbningstider 2026</h2>
               <ul className="detail-list detail-list--compact">
                 {openingPeriods.map((period) => (
                   <li key={period}>{period}</li>

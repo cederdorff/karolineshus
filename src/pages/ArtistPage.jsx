@@ -5,7 +5,7 @@ import {
   artistCategoryLabels,
   getArtistDisplayImageUrl,
   getArtistGalleryImageUrls,
-  artists2025Widget,
+  artistsWidget,
 } from "../siteContent";
 
 export default function ArtistPage({ forcedSlug }) {
@@ -252,15 +252,13 @@ export default function ArtistPage({ forcedSlug }) {
             </section>
           ) : null}
           <section className="widget">
-            <h2 className="widget-title">Kunstnere i 2025</h2>
+            <h2 className="widget-title">Kunstnere i 2026</h2>
             <ul className="widget-menu">
-              {artists2025Widget
-                .filter((artist2025) => artist2025.slug !== slug)
-                .map((artist2025) => (
-                  <li key={artist2025.slug}>
-                    <Link to={`/kunstnere/${artist2025.slug}`}>
-                      {artist2025.name}
-                    </Link>
+              {artistsWidget
+                .filter((a) => a.slug !== slug)
+                .map((a) => (
+                  <li key={a.slug}>
+                    <Link to={`/kunstnere/${a.slug}`}>{a.name}</Link>
                   </li>
                 ))}
             </ul>
