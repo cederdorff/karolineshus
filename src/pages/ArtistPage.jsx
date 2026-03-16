@@ -1,20 +1,92 @@
+import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router";
 import {
   getArtistBySlug,
   artistCategoryLabels,
   getArtistDisplayImageUrl,
+  getArtistGalleryImageUrls,
   artists2025Widget,
 } from "../siteContent";
 
 export default function ArtistPage({ forcedSlug }) {
   const params = useParams();
   const slug = forcedSlug || params.slug;
+  const [lightboxIndex, setLightboxIndex] = useState(-1);
   const artist = getArtistBySlug(slug);
   const artistImageUrl = artist ? getArtistDisplayImageUrl(artist) : "";
+  const artistGalleryImageUrls = artist
+    ? getArtistGalleryImageUrls(artist)
+    : [];
+  const galleryImagesWithoutLead = artistGalleryImageUrls.filter(
+    (imageUrl) => imageUrl !== artistImageUrl,
+  );
   const sections = Array.isArray(artist?.sections) ? artist.sections : [];
   const memberships = Array.isArray(artist?.memberships)
     ? artist.memberships
     : [];
+  const isLightboxOpen = lightboxIndex >= 0;
+  const lightboxImageUrl = artistGalleryImageUrls[lightboxIndex] || "";
+
+  useEffect(() => {
+    if (!isLightboxOpen) {
+      return;
+    }
+
+    const onKeyDown = (event) => {
+      if (event.key === "Escape") {
+        setLightboxIndex(-1);
+      }
+
+      if (event.key === "ArrowRight" && artistGalleryImageUrls.length > 1) {
+        setLightboxIndex(
+          (current) => (current + 1) % artistGalleryImageUrls.length,
+        );
+      }
+
+      if (event.key === "ArrowLeft" && artistGalleryImageUrls.length > 1) {
+        setLightboxIndex(
+          (current) =>
+            (current - 1 + artistGalleryImageUrls.length) %
+            artistGalleryImageUrls.length,
+        );
+      }
+    };
+
+    window.addEventListener("keydown", onKeyDown);
+
+    return () => {
+      window.removeEventListener("keydown", onKeyDown);
+    };
+  }, [isLightboxOpen, artistGalleryImageUrls.length]);
+
+  const openLightboxFromUrl = (imageUrl) => {
+    const index = artistGalleryImageUrls.indexOf(imageUrl);
+    if (index >= 0) {
+      setLightboxIndex(index);
+    }
+  };
+
+  const showPreviousImage = () => {
+    if (artistGalleryImageUrls.length <= 1) {
+      return;
+    }
+
+    setLightboxIndex(
+      (current) =>
+        (current - 1 + artistGalleryImageUrls.length) %
+        artistGalleryImageUrls.length,
+    );
+  };
+
+  const showNextImage = () => {
+    if (artistGalleryImageUrls.length <= 1) {
+      return;
+    }
+
+    setLightboxIndex(
+      (current) => (current + 1) % artistGalleryImageUrls.length,
+    );
+  };
 
   if (!artist) {
     return (
@@ -43,11 +115,18 @@ export default function ArtistPage({ forcedSlug }) {
             className={`archive-post artist-detail${artistImageUrl ? "" : " artist-detail--no-image"}`}
           >
             {artistImageUrl ? (
-              <img
-                className="artist-detail__image"
-                src={artistImageUrl}
-                alt={artist.name}
-              />
+              <button
+                type="button"
+                className="artist-image-button"
+                onClick={() => openLightboxFromUrl(artistImageUrl)}
+                aria-label={`Vis stort billede af ${artist.name}`}
+              >
+                <img
+                  className="artist-detail__image"
+                  src={artistImageUrl}
+                  alt={artist.name}
+                />
+              </button>
             ) : null}
             <header className="entry-header">
               <p className="entry-meta">
@@ -77,6 +156,29 @@ export default function ArtistPage({ forcedSlug }) {
                 <p>{artist.reviewQuote}</p>
                 {artist.reviewMeta ? <cite>{artist.reviewMeta}</cite> : null}
               </blockquote>
+            ) : null}
+
+            {galleryImagesWithoutLead.length > 0 ? (
+              <section className="artist-gallery">
+                <h2 className="artist-section__title">Galleri</h2>
+                <div className="artist-gallery__grid">
+                  {galleryImagesWithoutLead.map((imageUrl, index) => (
+                    <button
+                      key={imageUrl}
+                      type="button"
+                      className="artist-gallery__item"
+                      onClick={() => openLightboxFromUrl(imageUrl)}
+                      aria-label={`Vis stort galleri-billede ${index + 1}`}
+                    >
+                      <img
+                        src={imageUrl}
+                        alt={`${artist.name} værk ${index + 1}`}
+                        loading="lazy"
+                      />
+                    </button>
+                  ))}
+                </div>
+              </section>
             ) : null}
           </article>
         </section>
@@ -126,6 +228,62 @@ export default function ArtistPage({ forcedSlug }) {
           </section>
         </aside>
       </div>
+
+      {isLightboxOpen ? (
+        <div
+          className="artist-lightbox"
+          role="dialog"
+          aria-modal="true"
+          aria-label={`Galleri for ${artist.name}`}
+          onClick={() => setLightboxIndex(-1)}
+        >
+          <div
+            className="artist-lightbox__content"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <button
+              type="button"
+              className="artist-lightbox__close"
+              onClick={() => setLightboxIndex(-1)}
+              aria-label="Luk galleri"
+            >
+              ×
+            </button>
+
+            {artistGalleryImageUrls.length > 1 ? (
+              <button
+                type="button"
+                className="artist-lightbox__nav artist-lightbox__nav--prev"
+                onClick={showPreviousImage}
+                aria-label="Forrige billede"
+              >
+                ‹
+              </button>
+            ) : null}
+
+            <img
+              className="artist-lightbox__image"
+              src={lightboxImageUrl}
+              alt={`${artist.name} galleri`}
+            />
+
+            {artistGalleryImageUrls.length > 1 ? (
+              <button
+                type="button"
+                className="artist-lightbox__nav artist-lightbox__nav--next"
+                onClick={showNextImage}
+                aria-label="Næste billede"
+              >
+                ›
+              </button>
+            ) : null}
+
+            <p className="artist-lightbox__counter">
+              {lightboxIndex + 1} / {artistGalleryImageUrls.length}
+            </p>
+          </div>
+        </div>
+      ) : null}
     </main>
   );
 }

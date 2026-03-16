@@ -62,8 +62,12 @@ export const artists = [
     name: "Ellen Bye Jensen",
     slug: "ellen-bye-jensen",
     category: "billedkunstner",
-    featuredImageUrl: `${import.meta.env.BASE_URL}ellen-bye-jensen-1.jpg`,
-    imageUrl: `${import.meta.env.BASE_URL}ellen-bye-jensen-2.jpg`,
+    featuredImageUrl: `${import.meta.env.BASE_URL}kunstnere/ellen-bye-jensen/ellen-bye-jensen.jpg`,
+    galleryImageUrls: [
+      `${import.meta.env.BASE_URL}kunstnere/ellen-bye-jensen/ellen-bye-jensen-1.jpg`,
+      `${import.meta.env.BASE_URL}kunstnere/ellen-bye-jensen/ellen-bye-jensen-2.jpg`,
+      `${import.meta.env.BASE_URL}kunstnere/ellen-bye-jensen/ellen-bye-jensen-3.jpg`,
+    ],
     excerpt:
       "Maler farvemættede, impressionistiske landskaber inspireret af lyset over Limfjorden og naturens stemninger på Fur.",
     bio: "Uddannet sygeplejerske og sociolog med kunstnerisk forankring fra Ranum Kunstskole. Arbejder især i olie og fortolker landskaber frem for at gengive dem direkte. Siden en studierejse i 2019 har umbriske motiver fra Italien indgået som en naturlig del af hendes billedunivers side om side med Fur.",
@@ -140,7 +144,7 @@ export const artists = [
     name: "Linda Lildholdt",
     slug: "linda-lildholdt",
     category: "billedkunstner",
-    featuredImageUrl: `${import.meta.env.BASE_URL}linda-lildholdt.png`,
+    featuredImageUrl: `${import.meta.env.BASE_URL}kunstnere/linda-lildholdt/linda-lildholdt.png`,
     imageUrl:
       "https://web.archive.org/web/20251111232558im_/https://i1.wp.com/karolineshus.dk/wp-content/uploads/2025/05/Forbundet-4-%E2%80%93-80x80-cm.jpg?fit=1200%2C1192&ssl=1",
     excerpt:
@@ -163,7 +167,7 @@ export const artists = [
     name: "Erik Muff Reinert",
     slug: "erik-muff-reinert",
     category: "billedkunstner",
-    featuredImageUrl: `${import.meta.env.BASE_URL}erik-muff-reinert.png`,
+    featuredImageUrl: `${import.meta.env.BASE_URL}kunstnere/erik-muff-reinert/erik-muff-reinert.png`,
     imageUrl:
       "https://web.archive.org/web/20251111234614im_/https://i1.wp.com/karolineshus.dk/wp-content/uploads/2025/03/image0-3-erik.jpg?fit=844%2C1200&ssl=1",
     excerpt:
@@ -200,7 +204,7 @@ export const artists = [
     name: "Ole Kildegaard",
     slug: "ole-kildegaard",
     category: "billedkunstner",
-    featuredImageUrl: `${import.meta.env.BASE_URL}ole-kildegaard.png`,
+    featuredImageUrl: `${import.meta.env.BASE_URL}kunstnere/ole-kildegaard/ole-kildegaard.png`,
     imageUrl:
       "https://web.archive.org/web/20251111231508im_/https://i2.wp.com/karolineshus.dk/wp-content/uploads/2025/03/kildegaard1.jpg?fit=904%2C1200&ssl=1",
     excerpt:
@@ -225,7 +229,7 @@ export const artists = [
     name: "Ulla Houe",
     slug: "ulla-houe",
     category: "billedkunstner",
-    imageUrl: `${import.meta.env.BASE_URL}ulla-houe.jpg`,
+    imageUrl: `${import.meta.env.BASE_URL}kunstnere/ulla-houe/ulla-houe.jpg`,
     excerpt:
       "Arbejder med kompositionens skelet, kolorit og kraftfulde billedrum.",
     bio: "Fokuserer på store linjer, struktur og kunstens bærende kompositionelle principper.",
@@ -234,7 +238,7 @@ export const artists = [
     name: "Maiken Hejnfelt",
     slug: "maiken-hejnfelt",
     category: "billedkunstner",
-    imageUrl: aboutGalleryImages[1],
+    imageUrl: `${import.meta.env.BASE_URL}kunstnere/maiken-hejnfelt/maiken-hejnfelt.jpg`,
     excerpt:
       "Professionel billedkunstner med atelier og galleri ved Roskilde Fjord.",
     bio: "Arbejder i akryl, olie, akvarel og pastel og har i mange år også undervist i billedkunst.",
@@ -296,7 +300,7 @@ export const artists = [
     name: "Karen Kristensen",
     slug: "karen-kristensen",
     category: "keramiker",
-    featuredImageUrl: `${import.meta.env.BASE_URL}karen-kristensen.png`,
+    featuredImageUrl: `${import.meta.env.BASE_URL}kunstnere/karen-kristensen/karen-kristensen.png`,
     imageUrl:
       "https://web.archive.org/web/20251111234802im_/https://i2.wp.com/karolineshus.dk/wp-content/uploads/2025/03/kk.jpg?fit=720%2C632&ssl=1",
     excerpt:
@@ -362,7 +366,7 @@ export const artists = [
     name: "Ingrid Dalby Nielsen",
     slug: "ingrid-dalby-nielsen",
     category: "maler",
-    featuredImageUrl: `${import.meta.env.BASE_URL}ingrid-dalby-nielsen.png`,
+    featuredImageUrl: `${import.meta.env.BASE_URL}kunstnere/ingrid-dalby-nielsen/ingrid-dalby-nielsen.png`,
     imageUrl:
       "https://web.archive.org/web/20260117031622im_/https://i2.wp.com/karolineshus.dk/wp-content/uploads/2025/03/IMG_5153-rotated-e1742974744596.jpeg?fit=1200%2C902&ssl=1",
     excerpt:
@@ -394,7 +398,7 @@ export const artists = [
     name: "Helle Crawford",
     slug: "helle-crawford",
     category: "skulptoer",
-    featuredImageUrl: `${import.meta.env.BASE_URL}helle-crawford.png`,
+    featuredImageUrl: `${import.meta.env.BASE_URL}kunstnere/helle-crawford/helle-crawford.png`,
     imageUrl:
       "https://web.archive.org/web/20250807165551im_/https://i0.wp.com/karolineshus.dk/wp-content/uploads/2025/05/Helle_Rask_Crawford_Papirba-den_Br-onze_kobber_emalje_h10cm_2021-scaled.jpeg?fit=1200%2C1062&ssl=1",
     excerpt:
@@ -419,7 +423,7 @@ export const artists = [
     name: "Stine Juul",
     slug: "stine-juul",
     category: "skulptoer",
-    featuredImageUrl: `${import.meta.env.BASE_URL}stine-juul.png`,
+    featuredImageUrl: `${import.meta.env.BASE_URL}kunstnere/stine-juul/stine-juul.png`,
     imageUrl:
       "https://web.archive.org/web/20251215042858im_/https://i0.wp.com/karolineshus.dk/wp-content/uploads/2025/05/3.-Stine-Juul.jpeg?fit=915%2C1200&ssl=1",
     excerpt:
@@ -498,21 +502,75 @@ export const artistsByCategory = artistCategoryOrder.map((categoryKey) => ({
 }));
 
 export function getArtistDisplayImageUrl(artist) {
-  const candidateImageUrl = artist.featuredImageUrl || artist.imageUrl;
+  return getArtistGalleryImageUrls(artist)[0] || "";
+}
 
-  if (!candidateImageUrl) {
-    return "";
+function isValidArtistImageUrl(imageUrl) {
+  if (!imageUrl) {
+    return false;
   }
 
-  if (aboutGalleryImages.includes(candidateImageUrl)) {
-    return "";
+  if (aboutGalleryImages.includes(imageUrl)) {
+    return false;
   }
 
-  if (candidateImageUrl.includes("cropped-favicon")) {
-    return "";
+  if (imageUrl.includes("cropped-favicon")) {
+    return false;
   }
 
-  return candidateImageUrl;
+  return true;
+}
+
+function escapeRegex(value) {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+function getFileNameFromUrl(imageUrl) {
+  return imageUrl.split("?")[0].split("#")[0].split("/").pop() || "";
+}
+
+function getImageOrderForArtistSlug(imageUrl, slug) {
+  const fileName = getFileNameFromUrl(imageUrl);
+  const escapedSlug = escapeRegex(slug);
+
+  const featuredPattern = new RegExp(`^${escapedSlug}\\.[a-zA-Z0-9]+$`, "i");
+  if (featuredPattern.test(fileName)) {
+    return 0;
+  }
+
+  const galleryPattern = new RegExp(
+    `^${escapedSlug}-(\\d+)\\.[a-zA-Z0-9]+$`,
+    "i",
+  );
+  const match = fileName.match(galleryPattern);
+  if (match) {
+    return Number(match[1]);
+  }
+
+  return Number.POSITIVE_INFINITY;
+}
+
+export function getArtistGalleryImageUrls(artist) {
+  if (!artist) {
+    return [];
+  }
+
+  const candidateUrls = [
+    artist.featuredImageUrl,
+    artist.imageUrl,
+    ...(Array.isArray(artist.galleryImageUrls) ? artist.galleryImageUrls : []),
+  ].filter(isValidArtistImageUrl);
+
+  return Array.from(new Set(candidateUrls)).sort((a, b) => {
+    const orderA = getImageOrderForArtistSlug(a, artist.slug);
+    const orderB = getImageOrderForArtistSlug(b, artist.slug);
+
+    if (orderA !== orderB) {
+      return orderA - orderB;
+    }
+
+    return a.localeCompare(b);
+  });
 }
 
 export function getArtistBySlug(slug) {
@@ -580,7 +638,6 @@ export const footerLinks = [
   },
   { label: "Kontakt", href: `${import.meta.env.BASE_URL}kontakt` },
 ];
-
 export const aboutParagraphs = [
   "Karolines Hus er opstået omkring billedkunstneren Ellen Bye Jensen som et sted, hvor hun og hendes netværk kan udstille deres kunst.",
   "Galleriets mål er at udbrede kunsten til almindelige menneskers hjem. Ambitionen er ikke at sælge dyr kunst, men at sælge gode billeder af kunstnere, der måske ikke er så kendte.",
