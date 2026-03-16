@@ -254,13 +254,11 @@ export default function ArtistPage({ forcedSlug }) {
           <section className="widget">
             <h2 className="widget-title">Kunstnere i 2026</h2>
             <ul className="widget-menu">
-              {artistsWidget
-                .filter((a) => a.slug !== slug)
-                .map((a) => (
-                  <li key={a.slug}>
-                    <Link to={`/kunstnere/${a.slug}`}>{a.name}</Link>
-                  </li>
-                ))}
+              {artistsWidget.map((a) => (
+                <li key={a.slug}>
+                  <Link to={`/kunstnere/${a.slug}`}>{a.name}</Link>
+                </li>
+              ))}
             </ul>
           </section>
           <section className="widget">

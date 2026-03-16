@@ -540,6 +540,9 @@ export const artists = [
 ];
 
 export const featuredArtistSlugs = [
+  "ellen-bye-jensen",
+  "tina-lofstad",
+  "gunnar-splint",
   "helle-crawford",
   "linda-lildholdt",
   "stine-juul",
@@ -547,9 +550,6 @@ export const featuredArtistSlugs = [
   "karen-kristensen",
   "ingrid-dalby-nielsen",
   "ole-kildegaard",
-  "ellen-bye-jensen",
-  "tina-lofstad",
-  "gunnar-splint",
 ];
 
 export const featuredArtists = artists
