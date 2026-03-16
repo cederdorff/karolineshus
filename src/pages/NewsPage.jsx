@@ -1,7 +1,17 @@
 import { Link } from "react-router";
+import { useState } from "react";
 import { exhibitionPage, exhibitions2025 } from "../siteContent";
+import ImageLightbox from "../components/ImageLightbox";
 
 export default function ExhibitionsPage() {
+  const [lightboxIndex, setLightboxIndex] = useState(-1);
+  const lightboxImages = [
+    {
+      url: exhibitionPage.heroImageUrl,
+      alt: "Karolines Hus",
+    },
+  ];
+
   const asidePeriods = [
     "12.04.2025 til 21.04.2025.",
     "07.06.2025 til 12.06.2025",
@@ -13,11 +23,18 @@ export default function ExhibitionsPage() {
       <div className="container home-content-layout">
         <section className="content-primary">
           <article className="archive-post exhibitions-page__overview">
-            <img
-              className="artist-detail__image"
-              src={exhibitionPage.heroImageUrl}
-              alt="Karolines Hus"
-            />
+            <button
+              type="button"
+              className="artist-image-button"
+              onClick={() => setLightboxIndex(0)}
+              aria-label="Vis stort billede af Karolines Hus"
+            >
+              <img
+                className="artist-detail__image"
+                src={exhibitionPage.heroImageUrl}
+                alt="Karolines Hus"
+              />
+            </button>
             <header className="entry-header">
               <h1 className="entry-title">Udstillinger i 2025</h1>
             </header>
@@ -92,6 +109,12 @@ export default function ExhibitionsPage() {
           </section>
         </aside>
       </div>
+      <ImageLightbox
+        images={lightboxImages}
+        activeIndex={lightboxIndex}
+        setActiveIndex={setLightboxIndex}
+        dialogLabel="Billede fra Karolines Hus"
+      />
     </main>
   );
 }

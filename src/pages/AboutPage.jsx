@@ -4,8 +4,16 @@ import {
   contactInfo,
   siteNote,
 } from "../siteContent";
+import { useState } from "react";
+import ImageLightbox from "../components/ImageLightbox";
 
 export default function AboutPage() {
+  const [lightboxIndex, setLightboxIndex] = useState(-1);
+  const lightboxImages = aboutGalleryImages.map((imageUrl, index) => ({
+    url: imageUrl,
+    alt: `Karolines Hus galleri foto ${index + 1}`,
+  }));
+
   return (
     <>
       <main className="page classic-page">
@@ -39,12 +47,19 @@ export default function AboutPage() {
               </p>
               <div className="about-gallery">
                 {aboutGalleryImages.map((imageUrl, index) => (
-                  <img
+                  <button
                     key={imageUrl}
-                    src={imageUrl}
-                    alt={`Karolines Hus galleri foto ${index + 1}`}
-                    loading="lazy"
-                  />
+                    type="button"
+                    className="artist-image-button"
+                    onClick={() => setLightboxIndex(index)}
+                    aria-label={`Vis stort galleri-billede ${index + 1}`}
+                  >
+                    <img
+                      src={imageUrl}
+                      alt={`Karolines Hus galleri foto ${index + 1}`}
+                      loading="lazy"
+                    />
+                  </button>
                 ))}
               </div>
             </article>
@@ -62,6 +77,12 @@ export default function AboutPage() {
           </aside>
         </div>
       </main>
+      <ImageLightbox
+        images={lightboxImages}
+        activeIndex={lightboxIndex}
+        setActiveIndex={setLightboxIndex}
+        dialogLabel="Galleri for Karolines Hus"
+      />
     </>
   );
 }

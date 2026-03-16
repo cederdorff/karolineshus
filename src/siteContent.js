@@ -34,7 +34,7 @@ export const aboutGalleryImages = [
   `${import.meta.env.BASE_URL}karolineshus/karolineshus-4.jpeg`,
 ];
 
-export const contactPageImageUrl = `${import.meta.env.BASE_URL}karolineshus/karolineshus-5.jpeg`;
+export const contactPageImageUrl = `${import.meta.env.BASE_URL}karolineshus/karolineshus-1.jpeg`;
 
 export const openingPeriods = [
   "12.04.2025 til 21.04.2025",

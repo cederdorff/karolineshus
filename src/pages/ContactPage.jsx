@@ -3,19 +3,36 @@ import {
   contactPageImageUrl,
   openingPeriods,
 } from "../siteContent";
+import { useState } from "react";
+import ImageLightbox from "../components/ImageLightbox";
 
 export default function ContactPage() {
+  const [lightboxIndex, setLightboxIndex] = useState(-1);
+  const lightboxImages = [
+    {
+      url: contactPageImageUrl,
+      alt: "Karolines Hus set udefra",
+    },
+  ];
+
   return (
     <>
       <main className="page classic-page">
         <div className="container home-content-layout">
           <section className="content-primary">
             <article className="archive-post">
-              <img
-                className="artist-detail__image"
-                src={contactPageImageUrl}
-                alt="Karolines Hus set udefra"
-              />
+              <button
+                type="button"
+                className="artist-image-button"
+                onClick={() => setLightboxIndex(0)}
+                aria-label="Vis stort billede af Karolines Hus"
+              >
+                <img
+                  className="artist-detail__image"
+                  src={contactPageImageUrl}
+                  alt="Karolines Hus set udefra"
+                />
+              </button>
               <header className="entry-header">
                 <p className="entry-meta">Kontakt</p>
                 <h1 className="entry-title">Besøg Karolines Hus</h1>
@@ -69,6 +86,12 @@ export default function ContactPage() {
           </aside>
         </div>
       </main>
+      <ImageLightbox
+        images={lightboxImages}
+        activeIndex={lightboxIndex}
+        setActiveIndex={setLightboxIndex}
+        dialogLabel="Billede af Karolines Hus"
+      />
     </>
   );
 }
