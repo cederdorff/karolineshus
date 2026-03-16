@@ -804,6 +804,10 @@ h3,
   object-fit: cover;
 }
 
+.artist-overview-card .featured-slide__media {
+  cursor: pointer;
+}
+
 .artist-overview-card__body {
   padding: 0.85rem 0.95rem 1rem;
 }
