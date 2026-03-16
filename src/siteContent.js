@@ -381,7 +381,7 @@ export const footerLinks = [
   { label: "Om os", href: `${import.meta.env.BASE_URL}om` },
   {
     label: "Ellen Bye Jensen",
-    href: `${import.meta.env.BASE_URL}ellen-bye-jensen`,
+    href: `${import.meta.env.BASE_URL}kunstnere/ellen-bye-jensen`,
   },
   { label: "Kontakt", href: `${import.meta.env.BASE_URL}kontakt` },
 ];

@@ -4,7 +4,6 @@ import {
   featuredArtists,
   getArtistDisplayImageUrl,
   homeStories,
-  legacyGraphics,
   openingPeriods,
 } from "../siteContent";
 import { useEffect, useState } from "react";
@@ -299,18 +298,6 @@ export default function HomePage() {
               <h2 className="widget-title">Sommerudstilling</h2>
               <p>05.07.2025 til 31.08.2025</p>
               <p>Vi glæder os til at se dig i Karolines Hus på Fur.</p>
-            </section>
-
-            <section className="widget widget--graphics">
-              <h2 className="widget-title">Historiske grafikker</h2>
-              <div className="widget-graphics">
-                {legacyGraphics.map((graphic) => (
-                  <figure key={graphic.title}>
-                    <img src={graphic.url} alt={graphic.title} loading="lazy" />
-                    <figcaption>{graphic.title}</figcaption>
-                  </figure>
-                ))}
-              </div>
             </section>
           </aside>
         </div>

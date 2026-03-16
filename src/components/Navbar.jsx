@@ -24,7 +24,9 @@ export default function Navbar() {
                   <NavLink to="/om">Om os</NavLink>
                 </li>
                 <li>
-                  <NavLink to="/ellen-bye-jensen">Ellen Bye Jensen</NavLink>
+                  <NavLink to="/kunstnere/ellen-bye-jensen">
+                    Ellen Bye Jensen
+                  </NavLink>
                 </li>
                 <li>
                   <NavLink to="/kontakt">Kontakt</NavLink>

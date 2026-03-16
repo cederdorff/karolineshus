@@ -18,10 +18,6 @@ export default function App() {
         <Route path="/udstillinger" element={<ExhibitionsPage />} />
         <Route path="/kunstnere" element={<ArtistsPage />} />
         <Route path="/kunstnere/:slug" element={<ArtistPage />} />
-        <Route
-          path="/ellen-bye-jensen"
-          element={<ArtistPage forcedSlug="ellen-bye-jensen" />}
-        />
         <Route path="/om" element={<AboutPage />} />
         <Route path="/kontakt" element={<ContactPage />} />
         <Route path="*" element={<NotFoundPage />} />

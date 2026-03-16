@@ -1,22 +1,7 @@
 import { Link } from "react-router";
-import { exhibitionPage } from "../siteContent";
+import { exhibitionPage, exhibitions2025 } from "../siteContent";
 
 export default function ExhibitionsPage() {
-  const easterArtists = [
-    "Ellen Bye Jensen",
-    "Erik Muff Reinert",
-    "Ingrid Dalby Nielsen",
-    "Karen Kristensen",
-    "Ole Kildegaard",
-  ];
-
-  const summerArtists = [
-    "Ellen Bye Jensen",
-    "Stine Juul",
-    "Linda Lildholdt",
-    "Helle Crawford",
-  ];
-
   const asidePeriods = [
     "12.04.2025 til 21.04.2025.",
     "07.06.2025 til 12.06.2025",
@@ -27,7 +12,7 @@ export default function ExhibitionsPage() {
     <main className="page classic-page">
       <div className="container home-content-layout">
         <section className="content-primary">
-          <article className="archive-post">
+          <article className="archive-post exhibitions-page__overview">
             <img
               className="artist-detail__image"
               src={exhibitionPage.heroImageUrl}
@@ -43,33 +28,33 @@ export default function ExhibitionsPage() {
             </p>
             <p>Læs mere om udstillingerne på denne side.</p>
 
-            <h2 className="entry-title">Påskeudstilling</h2>
-            <p>12.04.2025 – 21.04.2025</p>
-            <ul className="detail-list detail-list--compact">
-              {easterArtists.map((artistName) => {
-                const artist = exhibitionPage.artistsByName[artistName];
-                if (!artist) return <li key={artistName}>{artistName}</li>;
-                return (
-                  <li key={artistName}>
-                    <Link to={`/kunstnere/${artist.slug}`}>{artistName}</Link>
-                  </li>
-                );
-              })}
-            </ul>
+            <div className="exhibition-grid exhibition-grid--graphic">
+              {exhibitions2025.map((exhibition) => (
+                <article
+                  key={exhibition.title}
+                  className="exhibition-card exhibition-card--graphic"
+                >
+                  <p className="featured-posts-cate">{exhibition.title}</p>
+                  <p className="exhibition-card__period">{exhibition.period}</p>
+                  <ul className="detail-list detail-list--compact">
+                    {exhibition.artists.map((artistName) => {
+                      const artist = exhibitionPage.artistsByName[artistName];
 
-            <h2 className="entry-title">Sommerudstilling</h2>
-            <p>05.07.2025 – 31.08.2025</p>
-            <ul className="detail-list detail-list--compact">
-              {summerArtists.map((artistName) => {
-                const artist = exhibitionPage.artistsByName[artistName];
-                if (!artist) return <li key={artistName}>{artistName}</li>;
-                return (
-                  <li key={artistName}>
-                    <Link to={`/kunstnere/${artist.slug}`}>{artistName}</Link>
-                  </li>
-                );
-              })}
-            </ul>
+                      if (!artist)
+                        return <li key={artistName}>{artistName}</li>;
+
+                      return (
+                        <li key={artistName}>
+                          <Link to={`/kunstnere/${artist.slug}`}>
+                            {artistName}
+                          </Link>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </article>
+              ))}
+            </div>
 
             <p>Vi glæder os til at se dig!</p>
             <p>
