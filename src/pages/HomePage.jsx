@@ -83,6 +83,7 @@ export default function HomePage() {
         tabIndex="-1"
         className="site-main page page--home"
       >
+        <h1 className="sr-only">Karolines Hus</h1>
         <section id="featured-content" className="site-featured-content">
           <div className="featured-content-fullbleed">
             <div className="featured-content-fullbleed__inner">
@@ -143,11 +144,11 @@ export default function HomePage() {
                               <p className="featured-posts-cate">
                                 {artist.categoryLabel || artist.category}
                               </p>
-                              <h3 className="entry-title">
+                              <p className="entry-title">
                                 <Link to={`/kunstnere/${artist.slug}`}>
                                   {artist.name}
                                 </Link>
-                              </h3>
+                              </p>
                             </header>
                             <p className="featured-slide__excerpt">
                               {artist.excerpt}
