@@ -19,7 +19,7 @@ export default function ArtistsPage() {
 
   return (
     <>
-      <main className="page classic-page">
+      <main id="main-content" tabIndex="-1" className="page classic-page">
         <div className="container">
           <article className="archive-post">
             <header className="entry-header">
@@ -27,8 +27,10 @@ export default function ArtistsPage() {
               <h1 className="entry-title">Alle kunstnere</h1>
             </header>
             <p>
-              Kunstnerne er inddelt i kategorier som på den tidligere version af
-              sitet. Hver kunstner har sin egen underside.
+              Her finder du kunstnerne i Karolines Hus samlet efter fagområde.
+              Gå på opdagelse i maleri, grafik, fotografi, keramik og skulptur,
+              og klik dig videre til de enkelte kunstnersider for at læse mere
+              og se billeder af værkerne.
             </p>
           </article>
 

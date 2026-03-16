@@ -2,6 +2,7 @@ export const contactInfo = {
   name: "Karolines Hus",
   subtitle: "Galleriet på Fur",
   addressLines: ["Madsbadvej 40", "7884 Fur", "Danmark"],
+  mapsUrl: "https://maps.google.com/?q=Madsbadvej+40,+7884+Fur,+Danmark",
   phones: ["61 37 75 62", "40 43 48 17"],
   email: "karoline@energimail.dk",
   website: "www.karolineshus.dk",

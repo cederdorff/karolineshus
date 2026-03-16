@@ -19,7 +19,7 @@ export default function ExhibitionsPage() {
   ];
 
   return (
-    <main className="page classic-page">
+    <main id="main-content" tabIndex="-1" className="page classic-page">
       <div className="container home-content-layout">
         <section className="content-primary">
           <article className="archive-post exhibitions-page__overview">

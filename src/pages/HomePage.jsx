@@ -85,7 +85,11 @@ export default function HomePage() {
 
   return (
     <>
-      <main id="main" className="site-main page page--home">
+      <main
+        id="main-content"
+        tabIndex="-1"
+        className="site-main page page--home"
+      >
         <section id="featured-content" className="site-featured-content">
           <div className="featured-content-fullbleed">
             <div className="featured-content-fullbleed__inner">

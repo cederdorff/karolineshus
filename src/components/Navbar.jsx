@@ -1,4 +1,4 @@
-import { NavLink } from "react-router";
+import { Link, NavLink } from "react-router";
 import { contactInfo, logoUrl } from "../siteContent";
 
 export default function Navbar() {
@@ -39,13 +39,13 @@ export default function Navbar() {
 
       <div className="site-branding">
         <div className="container site-branding__inner">
-          <a
+          <Link
             className="custom-logo-link"
-            href={import.meta.env.BASE_URL}
-            aria-label={contactInfo.name}
+            to="/"
+            aria-label={`Gå til forsiden hos ${contactInfo.name}`}
           >
             <img className="custom-logo" src={logoUrl} alt={contactInfo.name} />
-          </a>
+          </Link>
           <div className="site-branding__text">
             <h1 className="site-title">{contactInfo.name}</h1>
             <p className="site-description">{contactInfo.subtitle}</p>

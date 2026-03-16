@@ -1,6 +1,8 @@
+import { useEffect } from "react";
 import { Routes, Route, useLocation } from "react-router";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import RouteMetadata from "./components/RouteMetadata";
 import HomePage from "./pages/HomePage";
 import ExhibitionsPage from "./pages/NewsPage";
 import ArtistsPage from "./pages/ArtistsPage";
@@ -12,8 +14,25 @@ import NotFoundPage from "./pages/NotFoundPage";
 export default function App() {
   const location = useLocation();
 
+  useEffect(() => {
+    const frameId = window.requestAnimationFrame(() => {
+      const mainContent = document.getElementById("main-content");
+      if (mainContent) {
+        mainContent.focus();
+      }
+    });
+
+    return () => {
+      window.cancelAnimationFrame(frameId);
+    };
+  }, [location.pathname]);
+
   return (
     <div className="app-shell">
+      <RouteMetadata />
+      <a className="skip-link" href="#main-content">
+        Spring til indhold
+      </a>
       <Navbar />
       <div key={location.pathname} className="route-transition">
         <Routes location={location}>

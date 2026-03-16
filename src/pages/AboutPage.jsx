@@ -2,6 +2,7 @@ import {
   aboutGalleryImages,
   aboutParagraphs,
   contactInfo,
+  exhibitionPage,
   siteNote,
 } from "../siteContent";
 import { useState } from "react";
@@ -9,17 +10,35 @@ import ImageLightbox from "../components/ImageLightbox";
 
 export default function AboutPage() {
   const [lightboxIndex, setLightboxIndex] = useState(-1);
-  const lightboxImages = aboutGalleryImages.map((imageUrl, index) => ({
-    url: imageUrl,
-    alt: `Karolines Hus galleri foto ${index + 1}`,
-  }));
+  const lightboxImages = [
+    {
+      url: exhibitionPage.heroImageUrl,
+      alt: "Karolines Hus",
+    },
+    ...aboutGalleryImages.map((imageUrl, index) => ({
+      url: imageUrl,
+      alt: `Karolines Hus galleri foto ${index + 1}`,
+    })),
+  ];
 
   return (
     <>
-      <main className="page classic-page">
+      <main id="main-content" tabIndex="-1" className="page classic-page">
         <div className="container home-content-layout">
           <section className="content-primary">
             <article className="archive-post">
+              <button
+                type="button"
+                className="artist-image-button"
+                onClick={() => setLightboxIndex(0)}
+                aria-label="Vis stort billede af Karolines Hus"
+              >
+                <img
+                  className="artist-detail__image"
+                  src={exhibitionPage.heroImageUrl}
+                  alt="Karolines Hus"
+                />
+              </button>
               <header className="entry-header">
                 <p className="entry-meta">Om os</p>
                 <h1 className="entry-title">Historien om Karolines Hus</h1>
@@ -51,7 +70,7 @@ export default function AboutPage() {
                     key={imageUrl}
                     type="button"
                     className="artist-image-button"
-                    onClick={() => setLightboxIndex(index)}
+                    onClick={() => setLightboxIndex(index + 1)}
                     aria-label={`Vis stort galleri-billede ${index + 1}`}
                   >
                     <img
@@ -67,12 +86,26 @@ export default function AboutPage() {
 
           <aside className="sidebar widget-area" role="complementary">
             <section className="widget">
-              <h2 className="widget-title">Karolines Hus</h2>
+              <h2 className="widget-title">Besøg og kontakt</h2>
               <address className="contact-card__address">
-                {contactInfo.addressLines.map((line) => (
-                  <span key={line}>{line}</span>
-                ))}
+                <a href={contactInfo.mapsUrl} target="_blank" rel="noreferrer">
+                  {contactInfo.addressLines.map((line) => (
+                    <span key={line}>{line}</span>
+                  ))}
+                </a>
               </address>
+              <p>
+                <a href={`tel:+45${contactInfo.phones[0].replace(/\s+/g, "")}`}>
+                  {contactInfo.phones[0]}
+                </a>
+                <span className="contact-separator">/</span>
+                <a href={`tel:+45${contactInfo.phones[1].replace(/\s+/g, "")}`}>
+                  {contactInfo.phones[1]}
+                </a>
+              </p>
+              <p>
+                <a href={`mailto:${contactInfo.email}`}>{contactInfo.email}</a>
+              </p>
             </section>
           </aside>
         </div>

@@ -90,7 +90,7 @@ export default function ArtistPage({ forcedSlug }) {
 
   if (!artist) {
     return (
-      <main className="page classic-page">
+      <main id="main-content" tabIndex="-1" className="page classic-page">
         <div className="container">
           <article className="archive-post">
             <header className="entry-header">
@@ -108,7 +108,7 @@ export default function ArtistPage({ forcedSlug }) {
   }
 
   return (
-    <main className="page classic-page">
+    <main id="main-content" tabIndex="-1" className="page classic-page">
       <div className="container home-content-layout">
         <section className="content-primary">
           <article

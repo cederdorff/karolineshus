@@ -36,6 +36,17 @@ a {
   color: inherit;
 }
 
+a:focus-visible,
+button:focus-visible,
+[tabindex="-1"]:focus {
+  outline: 3px solid rgba(223, 106, 60, 0.34);
+  outline-offset: 3px;
+}
+
+.page:focus {
+  outline: none;
+}
+
 img {
   max-width: 100%;
   display: block;
@@ -47,6 +58,24 @@ img {
 
 .app-shell {
   min-height: 100vh;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  z-index: 2000;
+  padding: 0.8rem 1rem;
+  border-radius: 10px;
+  background: #ffffff;
+  color: var(--accent-deep);
+  box-shadow: var(--shadow);
+  text-decoration: none;
+  transition: top 180ms ease;
+}
+
+.skip-link:focus {
+  top: 1rem;
 }
 
 .route-transition {
@@ -576,6 +605,19 @@ h3,
   gap: 0.15rem;
   margin: 1rem 0;
   font-style: normal;
+}
+
+.contact-card__address a {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  color: inherit;
+  text-decoration: none;
+}
+
+.contact-card__address a:hover,
+.contact-card__address a:focus-visible {
+  color: var(--accent-deep);
 }
 
 .contact-card a,
