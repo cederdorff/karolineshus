@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Routes, Route, useLocation } from "react-router";
+import { Routes, Route, useLocation, Navigate } from "react-router";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import RouteMetadata from "./components/RouteMetadata";
@@ -43,7 +43,7 @@ export default function App() {
           <Route path="/kunstnere/:slug" element={<ArtistPage />} />
           <Route path="/om" element={<AboutPage />} />
           <Route path="/kontakt" element={<ContactPage />} />
-          <Route path="*" element={<NotFoundPage />} />
+          <Route path="*" element={<Navigate replace to="/" />} />
         </Routes>
       </div>
       <Footer />
