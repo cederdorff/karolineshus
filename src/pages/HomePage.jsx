@@ -239,48 +239,59 @@ export default function HomePage() {
                       {exhibition.period}
                     </p>
                     <ul className="detail-list detail-list--compact">
-                      {exhibition.artists.map((artistEntry) => {
-                        const artistName = getExhibitionArtistName(artistEntry);
-                        const artistNote = getExhibitionArtistNote(artistEntry);
-                        const artist = exhibitionPage.artistsByName[artistName];
+                      {[...exhibition.artists]
+                        .sort((a, b) =>
+                          getExhibitionArtistName(a).localeCompare(
+                            getExhibitionArtistName(b),
+                            "da",
+                            { sensitivity: "base" },
+                          ),
+                        )
+                        .map((artistEntry) => {
+                          const artistName =
+                            getExhibitionArtistName(artistEntry);
+                          const artistNote =
+                            getExhibitionArtistNote(artistEntry);
+                          const artist =
+                            exhibitionPage.artistsByName[artistName];
 
-                        if (!artist) {
+                          if (!artist) {
+                            return (
+                              <li
+                                key={artistName}
+                                className="exhibition-artist-item"
+                              >
+                                <span className="exhibition-artist-text">
+                                  <span>{artistName}</span>
+                                  {artistNote ? (
+                                    <span className="exhibition-artist-note">
+                                      {artistNote}
+                                    </span>
+                                  ) : null}
+                                </span>
+                              </li>
+                            );
+                          }
+
                           return (
                             <li
                               key={artistName}
                               className="exhibition-artist-item"
                             >
-                              <span className="exhibition-artist-text">
+                              <Link
+                                className="exhibition-artist-link"
+                                to={`/kunstnere/${artist.slug}`}
+                              >
                                 <span>{artistName}</span>
                                 {artistNote ? (
                                   <span className="exhibition-artist-note">
                                     {artistNote}
                                   </span>
                                 ) : null}
-                              </span>
+                              </Link>
                             </li>
                           );
-                        }
-
-                        return (
-                          <li
-                            key={artistName}
-                            className="exhibition-artist-item"
-                          >
-                            <Link
-                              className="exhibition-artist-link"
-                              to={`/kunstnere/${artist.slug}`}
-                            >
-                              <span>{artistName}</span>
-                              {artistNote ? (
-                                <span className="exhibition-artist-note">
-                                  {artistNote}
-                                </span>
-                              ) : null}
-                            </Link>
-                          </li>
-                        );
-                      })}
+                        })}
                     </ul>
                   </article>
                 ))}
