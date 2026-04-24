@@ -731,9 +731,10 @@ export const exhibitions = [
     artists: ["Ellen Bye Jensen", "Tina Lofstad", 'Gunnar "Splint"'],
   },
   {
-    title: "Sæsonstart med Kunst ved Limfjorden",
-    period: "Torsdag 14.05.2026 – 17.10.2026",
+    title: "Sommerudstillinger",
+    period: "14.05.2026 – 17.10.2026",
     artists: [
+      { name: "Ellen Bye Jensen", note: "Hele sæsonen" },
       { name: "Tina Lofstad", note: "Hele sæsonen" },
       { name: 'Gunnar "Splint"', note: "Hele sæsonen" },
       { name: "Charlotte Flick", note: "Hele sæsonen" },
@@ -752,11 +753,12 @@ export const kunstVedLimfjorden = {
 };
 
 export const artistsWidget = [
-  { name: "Tina Lofstad", slug: "tina-lofstad" },
-  { name: 'Gunnar "Splint"', slug: "gunnar-splint" },
   { name: "Charlotte Flick", slug: "charlotte-flick" },
+  { name: "Ellen Bye Jensen", slug: "ellen-bye-jensen" },
+  { name: 'Gunnar "Splint"', slug: "gunnar-splint" },
   { name: "Lotte Overgaard", slug: "lotte-overgaard" },
   { name: "Mariane Majgaard", slug: "mariane-majgaard" },
+  { name: "Tina Lofstad", slug: "tina-lofstad" },
 ];
 
 export const homeStories = [
