@@ -51,9 +51,9 @@ function getRouteMeta(pathname) {
 
   if (normalizedPath === "/udstillinger") {
     return {
-      title: `Udstillinger i 2025 | ${siteTitle}`,
+      title: `Udstillinger i 2026 | ${siteTitle}`,
       description:
-        "Se åbningperioder, deltagende kunstnere og praktisk information om udstillingerne i Karolines Hus i 2025.",
+        "Se åbningperioder, deltagende kunstnere og praktisk information om udstillingerne i Karolines Hus i 2026.",
       image: fallbackImage,
       robots: "index, follow",
       type: "website",

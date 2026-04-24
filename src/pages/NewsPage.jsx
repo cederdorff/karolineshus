@@ -4,6 +4,8 @@ import {
   contactInfo,
   exhibitionPage,
   exhibitions,
+  getExhibitionArtistName,
+  getExhibitionArtistNote,
   kunstVedLimfjorden,
   openingPeriods,
 } from "../siteContent";
@@ -60,7 +62,9 @@ export default function ExhibitionsPage() {
                   <p className="featured-posts-cate">{exhibition.title}</p>
                   <p className="exhibition-card__period">{exhibition.period}</p>
                   <ul className="detail-list detail-list--compact">
-                    {exhibition.artists.map((artistName) => {
+                    {exhibition.artists.map((artistEntry) => {
+                      const artistName = getExhibitionArtistName(artistEntry);
+                      const artistNote = getExhibitionArtistNote(artistEntry);
                       const artist = exhibitionPage.artistsByName[artistName];
 
                       if (!artist) {
@@ -70,7 +74,12 @@ export default function ExhibitionsPage() {
                             className="exhibition-artist-item"
                           >
                             <span className="exhibition-artist-text">
-                              {artistName}
+                              <span>{artistName}</span>
+                              {artistNote ? (
+                                <span className="exhibition-artist-note">
+                                  {artistNote}
+                                </span>
+                              ) : null}
                             </span>
                           </li>
                         );
@@ -82,7 +91,12 @@ export default function ExhibitionsPage() {
                             className="exhibition-artist-link"
                             to={`/kunstnere/${artist.slug}`}
                           >
-                            {artistName}
+                            <span>{artistName}</span>
+                            {artistNote ? (
+                              <span className="exhibition-artist-note">
+                                {artistNote}
+                              </span>
+                            ) : null}
                           </Link>
                         </li>
                       );

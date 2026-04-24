@@ -4,6 +4,8 @@ import {
   featuredArtists,
   getArtistDisplayImageUrl,
   getArtistBySlug,
+  getExhibitionArtistName,
+  getExhibitionArtistNote,
   homeStories,
   openingPeriods,
   artistsWidget,
@@ -224,7 +226,7 @@ export default function HomePage() {
             <section className="archive-post archive-post--compact archive-post--exhibitions">
               <header className="entry-header">
                 <p className="entry-meta">Udstillinger</p>
-                <h2 className="entry-title">Påskeudstilling 2026</h2>
+                <h2 className="entry-title">Udstillinger 2026</h2>
               </header>
               <div className="exhibition-grid exhibition-grid--graphic">
                 {exhibitions.map((exhibition) => (
@@ -237,7 +239,11 @@ export default function HomePage() {
                       {exhibition.period}
                     </p>
                     <ul className="detail-list detail-list--compact">
-                      {exhibition.artists.map((artistName) => {
+                      {exhibition.artists.map((artistEntry) => {
+                        const artistName =
+                          getExhibitionArtistName(artistEntry);
+                        const artistNote =
+                          getExhibitionArtistNote(artistEntry);
                         const artist = exhibitionPage.artistsByName[artistName];
 
                         if (!artist) {
@@ -247,7 +253,12 @@ export default function HomePage() {
                               className="exhibition-artist-item"
                             >
                               <span className="exhibition-artist-text">
-                                {artistName}
+                                <span>{artistName}</span>
+                                {artistNote ? (
+                                  <span className="exhibition-artist-note">
+                                    {artistNote}
+                                  </span>
+                                ) : null}
                               </span>
                             </li>
                           );
@@ -262,7 +273,12 @@ export default function HomePage() {
                               className="exhibition-artist-link"
                               to={`/kunstnere/${artist.slug}`}
                             >
-                              {artistName}
+                              <span>{artistName}</span>
+                              {artistNote ? (
+                                <span className="exhibition-artist-note">
+                                  {artistNote}
+                                </span>
+                              ) : null}
                             </Link>
                           </li>
                         );

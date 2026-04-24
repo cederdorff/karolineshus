@@ -846,7 +846,8 @@ h3,
 
 .exhibition-artist-link {
   display: inline-flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
   min-height: 1.65rem;
   text-decoration: none;
   transition:
@@ -861,7 +862,18 @@ h3,
 }
 
 .exhibition-artist-text {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
   color: rgba(48, 48, 48, 0.78);
+}
+
+.exhibition-artist-note {
+  display: block;
+  margin-top: 0.05rem;
+  color: var(--muted);
+  font-size: 0.82rem;
+  line-height: 1.25;
 }
 
 .about-gallery {

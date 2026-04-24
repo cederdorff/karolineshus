@@ -7,7 +7,13 @@ export default function Navbar() {
   const location = useLocation();
 
   useEffect(() => {
-    setIsMobileMenuOpen(false);
+    const frameId = window.requestAnimationFrame(() => {
+      setIsMobileMenuOpen(false);
+    });
+
+    return () => {
+      window.cancelAnimationFrame(frameId);
+    };
   }, [location.pathname]);
 
   const toggleMobileMenu = () => {

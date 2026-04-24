@@ -15,7 +15,9 @@ export const artistCategoryOrder = [
   "fotograf",
   "glaskunstner",
   "grafiker",
+  "grafik-og-skulptur",
   "keramiker",
+  "keramik-og-skulptur",
   "maler",
   "skulptoer",
   "traedrjer",
@@ -26,7 +28,9 @@ export const artistCategoryLabels = {
   fotograf: "Fotograf",
   glaskunstner: "Glaskunstner",
   grafiker: "Grafiker",
+  "grafik-og-skulptur": "Grafik og skulptur",
   keramiker: "Keramiker",
+  "keramik-og-skulptur": "Keramik og skulptur",
   maler: "Maler",
   skulptoer: "Skulptør",
   traedrjer: "Trædrejer",
@@ -45,12 +49,15 @@ export const exhibitionPage = {
   heroImageUrl: `${import.meta.env.BASE_URL}karolineshus/karolineshus.webp`,
   artistsByName: {
     "Ellen Bye Jensen": { slug: "ellen-bye-jensen" },
+    "Charlotte Flick": { slug: "charlotte-flick" },
     "Erik Muff Reinert": { slug: "erik-muff-reinert" },
     'Gunnar "Splint"': { slug: "gunnar-splint" },
     "Helle Crawford": { slug: "helle-crawford" },
     "Ingrid Dalby Nielsen": { slug: "ingrid-dalby-nielsen" },
     "Karen Kristensen": { slug: "karen-kristensen" },
     "Linda Lildholdt": { slug: "linda-lildholdt" },
+    "Lotte Overgaard": { slug: "lotte-overgaard" },
+    "Mariane Majgaard": { slug: "mariane-majgaard" },
     "Ole Kildegaard": { slug: "ole-kildegaard" },
     "Stine Juul": { slug: "stine-juul" },
     "Tina Lofstad": { slug: "tina-lofstad" },
@@ -468,6 +475,72 @@ const artistsCatalog = [
     bio: "Skaber harmoniske skulpturer med respekt for stenens naturlige karakter og struktur.",
   },
   {
+    name: "Charlotte Flick",
+    slug: "charlotte-flick",
+    category: "keramik-og-skulptur",
+    featuredImageUrl: `${import.meta.env.BASE_URL}kunstnere/charlotte-flick/charlotte-flick.webp`,
+    galleryImageUrls: [
+      `${import.meta.env.BASE_URL}kunstnere/charlotte-flick/charlotte-flick-1.webp`,
+      `${import.meta.env.BASE_URL}kunstnere/charlotte-flick/charlotte-flick-2.webp`,
+      `${import.meta.env.BASE_URL}kunstnere/charlotte-flick/charlotte-flick-3.webp`,
+      `${import.meta.env.BASE_URL}kunstnere/charlotte-flick/charlotte-flick-4.webp`,
+      `${import.meta.env.BASE_URL}kunstnere/charlotte-flick/charlotte-flick-5.webp`,
+    ],
+    excerpt:
+      "Keramiker og skulptør, der skaber raku-figurer med humor, fortælling og fundne materialer.",
+    bio: `Charlotte Flick er autodidakt kunstner og har siden 2006 eksperimenteret, afprøvet, fejlet, fumlet og forsøgt sig med et utal af metoder, udtryk og materialer. I dag står hun med sine sammensatte rakubrændte skulpturer, hvor hver eneste figur har en historie, de ønsker at fortælle.\n\nHun er uddannet skolelærer med billedkunst som linjefag og arbejder især med raku-brændte keramiske skulpturer. Figurerne har ofte en finurlig, humoristisk eller poetisk fortælling, hvor leret møder træ, sten og genstande med tidligere liv.\n\nDet er interessant, hvordan man med kombinationen af et værk og en sætning kan skabe en hel historiefortælling i beskuerens hoved. Historierne gemmer sig overalt – i sten på stranden, træ i skoven, rustne søm fra værkstedet, i sovsekanden, kikserullen eller billedrammen fra genbrugsbutikken. Kombineret med hendes figurer får disse ting nyt liv og nye historier at fortælle.`,
+  },
+  {
+    name: "Lotte Overgaard",
+    slug: "lotte-overgaard",
+    category: "keramiker",
+    featuredImageUrl: `${import.meta.env.BASE_URL}kunstnere/lotte-overgaard/lotte-overgaard.webp`,
+    galleryImageUrls: [
+      `${import.meta.env.BASE_URL}kunstnere/lotte-overgaard/lotte-overgaard-2.webp`,
+      `${import.meta.env.BASE_URL}kunstnere/lotte-overgaard/lotte-overgaard-3.webp`,
+      `${import.meta.env.BASE_URL}kunstnere/lotte-overgaard/lotte-overgaard-4.webp`,
+      `${import.meta.env.BASE_URL}kunstnere/lotte-overgaard/lotte-overgaard-5.webp`,
+    ],
+    excerpt:
+      "Keramiker med sans for naturens former, farver og organiske overflader.",
+    bio: `Lotte Overgaard har gennem mange år arbejdet kreativt, og siden 2017 har keramikken været hendes primære kunstneriske felt. Naturens former og farver er en central inspirationskilde i hendes arbejde.\n\nLotte Overgaards keramik er helt grundlæggende inspireret af naturen. Af dyr i alle former og afskygninger og af flora og botanik. En krukke er formet som en hel artiskok, en anden som en grankogle. Søstjerner piler op af en lille lågkrukke eller smyger sig om en vase. Vandplanter kravler op ad en irgrøn form, mens bladformer, muslingeskaller og blomster dekorerer krukker og vaser.\n\nSelv i de mest abstrakte former fornemmer man det organiske. Enten i de blødt svungne former eller ved selve glasurens farve med dybe blå og støvgrønne nuancer visende hen til henholdsvis vand og skovens overflod af grønne farver.\n\nAlt dette gør, at man udover det rent funktionelle, det af produktet har en praktisk anvendelse, også kommer til at føle en dyb samhørighed med naturen og dyrelivet. Ikke på en sværmerisk eller romantisk måde, men med en ægte følelse af livsglæde, sanselighed og overskud. På en gang nede på jorden og boblende ekstatisk.`,
+  },
+  {
+    name: "Mariane Majgaard",
+    slug: "mariane-majgaard",
+    category: "grafik-og-skulptur",
+    featuredImageUrl: `${import.meta.env.BASE_URL}kunstnere/mariane-majgaard/mariane-majgaard.webp`,
+    galleryImageUrls: [
+      `${import.meta.env.BASE_URL}kunstnere/mariane-majgaard/mariane-majgaard-1.webp`,
+      `${import.meta.env.BASE_URL}kunstnere/mariane-majgaard/mariane-majgaard-2.png`,
+      `${import.meta.env.BASE_URL}kunstnere/mariane-majgaard/mariane-majgaard-3.png`,
+      `${import.meta.env.BASE_URL}kunstnere/mariane-majgaard/mariane-majgaard-4.png`,
+    ],
+    excerpt:
+      "Arbejder med grafik og keramiske skulpturer inspireret af naturens former og planteverdenen.",
+    bio: "Mariane Majgaard har keramisk og grafisk værksted i Lemvig. I Karolines Hus viser hun grafik og skulptur, hvor naturens organiske former, arbejdsprocessen og materialets egen karakter står centralt.",
+    sections: [
+      {
+        title: "Grafik",
+        subtitle: "Skitser, tryk og planteformer",
+        paragraphs: [
+          "Mariane Majgaards grafiske billeder tager ofte afsæt i planteverdenen og naturens strukturer.",
+          "Hun arbejder ideerne frem gennem skitser, klip og kompositioner, før motivet finder sin endelige form i trykket.",
+          "Teknikkerne spænder blandt andet over træsnit, dybtryk, ætsning i kobberplader og koldnål, ofte med flere farver i samme værk.",
+        ],
+      },
+      {
+        title: "Skulptur",
+        subtitle: "Keramiske former i proces",
+        paragraphs: [
+          "Skulpturerne er keramiske og vises som et selvstændigt spor ved siden af hendes øvrige keramik.",
+          "Inspirationen kommer fra naturen og fra den tid og verden, vi lever i. Hun modellerer organiske former, der udvikler sig undervejs i arbejdet.",
+          "Tanker, forsøg og materialets modstand bliver en del af resultatet, så processen åbner for former, der ikke er fuldt fastlagt på forhånd.",
+        ],
+      },
+    ],
+  },
+  {
     name: "Tina Lofstad",
     slug: "tina-lofstad",
     category: "glaskunstner",
@@ -546,11 +619,9 @@ export const artists = artistsCatalog.filter((artist) =>
 export const featuredArtistSlugs = [
   "tina-lofstad",
   "gunnar-splint",
-  "ellen-bye-jensen",
-  "linda-lildholdt",
-  "erik-muff-reinert",
-  "ingrid-dalby-nielsen",
-  "ole-kildegaard",
+  "charlotte-flick",
+  "lotte-overgaard",
+  "mariane-majgaard",
 ];
 
 export const featuredArtists = featuredArtistSlugs
@@ -643,7 +714,15 @@ export function getArtistBySlug(slug) {
   return artists.find((artist) => artist.slug === slug);
 }
 
-export const openingPeriods = ["02.04.2026 til 06.04.2026"];
+export function getExhibitionArtistName(artistEntry) {
+  return typeof artistEntry === "string" ? artistEntry : artistEntry.name;
+}
+
+export function getExhibitionArtistNote(artistEntry) {
+  return typeof artistEntry === "string" ? "" : artistEntry.note || "";
+}
+
+export const openingPeriods = ["14.05.2026 til 17.10.2026"];
 
 export const exhibitions = [
   {
@@ -651,20 +730,33 @@ export const exhibitions = [
     period: "02.04.2026 – 06.04.2026",
     artists: ["Ellen Bye Jensen", "Tina Lofstad", 'Gunnar "Splint"'],
   },
+  {
+    title: "Sæsonstart med Kunst ved Limfjorden",
+    period: "Torsdag 14.05.2026 – 17.10.2026",
+    artists: [
+      { name: "Tina Lofstad", note: "Hele sæsonen" },
+      { name: 'Gunnar "Splint"', note: "Hele sæsonen" },
+      { name: "Charlotte Flick", note: "Hele sæsonen" },
+      { name: "Lotte Overgaard", note: "14.05.2026 – 28.06.2026" },
+      { name: "Mariane Majgaard", note: "25.06.2026 – 02.08.2026" },
+    ],
+  },
 ];
 
 export const kunstVedLimfjorden = {
-  label: "Kunstdage ved Limfjorden",
+  label: "Kunst ved Limfjorden",
   url: "https://www.destinationlimfjorden.dk/limfjorden/oplevelser/kunst-kultur",
   imageUrl: `${import.meta.env.BASE_URL}kunstdage.webp`,
   description:
-    "Karolines Hus er en del af Kunstdage ved Limfjorden – udforsk kunst og kultur langs hele Limfjorden.",
+    "Karolines Hus åbner sæsonen torsdag den 14. maj 2026 som en del af Kunst ved Limfjorden.",
 };
 
 export const artistsWidget = [
-  { name: "Ellen Bye Jensen", slug: "ellen-bye-jensen" },
   { name: "Tina Lofstad", slug: "tina-lofstad" },
   { name: 'Gunnar "Splint"', slug: "gunnar-splint" },
+  { name: "Charlotte Flick", slug: "charlotte-flick" },
+  { name: "Lotte Overgaard", slug: "lotte-overgaard" },
+  { name: "Mariane Majgaard", slug: "mariane-majgaard" },
 ];
 
 export const homeStories = [
