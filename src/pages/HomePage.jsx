@@ -240,10 +240,8 @@ export default function HomePage() {
                     </p>
                     <ul className="detail-list detail-list--compact">
                       {exhibition.artists.map((artistEntry) => {
-                        const artistName =
-                          getExhibitionArtistName(artistEntry);
-                        const artistNote =
-                          getExhibitionArtistNote(artistEntry);
+                        const artistName = getExhibitionArtistName(artistEntry);
+                        const artistNote = getExhibitionArtistNote(artistEntry);
                         const artist = exhibitionPage.artistsByName[artistName];
 
                         if (!artist) {
@@ -355,11 +353,17 @@ export default function HomePage() {
             <section className="widget">
               <h2 className="widget-title">Kunstnere i 2026</h2>
               <ul className="widget-menu">
-                {artistsWidget.map((artist) => (
-                  <li key={artist.name}>
-                    <Link to={`/kunstnere/${artist.slug}`}>{artist.name}</Link>
-                  </li>
-                ))}
+                {[...artistsWidget]
+                  .sort((a, b) =>
+                    a.name.localeCompare(b.name, "da", { sensitivity: "base" }),
+                  )
+                  .map((artist) => (
+                    <li key={artist.name}>
+                      <Link to={`/kunstnere/${artist.slug}`}>
+                        {artist.name}
+                      </Link>
+                    </li>
+                  ))}
               </ul>
             </section>
 
